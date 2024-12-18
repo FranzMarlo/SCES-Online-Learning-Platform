@@ -8,7 +8,7 @@ header("Expires: 0");
 
 // If the user is already logged in, redirect them to the dashboard
 if (isset($_SESSION['teacher_id']) && $_SESSION['role'] == 'Faculty') {
-    header("Location: /SCES/frontend/faculty/dashboard.php");
+    header("Location: /SCES/frontend/faculty/dashboard");
     exit();
 }
 include $_SERVER['DOCUMENT_ROOT'] . '/SCES/backend/global.php';

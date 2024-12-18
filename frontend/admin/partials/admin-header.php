@@ -3,7 +3,7 @@
         <h1><?php echo htmlspecialchars($page) ?></h1>
     </div>
     <div class="header-item">
-        <a href="/SCES/frontend/admin/profile.php?active=1">
+        <a href="/SCES/frontend/admin/profile?active=1">
             <img src="/SCES/storage/admin/images/<?php echo $image; ?>" alt="admin icon">
         </a>
     </div>

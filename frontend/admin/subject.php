@@ -90,7 +90,7 @@ $page = '';
                                             data-subject-year="<?php echo htmlspecialchars($subject['year']); ?>"
                                             data-subject-section="<?php echo htmlspecialchars($subject['section']); ?>"
                                             data-subject-level="<?php echo htmlspecialchars($subject['grade_level']); ?>">
-                                            <a href="/SCES/frontend/admin/subject-module.php?section=<?php echo urlencode($subject['section_id']); ?>&subject=<?php echo urlencode($subject['subject_id']); ?>&gradelevel=<?php echo urlencode($subject['level_id']); ?>&teacher=<?php echo urlencode($subject['teacher_id']); ?>"
+                                            <a href="/SCES/frontend/admin/subject-module?section=<?php echo urlencode($subject['section_id']); ?>&subject=<?php echo urlencode($subject['subject_id']); ?>&gradelevel=<?php echo urlencode($subject['level_id']); ?>&teacher=<?php echo urlencode($subject['teacher_id']); ?>"
                                                 class="hidden-link"></a>
                                             <div class="subject-icon <?php echo strtolower($subject['subject_code']); ?>"
                                                 onclick="hiddenLink(this)">
@@ -140,7 +140,7 @@ $page = '';
                                             data-subject-year="<?php echo htmlspecialchars($archive['year']); ?>"
                                             data-subject-section="<?php echo htmlspecialchars($archive['section']); ?>"
                                             data-subject-level="<?php echo htmlspecialchars($archive['grade_level']); ?>">
-                                            <a href="/SCES/frontend/admin/subject-module.php?section=<?php echo urlencode($archive['section_id']); ?>&subject=<?php echo urlencode($archive['subject_id']); ?>&gradelevel=<?php echo urlencode($archive['level_id']); ?>&teacher=<?php echo urlencode($archive['teacher_id']); ?>"
+                                            <a href="/SCES/frontend/admin/subject-module?section=<?php echo urlencode($archive['section_id']); ?>&subject=<?php echo urlencode($archive['subject_id']); ?>&gradelevel=<?php echo urlencode($archive['level_id']); ?>&teacher=<?php echo urlencode($archive['teacher_id']); ?>"
                                                 class="hidden-link"></a>
                                             <div class="subject-icon <?php echo strtolower($archive['subject_code']); ?>"
                                                 onclick="hiddenLink(this)">
