@@ -143,7 +143,7 @@ document.addEventListener("DOMContentLoaded", function () {
           },
         },
         ajax: {
-          url: "/SCES/backend/fetch-class.php",
+          url: "/SCES/backend/fetch-class",
           type: "POST",
           data: function (d) {
             d.submitType = "studentGetQuizRecordsBySubject";
@@ -202,7 +202,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const quizId = btn.getAttribute("data-quiz-id");
         const quizTaker = btn.getAttribute("data-quiz-taker");
 
-        fetch("/SCES/backend/fetch-class.php", {
+        fetch("/SCES/backend/fetch-class", {
           method: "POST",
           headers: {
             "Content-Type": "application/x-www-form-urlencoded",
@@ -348,7 +348,7 @@ document.addEventListener("DOMContentLoaded", function () {
           },
         },
         ajax: {
-          url: "/SCES/backend/fetch-class.php",
+          url: "/SCES/backend/fetch-class",
           type: "POST",
           data: function (d) {
             d.submitType = "facultyGetGradesBySubject";

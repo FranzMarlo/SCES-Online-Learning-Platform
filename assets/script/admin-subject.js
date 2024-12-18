@@ -106,7 +106,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function fetchOptions(levelId, targetElementId, submitType, value) {
     const xhr = new XMLHttpRequest();
-    xhr.open("POST", "/SCES/backend/fetch-class.php", true);
+    xhr.open("POST", "/SCES/backend/fetch-class", true);
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
     xhr.onreadystatechange = function () {
@@ -199,7 +199,7 @@ document.addEventListener("DOMContentLoaded", function () {
         document.body.style.overflow = "hidden";
 
         // Fetch the subject details
-        fetch("/SCES/backend/fetch-class.php", {
+        fetch("/SCES/backend/fetch-class", {
           method: "POST",
           headers: {
             "Content-Type": "application/x-www-form-urlencoded",
@@ -275,7 +275,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
   function archiveSubject(subjectId) {
-    fetch("/SCES/backend/global.php", {
+    fetch("/SCES/backend/global", {
       method: "POST",
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
@@ -327,7 +327,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const yearValue = selectFilter.value;
 
     // Fetch updated subjects
-    fetch("/SCES/backend/global.php", {
+    fetch("/SCES/backend/global", {
       method: "POST",
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
@@ -354,7 +354,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function toggleArchivedSubject(subjectId) {
-    fetch("/SCES/backend/global.php", {
+    fetch("/SCES/backend/global", {
       method: "POST",
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
@@ -407,7 +407,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const yearValue = selectFilter.value;
 
     // Fetch updated subjects
-    fetch("/SCES/backend/global.php", {
+    fetch("/SCES/backend/global", {
       method: "POST",
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",

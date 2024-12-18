@@ -337,7 +337,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   function promptQuiz(quizId) {
-    fetch(`/SCES/backend/fetch-class.php`, {
+    fetch(`/SCES/backend/fetch-class`, {
       method: "POST",
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
@@ -415,7 +415,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function rePromptQuiz(quizId) {
-    fetch(`/SCES/backend/fetch-class.php`, {
+    fetch(`/SCES/backend/fetch-class`, {
       method: "POST",
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
@@ -552,7 +552,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         const bodyData = `submitType=submitQuiz&quiz_id=${quizId}&${formData}`;
 
-        fetch(`/SCES/backend/global.php`, {
+        fetch(`/SCES/backend/global`, {
           method: "POST",
           headers: {
             "Content-Type": "application/x-www-form-urlencoded",
@@ -667,7 +667,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         const bodyData = `submitType=resubmitQuiz&quiz_id=${quizId}&${formData}`;
 
-        fetch(`/SCES/backend/global.php`, {
+        fetch(`/SCES/backend/global`, {
           method: "POST",
           headers: {
             "Content-Type": "application/x-www-form-urlencoded",
@@ -725,7 +725,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function viewQuiz(quizId) {
-    fetch(`/SCES/backend/fetch-class.php`, {
+    fetch(`/SCES/backend/fetch-class`, {
       method: "POST",
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",

@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", function () {
   showContainer(activeTab);
 
   $.ajax({
-    url: "/SCES/backend/fetch-class.php",
+    url: "/SCES/backend/fetch-class",
     type: "POST",
     dataType: "json",
     data: {
@@ -110,7 +110,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   $.ajax({
-    url: "/SCES/backend/fetch-class.php",
+    url: "/SCES/backend/fetch-class",
     type: "POST",
     dataType: "json",
     data: {
@@ -187,7 +187,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   $.ajax({
-    url: "/SCES/backend/fetch-class.php",
+    url: "/SCES/backend/fetch-class",
     type: "POST",
     data: {
       submitType: "facultyQuizCompletion",

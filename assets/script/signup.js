@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function fetchOptions(levelId, targetElementId, submitType, value) {
     const xhr = new XMLHttpRequest();
-    xhr.open("POST", "/SCES/backend/fetch-class.php", true);
+    xhr.open("POST", "/SCES/backend/fetch-class", true);
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
     xhr.onreadystatechange = function () {

@@ -234,7 +234,7 @@ document.addEventListener("DOMContentLoaded", function () {
   document.querySelectorAll(".add-question").forEach((button) => {
     button.addEventListener("click", function () {
       const quizId = button.getAttribute("data-quiz-id");
-      fetch(`/SCES/backend/fetch-class.php`, {
+      fetch(`/SCES/backend/fetch-class`, {
         method: "POST",
         headers: {
           "Content-Type": "application/x-www-form-urlencoded",
@@ -281,7 +281,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const sectionId = selectedOption.getAttribute("data-section-id");
     if (subjectId) {
       const xhr = new XMLHttpRequest();
-      xhr.open("POST", "/SCES/backend/fetch-class.php", true);
+      xhr.open("POST", "/SCES/backend/fetch-class", true);
       xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
       xhr.onreadystatechange = function () {
@@ -488,7 +488,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function fetchQuizDetails(quizId) {
     const xhr = new XMLHttpRequest();
-    xhr.open("POST", `/SCES/backend/fetch-class.php`, true);
+    xhr.open("POST", `/SCES/backend/fetch-class`, true);
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
     const requestBody = `quiz_id=${encodeURIComponent(
@@ -550,7 +550,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function fetchLessons(levelId, subjectId, sectionId, lessonId, submitType) {
     const xhr = new XMLHttpRequest();
-    xhr.open("POST", "/SCES/backend/fetch-class.php", true);
+    xhr.open("POST", "/SCES/backend/fetch-class", true);
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
     xhr.onreadystatechange = function () {
@@ -579,7 +579,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function viewQuizDetails(quizId) {
     const xhr = new XMLHttpRequest();
-    xhr.open("POST", `/SCES/backend/fetch-class.php`, true);
+    xhr.open("POST", `/SCES/backend/fetch-class`, true);
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
     const requestBody = `quiz_id=${encodeURIComponent(
@@ -793,7 +793,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function viewStudentDetails(quizId) {
     const xhr = new XMLHttpRequest();
-    xhr.open("POST", `/SCES/backend/fetch-class.php`, true);
+    xhr.open("POST", `/SCES/backend/fetch-class`, true);
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
     const requestBody = `quiz_id=${encodeURIComponent(
@@ -887,7 +887,7 @@ document.addEventListener("DOMContentLoaded", function () {
   function fetchPassedStudents(quizId) {
     return new Promise((resolve) => {
       const xhr = new XMLHttpRequest();
-      xhr.open("POST", `/SCES/backend/fetch-class.php`, true);
+      xhr.open("POST", `/SCES/backend/fetch-class`, true);
       xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
       const requestBody = `quiz_id=${encodeURIComponent(
@@ -910,7 +910,7 @@ document.addEventListener("DOMContentLoaded", function () {
   function fetchFailedStudents(quizId) {
     return new Promise((resolve) => {
       const xhr = new XMLHttpRequest();
-      xhr.open("POST", `/SCES/backend/fetch-class.php`, true);
+      xhr.open("POST", `/SCES/backend/fetch-class`, true);
       xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
       const requestBody = `quiz_id=${encodeURIComponent(
@@ -933,7 +933,7 @@ document.addEventListener("DOMContentLoaded", function () {
   function fetchTotalStudents(quizId) {
     return new Promise((resolve) => {
       const xhr = new XMLHttpRequest();
-      xhr.open("POST", `/SCES/backend/fetch-class.php`, true);
+      xhr.open("POST", `/SCES/backend/fetch-class`, true);
       xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
       const requestBody = `quiz_id=${encodeURIComponent(
@@ -1119,7 +1119,7 @@ document.addEventListener("DOMContentLoaded", function () {
     button.addEventListener("click", function () {
       const quizId = this.getAttribute("data-quiz-id");
 
-      fetch(`/SCES/backend/fetch-class.php`, {
+      fetch(`/SCES/backend/fetch-class`, {
         method: "POST",
         headers: {
           "Content-Type": "application/x-www-form-urlencoded",
@@ -1245,7 +1245,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const quizId = this.getAttribute("data-quiz-id");
 
       if (button.classList.contains("activate-btn")) {
-        fetch(`/SCES/backend/fetch-class.php`, {
+        fetch(`/SCES/backend/fetch-class`, {
           method: "POST",
           headers: {
             "Content-Type": "application/x-www-form-urlencoded",
@@ -1322,7 +1322,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   function enableQuiz(quizId, dueDate) {
-    fetch(`/SCES/backend/global.php`, {
+    fetch(`/SCES/backend/global`, {
       method: "POST",
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
@@ -1366,7 +1366,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function disableQuiz(quizId) {
-    fetch(`/SCES/backend/global.php`, {
+    fetch(`/SCES/backend/global`, {
       method: "POST",
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
@@ -1410,7 +1410,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function removeQuestion(questionId) {
-    fetch(`/SCES/backend/global.php`, {
+    fetch(`/SCES/backend/global`, {
       method: "POST",
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
@@ -1470,7 +1470,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function fetchQuestionDetails(questionId) {
     const xhr = new XMLHttpRequest();
-    xhr.open("POST", "/SCES/backend/fetch-class.php", true);
+    xhr.open("POST", "/SCES/backend/fetch-class", true);
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
     const requestBody = `question_id=${encodeURIComponent(

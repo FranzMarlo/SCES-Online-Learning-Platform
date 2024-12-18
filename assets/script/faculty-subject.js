@@ -113,7 +113,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
   function archiveSubject(subjectId) {
-    fetch("/SCES/backend/global.php", {
+    fetch("/SCES/backend/global", {
       method: "POST",
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
@@ -158,7 +158,7 @@ document.addEventListener("DOMContentLoaded", function () {
       .catch((error) => console.error("Error fetching subject data:", error));
   }
   function toggleArchivedSubject(subjectId) {
-    fetch("/SCES/backend/global.php", {
+    fetch("/SCES/backend/global", {
       method: "POST",
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
@@ -210,7 +210,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const yearValue = selectFilter.value;
 
     // Fetch updated subjects
-    fetch("/SCES/backend/global.php", {
+    fetch("/SCES/backend/global", {
       method: "POST",
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
@@ -242,7 +242,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const selectFilter = document.getElementById("yearFilterDropdown");
     const yearValue = selectFilter.value;
     // Fetch updated subjects
-    fetch("/SCES/backend/global.php", {
+    fetch("/SCES/backend/global", {
       method: "POST",
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",

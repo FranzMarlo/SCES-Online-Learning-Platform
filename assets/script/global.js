@@ -5,7 +5,7 @@ $("#studLogin").on("submit", function (e) {
 
   $.ajax({
     type: "POST",
-    url: "/SCES/backend/global.php",
+    url: "/SCES/backend/global",
     data: {
       submitType: "studentLogin",
       email: email,
@@ -13,7 +13,7 @@ $("#studLogin").on("submit", function (e) {
     },
     success: function (response) {
       if (response == "200") {
-        window.location.href = "/SCES/frontend/student/dashboard.php";
+        window.location.href = "/SCES/frontend/student/dashboard";
       } else if (response == "451") {
         showAlert(
           "warning",
@@ -56,7 +56,7 @@ $("#studSignUp").on("submit", function (e) {
 
   $.ajax({
     type: "POST",
-    url: "/SCES/backend/global.php",
+    url: "/SCES/backend/global",
     data: {
       submitType: "studentSignUp",
       firstName: firstName,
@@ -76,7 +76,7 @@ $("#studSignUp").on("submit", function (e) {
           "success",
           "Sign Up Succesful",
           "",
-          "/SCES/frontend/student/dashboard.php"
+          "/SCES/frontend/student/dashboard"
         );
       } else if (response == "452") {
         showAlert("warning", "First Name Cannot Be Empty");
@@ -144,7 +144,7 @@ $("#editProfileForm").on("submit", function (e) {
 
   $.ajax({
     type: "POST",
-    url: "/SCES/backend/global.php",
+    url: "/SCES/backend/global",
     data: {
       submitType: "editProfileForm",
       firstName: firstName,
@@ -177,7 +177,7 @@ $("#editPersonalForm").on("submit", function (e) {
 
   $.ajax({
     type: "POST",
-    url: "/SCES/backend/global.php",
+    url: "/SCES/backend/global",
     data: {
       submitType: "editPersonalForm",
       firstName: firstName,
@@ -229,7 +229,7 @@ $("#editBackgroundForm").on("submit", function (e) {
 
   $.ajax({
     type: "POST",
-    url: "/SCES/backend/global.php",
+    url: "/SCES/backend/global",
     data: {
       submitType: "editBackgroundForm",
       city: city,
@@ -270,7 +270,7 @@ $("#changeAvatarForm").on("submit", function (e) {
 
   $.ajax({
     type: "POST",
-    url: "/SCES/backend/global.php",
+    url: "/SCES/backend/global",
     data: formData,
     processData: false,
     contentType: false,
@@ -304,7 +304,7 @@ $("#updatePassword").on("submit", function (e) {
 
   $.ajax({
     type: "POST",
-    url: "/SCES/backend/global.php",
+    url: "/SCES/backend/global",
     data: {
       submitType: "updatePassword",
       currentPassword: currentPassword,
@@ -342,7 +342,7 @@ $("#adminLogin").on("submit", function (e) {
 
   $.ajax({
     type: "POST",
-    url: "/SCES/backend/global.php",
+    url: "/SCES/backend/global",
     data: {
       submitType: "adminLogin",
       email: email,
@@ -350,7 +350,7 @@ $("#adminLogin").on("submit", function (e) {
     },
     success: function (response) {
       if (response == "200") {
-        window.location.href = "/SCES/frontend/admin/dashboard.php";
+        window.location.href = "/SCES/frontend/admin/dashboard";
       } else if (response == "451") {
         showAlert(
           "warning",
@@ -391,7 +391,7 @@ $("#adminSignUp").on("submit", function (e) {
   var confirmPassword = $("#confirmPassword").val();
   $.ajax({
     type: "POST",
-    url: "/SCES/backend/global.php",
+    url: "/SCES/backend/global",
     data: {
       submitType: "adminSignUp",
       firstName: firstName,
@@ -410,7 +410,7 @@ $("#adminSignUp").on("submit", function (e) {
           "success",
           "Sign Up Succesful",
           "",
-          "/SCES/frontend/admin/dashboard.php"
+          "/SCES/frontend/admin/dashboard"
         );
       } else if (response == "452") {
         showAlert("warning", "First Name Cannot Be Empty");
@@ -476,7 +476,7 @@ $("#adminEditProfileForm").on("submit", function (e) {
 
   $.ajax({
     type: "POST",
-    url: "/SCES/backend/global.php",
+    url: "/SCES/backend/global",
     data: {
       submitType: "adminEditProfileForm",
       firstName: firstName,
@@ -509,7 +509,7 @@ $("#adminEditPersonalForm").on("submit", function (e) {
 
   $.ajax({
     type: "POST",
-    url: "/SCES/backend/global.php",
+    url: "/SCES/backend/global",
     data: {
       submitType: "adminEditPersonalForm",
       firstName: firstName,
@@ -560,7 +560,7 @@ $("#adminEditBackgroundForm").on("submit", function (e) {
 
   $.ajax({
     type: "POST",
-    url: "/SCES/backend/global.php",
+    url: "/SCES/backend/global",
     data: {
       submitType: "adminEditBackgroundForm",
       city: city,
@@ -598,7 +598,7 @@ $("#adminChangeAvatarForm").on("submit", function (e) {
 
   $.ajax({
     type: "POST",
-    url: "/SCES/backend/global.php",
+    url: "/SCES/backend/global",
     data: formData,
     processData: false,
     contentType: false,
@@ -632,7 +632,7 @@ $("#adminUpdatePassword").on("submit", function (e) {
 
   $.ajax({
     type: "POST",
-    url: "/SCES/backend/global.php",
+    url: "/SCES/backend/global",
     data: {
       submitType: "adminUpdatePassword",
       currentPassword: currentPassword,
@@ -681,7 +681,7 @@ $("#adminAddLesson").on("submit", function (e) {
   formData.append("subject_title", subjectTitle);
   $.ajax({
     type: "POST",
-    url: "/SCES/backend/global.php",
+    url: "/SCES/backend/global",
     data: formData,
     processData: false,
     contentType: false,
@@ -724,7 +724,7 @@ $("#facultyLogin").on("submit", function (e) {
 
   $.ajax({
     type: "POST",
-    url: "/SCES/backend/global.php",
+    url: "/SCES/backend/global",
     data: {
       submitType: "facultyLogin",
       email: email,
@@ -732,7 +732,7 @@ $("#facultyLogin").on("submit", function (e) {
     },
     success: function (response) {
       if (response == "200") {
-        window.location.href = "/SCES/frontend/faculty/dashboard.php";
+        window.location.href = "/SCES/frontend/faculty/dashboard";
       } else if (response == "451") {
         showAlert(
           "warning",
@@ -773,7 +773,7 @@ $("#facultySignUp").on("submit", function (e) {
   var confirmPassword = $("#confirmPassword").val();
   $.ajax({
     type: "POST",
-    url: "/SCES/backend/global.php",
+    url: "/SCES/backend/global",
     data: {
       submitType: "facultySignUp",
       firstName: firstName,
@@ -792,7 +792,7 @@ $("#facultySignUp").on("submit", function (e) {
           "success",
           "Sign Up Succesful",
           "",
-          "/SCES/frontend/faculty/dashboard.php"
+          "/SCES/frontend/faculty/dashboard"
         );
       } else if (response == "452") {
         showAlert("warning", "First Name Cannot Be Empty");
@@ -858,7 +858,7 @@ $("#facultyEditProfileForm").on("submit", function (e) {
 
   $.ajax({
     type: "POST",
-    url: "/SCES/backend/global.php",
+    url: "/SCES/backend/global",
     data: {
       submitType: "facultyEditProfileForm",
       firstName: firstName,
@@ -891,7 +891,7 @@ $("#facultyEditPersonalForm").on("submit", function (e) {
 
   $.ajax({
     type: "POST",
-    url: "/SCES/backend/global.php",
+    url: "/SCES/backend/global",
     data: {
       submitType: "facultyEditPersonalForm",
       firstName: firstName,
@@ -942,7 +942,7 @@ $("#facultyEditBackgroundForm").on("submit", function (e) {
 
   $.ajax({
     type: "POST",
-    url: "/SCES/backend/global.php",
+    url: "/SCES/backend/global",
     data: {
       submitType: "facultyEditBackgroundForm",
       city: city,
@@ -980,7 +980,7 @@ $("#facultyChangeAvatarForm").on("submit", function (e) {
 
   $.ajax({
     type: "POST",
-    url: "/SCES/backend/global.php",
+    url: "/SCES/backend/global",
     data: formData,
     processData: false,
     contentType: false,
@@ -1014,7 +1014,7 @@ $("#facultyUpdatePassword").on("submit", function (e) {
 
   $.ajax({
     type: "POST",
-    url: "/SCES/backend/global.php",
+    url: "/SCES/backend/global",
     data: {
       submitType: "facultyUpdatePassword",
       currentPassword: currentPassword,
@@ -1064,7 +1064,7 @@ $("#facultyAddLesson").on("submit", function (e) {
 
   $.ajax({
     type: "POST",
-    url: "/SCES/backend/global.php",
+    url: "/SCES/backend/global",
     data: formData,
     processData: false,
     contentType: false,
@@ -1112,7 +1112,7 @@ $("#addGradeForm").on("submit", function (e) {
 
   $.ajax({
     type: "POST",
-    url: "/SCES/backend/global.php",
+    url: "/SCES/backend/global",
     data: formData,
     processData: false,
     contentType: false,
@@ -1172,7 +1172,7 @@ $("#editGradeForm").on("submit", function (e) {
 
   $.ajax({
     type: "POST",
-    url: "/SCES/backend/global.php",
+    url: "/SCES/backend/global",
     data: formData,
     processData: false,
     contentType: false,
@@ -1233,7 +1233,7 @@ $("#addTeacherForm").on("submit", function (e) {
 
   $.ajax({
     type: "POST",
-    url: "/SCES/backend/global.php",
+    url: "/SCES/backend/global",
     data: formData,
     processData: false,
     contentType: false,
@@ -1273,7 +1273,7 @@ $("#addStudentForm").on("submit", function (e) {
 
   $.ajax({
     type: "POST",
-    url: "/SCES/backend/global.php",
+    url: "/SCES/backend/global",
     data: formData,
     processData: false,
     contentType: false,
@@ -1328,7 +1328,7 @@ $("#addQuiz").on("submit", function (e) {
 
   $.ajax({
     type: "POST",
-    url: "/SCES/backend/global.php",
+    url: "/SCES/backend/global",
     data: {
       submitType: "addQuiz",
       quizNumber: quizNumber,
@@ -1373,7 +1373,7 @@ $("#addQuestion").on("submit", function (e) {
   var correctAnswer = $("#correctAnswer").val();
   $.ajax({
     type: "POST",
-    url: "/SCES/backend/global.php",
+    url: "/SCES/backend/global",
     data: {
       submitType: "addQuestion",
       quizId: quizId,
@@ -1442,7 +1442,7 @@ $("#editQuestion").on("submit", function (e) {
   var correct_value = $("#correct_value").val();
   $.ajax({
     type: "POST",
-    url: "/SCES/backend/global.php",
+    url: "/SCES/backend/global",
     data: {
       submitType: "editQuestion",
       editQuestionId: editQuestionId,
@@ -1518,7 +1518,7 @@ $("#editQuiz").on("submit", function (e) {
 
   $.ajax({
     type: "POST",
-    url: "/SCES/backend/global.php",
+    url: "/SCES/backend/global",
     data: {
       submitType: "editQuiz",
       editQuizId: editQuizId,
@@ -1565,7 +1565,7 @@ $("#addSubjectForm").on("submit", function (e) {
 
   $.ajax({
     type: "POST",
-    url: "/SCES/backend/global.php",
+    url: "/SCES/backend/global",
     data: formData,
     processData: false,
     contentType: false,
@@ -1597,7 +1597,7 @@ $("#editSubjectForm").on("submit", function (e) {
 
   $.ajax({
     type: "POST",
-    url: "/SCES/backend/global.php",
+    url: "/SCES/backend/global",
     data: formData,
     processData: false,
     contentType: false,
@@ -1631,7 +1631,7 @@ $("#addSectionForm").on("submit", function (e) {
 
   $.ajax({
     type: "POST",
-    url: "/SCES/backend/global.php",
+    url: "/SCES/backend/global",
     data: formData,
     processData: false,
     contentType: false,
@@ -1661,7 +1661,7 @@ $("#editSectionForm").on("submit", function (e) {
 
   $.ajax({
     type: "POST",
-    url: "/SCES/backend/global.php",
+    url: "/SCES/backend/global",
     data: formData,
     processData: false,
     contentType: false,
@@ -1693,7 +1693,7 @@ $("#promoteStudentForm").on("submit", function (e) {
 
   $.ajax({
     type: "POST",
-    url: "/SCES/backend/global.php",
+    url: "/SCES/backend/global",
     data: formData,
     processData: false,
     contentType: false,
@@ -1748,7 +1748,7 @@ $("#retainStudentForm").on("submit", function (e) {
 
   $.ajax({
     type: "POST",
-    url: "/SCES/backend/global.php",
+    url: "/SCES/backend/global",
     data: formData,
     processData: false,
     contentType: false,
@@ -1800,7 +1800,7 @@ $("#studForgotPass").on("submit", function (e) {
   var email = $("#email").val();
   $.ajax({
     type: "POST",
-    url: "/SCES/backend/global.php",
+    url: "/SCES/backend/global",
     data: {
       submitType: "studentForgotPass",
       email: email,
@@ -1809,7 +1809,7 @@ $("#studForgotPass").on("submit", function (e) {
       if (response == "200") {
         $.ajax({
           type: "POST",
-          url: "/SCES/backend/student/send-password-link.php",
+          url: "/SCES/backend/student/send-password-link",
           success: function (sendEmailResponse) {
             if (sendEmailResponse === "200") {
               showAlert(
@@ -1861,7 +1861,7 @@ $("#studChangePass").on("submit", function (e) {
   var confirmPassword = $("#confirmPassword").val();
   $.ajax({
     type: "POST",
-    url: "/SCES/backend/global.php",
+    url: "/SCES/backend/global",
     data: {
       submitType: "studentChangePass",
       email: email,
@@ -1874,7 +1874,7 @@ $("#studChangePass").on("submit", function (e) {
           "success",
           "Password Changed",
           "Please login with your new password",
-          "/SCES/frontend/student/login.php"
+          "/SCES/frontend/student/login"
         );
       } else if (response == "450") {
         showAlert("warning", "Please Enter New Password");
@@ -1896,7 +1896,7 @@ $("#facultyForgotPass").on("submit", function (e) {
   var email = $("#email").val();
   $.ajax({
     type: "POST",
-    url: "/SCES/backend/global.php",
+    url: "/SCES/backend/global",
     data: {
       submitType: "facultyForgotPass",
       email: email,
@@ -1905,7 +1905,7 @@ $("#facultyForgotPass").on("submit", function (e) {
       if (response == "200") {
         $.ajax({
           type: "POST",
-          url: "/SCES/backend/faculty/send-password-link.php",
+          url: "/SCES/backend/faculty/send-password-link",
           success: function (sendEmailResponse) {
             if (sendEmailResponse === "200") {
               showAlert(
@@ -1957,7 +1957,7 @@ $("#facultyChangePass").on("submit", function (e) {
   var confirmPassword = $("#confirmPassword").val();
   $.ajax({
     type: "POST",
-    url: "/SCES/backend/global.php",
+    url: "/SCES/backend/global",
     data: {
       submitType: "facultyChangePass",
       email: email,
@@ -1970,7 +1970,7 @@ $("#facultyChangePass").on("submit", function (e) {
           "success",
           "Password Changed",
           "Please login with your new password",
-          "/SCES/frontend/faculty/login.php"
+          "/SCES/frontend/faculty/login"
         );
       } else if (response == "450") {
         showAlert("warning", "Please Enter New Password");
@@ -1992,7 +1992,7 @@ $("#adminForgotPass").on("submit", function (e) {
   var email = $("#email").val();
   $.ajax({
     type: "POST",
-    url: "/SCES/backend/global.php",
+    url: "/SCES/backend/global",
     data: {
       submitType: "adminForgotPass",
       email: email,
@@ -2001,7 +2001,7 @@ $("#adminForgotPass").on("submit", function (e) {
       if (response == "200") {
         $.ajax({
           type: "POST",
-          url: "/SCES/backend/admin/send-password-link.php",
+          url: "/SCES/backend/admin/send-password-link",
           success: function (sendEmailResponse) {
             if (sendEmailResponse === "200") {
               showAlert(
@@ -2053,7 +2053,7 @@ $("#adminChangePass").on("submit", function (e) {
   var confirmPassword = $("#confirmPassword").val();
   $.ajax({
     type: "POST",
-    url: "/SCES/backend/global.php",
+    url: "/SCES/backend/global",
     data: {
       submitType: "adminChangePass",
       email: email,
@@ -2066,7 +2066,7 @@ $("#adminChangePass").on("submit", function (e) {
           "success",
           "Password Changed",
           "Please login with your new password",
-          "/SCES/frontend/admin/login.php"
+          "/SCES/frontend/admin/login"
         );
       } else if (response == "450") {
         showAlert("warning", "Please Enter New Password");
@@ -2095,7 +2095,7 @@ function logoutFunc() {
     cancelButtonText: "No",
   }).then((result) => {
     if (result.isConfirmed) {
-      window.location.href = "/SCES/backend/student/student-logout.php";
+      window.location.href = "/SCES/backend/student/student-logout";
     }
   });
 }
@@ -2112,7 +2112,7 @@ function adminLogoutFunc() {
     cancelButtonText: "No",
   }).then((result) => {
     if (result.isConfirmed) {
-      window.location.href = "/SCES/backend/admin/admin-logout.php";
+      window.location.href = "/SCES/backend/admin/admin-logout";
     }
   });
 }
@@ -2129,7 +2129,7 @@ function facultyLogoutFunc() {
     cancelButtonText: "No",
   }).then((result) => {
     if (result.isConfirmed) {
-      window.location.href = "/SCES/backend/faculty/faculty-logout.php";
+      window.location.href = "/SCES/backend/faculty/faculty-logout";
     }
   });
 }

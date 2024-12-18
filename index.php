@@ -217,21 +217,21 @@ include $_SERVER['DOCUMENT_ROOT'] . '/SCES/partials/head.php';
           <p>Are you a student, teacher, or educational worker?</p>
         </div>
         <div class="item-container">
-          <a href="/SCES/frontend/student/login.php" class="modal-item">
+          <a href="/SCES/frontend/student/login" class="modal-item">
             <div class="item-group">
               <img src="assets/images/student.png" alt="student icon">
               <span>Student</span>
             </div>
             <i class="fa-solid fa-chevron-right"></i>
           </a>
-          <a href="/SCES/frontend/faculty/login.php" class="modal-item">
+          <a href="/SCES/frontend/faculty/login" class="modal-item">
             <div class="item-group">
               <img src="assets/images/school.png" alt="school icon">
               <span>Teacher</span>
             </div>
             <i class="fa-solid fa-chevron-right"></i>
           </a>
-          <a href="/SCES/frontend/admin/login.php" class="modal-item">
+          <a href="/SCES/frontend/admin/login" class="modal-item">
             <div class="item-group">
               <img src="assets/images/admin.png" alt="admin icon">
               <span>Educational Worker</span>

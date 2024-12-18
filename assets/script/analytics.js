@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
     data.append("year", year);
     data.append("gradeLevel", grade);
 
-    fetch("/SCES/backend/fetch-class.php", {
+    fetch("/SCES/backend/fetch-class", {
       method: "POST",
       body: data,
     })
@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     $.ajax({
-      url: "/SCES/backend/fetch-class.php",
+      url: "/SCES/backend/fetch-class",
       type: "POST",
       dataType: "json",
       data: {
@@ -168,7 +168,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     $.ajax({
-      url: "/SCES/backend/fetch-class.php",
+      url: "/SCES/backend/fetch-class",
       type: "POST",
       dataType: "json",
       data: {
@@ -381,7 +381,7 @@ document.addEventListener("DOMContentLoaded", function () {
         : "rankingStudentsByYearWithFilter";
 
     $.ajax({
-      url: "/SCES/backend/fetch-class.php",
+      url: "/SCES/backend/fetch-class",
       type: "POST",
       dataType: "json",
       data: {
@@ -438,7 +438,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const btn = event.target.closest(".more-btn");
         const studentId = btn.getAttribute("data-student-id");
 
-        fetch("/SCES/backend/fetch-class.php", {
+        fetch("/SCES/backend/fetch-class", {
           method: "POST",
           headers: {
             "Content-Type": "application/x-www-form-urlencoded",
@@ -641,7 +641,7 @@ document.addEventListener("DOMContentLoaded", function () {
           },
         },
         ajax: {
-          url: "/SCES/backend/fetch-class.php",
+          url: "/SCES/backend/fetch-class",
           type: "POST",
           data: function (d) {
             d.submitType = "facultyGetQuizRecords";
@@ -720,7 +720,7 @@ document.addEventListener("DOMContentLoaded", function () {
           },
         },
         ajax: {
-          url: "/SCES/backend/fetch-class.php",
+          url: "/SCES/backend/fetch-class",
           type: "POST",
           data: function (d) {
             d.submitType = "facultyGetGrades";
@@ -753,7 +753,7 @@ document.addEventListener("DOMContentLoaded", function () {
     data.append("submitType", "facultyGetPanelData");
     data.append("student_id", studentId);
 
-    fetch("/SCES/backend/fetch-class.php", {
+    fetch("/SCES/backend/fetch-class", {
       method: "POST",
       body: data,
     })
@@ -778,7 +778,7 @@ document.addEventListener("DOMContentLoaded", function () {
     data.append("submitType", "facultyGetGWA");
     data.append("student_id", studentId);
 
-    fetch("/SCES/backend/fetch-class.php", {
+    fetch("/SCES/backend/fetch-class", {
       method: "POST",
       body: data,
     })
@@ -848,7 +848,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Fetch GWA records for the bar chart
     $.ajax({
-      url: "/SCES/backend/fetch-class.php",
+      url: "/SCES/backend/fetch-class",
       type: "POST",
       dataType: "json",
       data: {
@@ -991,7 +991,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     $.ajax({
-      url: "/SCES/backend/fetch-class.php",
+      url: "/SCES/backend/fetch-class",
       type: "POST",
       dataType: "json",
       data: {
