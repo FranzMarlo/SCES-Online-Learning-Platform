@@ -69,7 +69,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/SCES/frontend/student/partials/subject-hea
                                                 <h1>Lesson <?php echo htmlspecialchars($lesson['lesson_number']); ?></h1>
                                                 <span><?php echo htmlspecialchars($lesson['lesson_title']); ?></span>
                                             </div>
-                                            <a href="/SCES/frontend/student/view-lesson.php?pdf=<?php echo urlencode($lesson['pdf_file']); ?>&lesson_number=<?php echo urlencode($lesson['lesson_number']); ?>&subject_id=<?php echo urlencode($lesson['subject_id']); ?>"
+                                            <a href="/SCES/frontend/student/view-lesson?pdf=<?php echo urlencode($lesson['pdf_file']); ?>&lesson_number=<?php echo urlencode($lesson['lesson_number']); ?>&subject_id=<?php echo urlencode($lesson['subject_id']); ?>"
                                                 class="view-lesson" target="_blank">View Lesson <i
                                                     class="fa-solid fa-circle-chevron-right"></i></a>
                                         </div>

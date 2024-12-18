@@ -353,7 +353,7 @@ document.addEventListener("DOMContentLoaded", function () {
         ).innerText = `Quiz ${data.quiz_number} - ${data.title}`;
         quizModal.querySelector(
           ".modal-icon-container img"
-        ).src = `/assets/images/${data.icon}`;
+        ).src = `/SCES/assets/images/${data.icon}`;
 
         const modalHeaderBg = document.querySelector(".modal-header-bg");
         modalHeaderBg.className = `modal-header-bg ${data.subject_code.toLowerCase()}`;
@@ -429,7 +429,7 @@ document.addEventListener("DOMContentLoaded", function () {
         ).innerText = `Quiz ${data.quiz_number} - ${data.title}`;
         document.querySelector(
           ".modal-icon-container img"
-        ).src = `/assets/images/${data.icon}`;
+        ).src = `/SCES/assets/images/${data.icon}`;
 
         const modalHeaderBg = document.querySelector(".modal-header-bg");
         modalHeaderBg.className = `modal-header-bg ${data.subject_code.toLowerCase()}`;
@@ -747,7 +747,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         viewQuizModal.querySelector(
           ".modal-icon-container img"
-        ).src = `/assets/images/${data.icon}`;
+        ).src = `/SCES/assets/images/${data.icon}`;
 
         const modalHeaderBg = viewQuizModal.querySelector(".modal-header-bg");
         modalHeaderBg.className = `modal-header-bg ${data.subject_code.toLowerCase()}`;
