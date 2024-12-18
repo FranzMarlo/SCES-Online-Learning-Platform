@@ -3,8 +3,8 @@
         <span class="close-btn" id="closeAvatarModal">&times;</span>
         <h2>Change Avatar</h2>
         <div class="current-avatar">
-            <img src="/storage/admin/images/<?php echo $image; ?>" alt="user icon" id="avatar-preview">
-            <img src="/assets/images/change-avatar.png" alt="change user icon" id="change-user-icon">
+            <img src="/SCES/storage/admin/images/<?php echo $image; ?>" alt="user icon" id="avatar-preview">
+            <img src="/SCES/assets/images/change-avatar.png" alt="change user icon" id="change-user-icon">
         </div>
         <form id="adminChangeAvatarForm" enctype="multipart/form-data">
             <input type="file" id="new-avatar" name="new-avatar" accept="image/*" style="display: none;">
@@ -19,10 +19,12 @@
         <h2>Edit Profile Information</h2>
         <form id="adminEditProfileForm">
             <label for="firstName">First Name:</label>
-            <input type="text" id="firstName" name="firstName" value="<?php echo htmlspecialchars($teacherFname); ?>" placeholder="<?php echo htmlspecialchars($teacherFname); ?>">
+            <input type="text" id="firstName" name="firstName" value="<?php echo htmlspecialchars($teacherFname); ?>"
+                placeholder="<?php echo htmlspecialchars($teacherFname); ?>">
 
             <label for="lastName">Last Name:</label>
-            <input type="text" id="lastName" name="lastName" value="<?php echo htmlspecialchars($teacherLname); ?>" placeholder="<?php echo htmlspecialchars($teacherLname); ?>">
+            <input type="text" id="lastName" name="lastName" value="<?php echo htmlspecialchars($teacherLname); ?>"
+                placeholder="<?php echo htmlspecialchars($teacherLname); ?>">
 
             <button type="submit" class="save-btn">Save</button>
         </form>
@@ -50,7 +52,7 @@
                 placeholder="<?php echo htmlspecialchars($teacherFname); ?>">
 
             <label for="personalSuffix">Suffix:</label>
-                <select name="personalSuffix" id="personalSuffix">
+            <select name="personalSuffix" id="personalSuffix">
                 <option value="" disabled>Select Suffix</option>
                 <option value="N/A" <?php if ($teacherSuffix == 'N/A')
                     echo 'selected'; ?>>None</option>
@@ -76,10 +78,11 @@
                     echo 'selected'; ?>>IX</option>
                 <option value="X" <?php if ($teacherSuffix == 'X')
                     echo 'selected'; ?>>X</option>
-              </select>
+            </select>
 
             <label for="personalAge">Age:</label>
-            <input type="number" id="personalAge" name="personalAge" value="<?php echo htmlspecialchars($age); ?>" placeholder="<?php echo htmlspecialchars($age); ?>">
+            <input type="number" id="personalAge" name="personalAge" value="<?php echo htmlspecialchars($age); ?>"
+                placeholder="<?php echo htmlspecialchars($age); ?>">
 
             <label for="personalGender">Gender:</label>
             <select id="personalGender" name="personalGender">
@@ -185,7 +188,8 @@
             </select>
 
             <label for="street">Street:</label>
-            <input type="text" id="street" name="street" value="<?php echo htmlspecialchars($street); ?>" placeholder="<?php echo htmlspecialchars($street); ?>">
+            <input type="text" id="street" name="street" value="<?php echo htmlspecialchars($street); ?>"
+                placeholder="<?php echo htmlspecialchars($street); ?>">
 
             <label for="contactNumber">Contact Number:</label>
             <input type="text" id="contactNumber" name="contactNumber"

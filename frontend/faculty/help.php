@@ -1,23 +1,23 @@
 <?php
-include $_SERVER['DOCUMENT_ROOT'] . '/frontend/faculty/partials/faculty-head.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/SCES/frontend/faculty/partials/faculty-head.php';
 $page = 'About and Inquiries';
 ?>
-<link rel="stylesheet" href="/assets/style/help.css" />
-<link rel="stylesheet" href="/assets/style/modal.css" />
+<link rel="stylesheet" href="/SCES/assets/style/help.css" />
+<link rel="stylesheet" href="/SCES/assets/style/modal.css" />
 <title>Help | SCES Online Learning Platform</title>
 </head>
 
 <body>
     <?php
-    include $_SERVER['DOCUMENT_ROOT'] . '/frontend/faculty/partials/faculty-popup.php';
+    include $_SERVER['DOCUMENT_ROOT'] . '/SCES/frontend/faculty/partials/faculty-popup.php';
     ?>
     <div class="container">
         <?php
-        include $_SERVER['DOCUMENT_ROOT'] . '/frontend/faculty/partials/faculty-sidebar.php';
+        include $_SERVER['DOCUMENT_ROOT'] . '/SCES/frontend/faculty/partials/faculty-sidebar.php';
         ?>
         <div class="content">
             <?php
-            include $_SERVER['DOCUMENT_ROOT'] . '/frontend/faculty/partials/faculty-header.php';
+            include $_SERVER['DOCUMENT_ROOT'] . '/SCES/frontend/faculty/partials/faculty-header.php';
             ?>
             <div class="help-panel">
                 <div class="panel-title">
@@ -27,7 +27,7 @@ $page = 'About and Inquiries';
                     <div class="panel-part">
                         <div class="panel-item" id="gettingStartedButton">
                             <div class="item-icon">
-                                <img src="/assets/images/start-help.png" alt="rocket png">
+                                <img src="/SCES/assets/images/start-help.png" alt="rocket png">
                             </div>
                             <div class="item-text">
                                 <h2>Getting Started</h2>
@@ -36,7 +36,7 @@ $page = 'About and Inquiries';
                         </div>
                         <div class="panel-item" id="myAccountButton">
                             <div class="item-icon">
-                                <img src="/assets/images/account-help.png" alt="rocket png">
+                                <img src="/SCES/assets/images/account-help.png" alt="rocket png">
                             </div>
                             <div class="item-text">
                                 <h2>My Account</h2>
@@ -45,7 +45,7 @@ $page = 'About and Inquiries';
                         </div>
                         <div class="panel-item" id="learningMaterialButton">
                             <div class="item-icon">
-                                <img src="/assets/images/lm-help.png" alt="rocket png">
+                                <img src="/SCES/assets/images/lm-help.png" alt="rocket png">
                             </div>
                             <div class="item-text">
                                 <h2>Learning Materials References</h2>
@@ -56,7 +56,7 @@ $page = 'About and Inquiries';
                     <div class="panel-part">
                         <div class="panel-item" id="usageGuidesButton">
                             <div class="item-icon">
-                                <img src="/assets/images/usage-help.png" alt="rocket png">
+                                <img src="/SCES/assets/images/usage-help.png" alt="rocket png">
                             </div>
                             <div class="item-text">
                                 <h2>Usage Guides</h2>
@@ -65,7 +65,7 @@ $page = 'About and Inquiries';
                         </div>
                         <div class="panel-item" id="learningInquiriesButton">
                             <div class="item-icon">
-                                <img src="/assets/images/inquiries-help.png" alt="rocket png">
+                                <img src="/SCES/assets/images/inquiries-help.png" alt="rocket png">
                             </div>
                             <div class="item-text">
                                 <h2>Learning Inquiries</h2>
@@ -76,15 +76,15 @@ $page = 'About and Inquiries';
                 </div>
                 <div class="box-container">
                     <div class="box faq" id="faqBox">
-                        <img src="/assets/images/faq-icon.png" alt="faq-icon">
+                        <img src="/SCES/assets/images/faq-icon.png" alt="faq-icon">
                         <h1>FAQ</h1>
                     </div>
                     <div class="box guides" id="usageGuidesBox">
-                        <img src="/assets/images/guide-icon.png" alt="guide-icon">
+                        <img src="/SCES/assets/images/guide-icon.png" alt="guide-icon">
                         <h1>GUIDES</h1>
                     </div>
                     <div class="box updates" id="updatesBox">
-                        <img src="/assets/images/update-icon.png" alt="update-icon">
+                        <img src="/SCES/assets/images/update-icon.png" alt="update-icon">
                         <h1>UPDATES</h1>
                     </div>
                 </div>
@@ -92,7 +92,7 @@ $page = 'About and Inquiries';
         </div>
     </div>
     <?php
-    include $_SERVER['DOCUMENT_ROOT'] . '/frontend/faculty/partials/help-modal.php';
-    include $_SERVER['DOCUMENT_ROOT'] . '/frontend/faculty/partials/faculty-footer.php';
+    include $_SERVER['DOCUMENT_ROOT'] . '/SCES/frontend/faculty/partials/help-modal.php';
+    include $_SERVER['DOCUMENT_ROOT'] . '/SCES/frontend/faculty/partials/faculty-footer.php';
     ?>
-    <script src="/assets/script/faculty-help.js"></script>
+    <script src="/SCES/assets/script/faculty-help.js"></script>

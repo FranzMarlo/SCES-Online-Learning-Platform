@@ -1,27 +1,27 @@
 <?php
-include $_SERVER['DOCUMENT_ROOT'] . '/frontend/admin/partials/admin-head.php';
-include $_SERVER['DOCUMENT_ROOT'] . '/frontend/admin/partials/helper.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/SCES/frontend/admin/partials/admin-head.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/SCES/frontend/admin/partials/helper.php';
 $page = '';
 ?>
-<link rel="stylesheet" href="/assets/style/admin-profile.css" />
+<link rel="stylesheet" href="/SCES/assets/style/admin-profile.css" />
 <title>My Profile | SCES Online Learning Platform</title>
 </head>
 
 <body>
     <?php
-    include $_SERVER['DOCUMENT_ROOT'] . '/frontend/admin/partials/admin-popup.php';
+    include $_SERVER['DOCUMENT_ROOT'] . '/SCES/frontend/admin/partials/admin-popup.php';
     ?>
     <div class="container">
         <?php
-        include $_SERVER['DOCUMENT_ROOT'] . '/frontend/admin/partials/admin-sidebar.php';
+        include $_SERVER['DOCUMENT_ROOT'] . '/SCES/frontend/admin/partials/admin-sidebar.php';
         ?>
         <div class="content">
             <?php
-            include $_SERVER['DOCUMENT_ROOT'] . '/frontend/admin/partials/admin-header.php';
+            include $_SERVER['DOCUMENT_ROOT'] . '/SCES/frontend/admin/partials/admin-header.php';
             ?>
             <div class="profile-panel">
                 <div class="title-box">
-                    <img src="/assets/images/<?php echo htmlspecialchars(getProfileImage($gender)); ?>"
+                    <img src="/SCES/assets/images/<?php echo htmlspecialchars(getProfileImage($gender)); ?>"
                         alt="student-icon.png">
                     <h1>My Profile</h1>
                 </div>
@@ -29,13 +29,13 @@ $page = '';
                     <div class="profile-bg female">
                         <div class="id-box male">
                             <div class="id-image">
-                                <img src="/storage/admin/images/<?php echo $image; ?>" alt="user icon">
+                                <img src="/SCES/storage/admin/images/<?php echo $image; ?>" alt="user icon">
                                 <span><?php echo htmlspecialchars($teacherId); ?></span>
                             </div>
                             <div class="id-section">
                                 <div class="id-logo">
                                     <div class="logo">
-                                        <img src="/assets/images/logo.png" alt="SCES Logo" />
+                                        <img src="/SCES/assets/images/logo.png" alt="SCES Logo" />
                                         <span class="blue">SCES</span>
                                     </div>
                                     <div class="motto blue-bg">
@@ -47,7 +47,7 @@ $page = '';
                                     <div class="id-row">
                                         <div class="id-col-full">
                                             <p>NAME</p>
-                                            <span><?php echo htmlspecialchars(getPronoun($gender) . ' ' .  strtoupper($teacherFname) .' '. strtoupper($teacherLname)); ?></span>
+                                            <span><?php echo htmlspecialchars(getPronoun($gender) . ' ' . strtoupper($teacherFname) . ' ' . strtoupper($teacherLname)); ?></span>
                                         </div>
                                     </div>
                                     <div class="id-row">
@@ -71,7 +71,7 @@ $page = '';
                     <div class="profile-tab" id="profileContainer">
                         <div class="info-panel">
                             <div class="title-box">
-                                <img src="/assets/images/personal-info.png" alt="personal-info.png">
+                                <img src="/SCES/assets/images/personal-info.png" alt="personal-info.png">
                                 <h1>Personal Information</h1>
                             </div>
                             <div class="info-row">
@@ -105,7 +105,7 @@ $page = '';
                         </div>
                         <div class="info-panel">
                             <div class="title-box">
-                                <img src="/assets/images/school-info.png" alt="school-info.png">
+                                <img src="/SCES/assets/images/school-info.png" alt="school-info.png">
                                 <h1>School Information</h1>
                             </div>
                             <div class="info-row">
@@ -129,7 +129,7 @@ $page = '';
                         </div>
                         <div class="info-panel">
                             <div class="title-box">
-                                <img src="/assets/images/background-info.png" alt="background-info.png">
+                                <img src="/SCES/assets/images/background-info.png" alt="background-info.png">
                                 <h1>Background Information</h1>
                             </div>
                             <div class="info-row">
@@ -150,13 +150,13 @@ $page = '';
                     </div>
                     <div class="profile-tab" id="analyticsContainer">
                         <div class="title-box">
-                            <img src="/assets/images/profile-analytics.png" alt="profile-analytics.png">
+                            <img src="/SCES/assets/images/profile-analytics.png" alt="profile-analytics.png">
                             <h1>Analytics</h1>
                         </div>
                         <div class="stats-panel">
                             <div class="panel-box">
                                 <?php $totalTeacherLesson = $db->getTotalTeacherLesson($teacherId); ?>
-                                <img src="/assets/images/quiz-lesson.png" alt="quiz-lesson.png">
+                                <img src="/SCES/assets/images/quiz-lesson.png" alt="quiz-lesson.png">
                                 <div class="panel-col">
                                     <p>Uploaded Lessons</p>
                                     <span><?php echo htmlspecialchars($totalTeacherLesson); ?></span>
@@ -164,7 +164,7 @@ $page = '';
                             </div>
                             <div class="panel-box">
                                 <?php $totalTeacherStudent = $db->getTotalTeacherStudent($teacherId); ?>
-                                <img src="/assets/images/quiz-grade-section.png" alt="quiz-grade-section.png">
+                                <img src="/SCES/assets/images/quiz-grade-section.png" alt="quiz-grade-section.png">
                                 <div class="panel-col">
                                     <p>Handled Students</p>
                                     <span><?php echo htmlspecialchars($totalTeacherStudent); ?></span>
@@ -172,7 +172,7 @@ $page = '';
                             </div>
                             <div class="panel-box">
                                 <?php $totalQuizzes = $db->teacherGetQuizzesCount($teacherId); ?>
-                                <img src="/assets/images/quiz-passed.png" alt="quiz-passed.png">
+                                <img src="/SCES/assets/images/quiz-passed.png" alt="quiz-passed.png">
                                 <div class="panel-col">
                                     <p>Completed Quizzes</p>
                                     <span><?php echo htmlspecialchars($totalQuizzes); ?></span>
@@ -180,7 +180,7 @@ $page = '';
                             </div>
                             <div class="panel-box">
                                 <?php $totalPending = $db->teacherGetPendingQuizzesCount($teacherId); ?>
-                                <img src="/assets/images/quiz-pending.png" alt="quiz-pending.png">
+                                <img src="/SCES/assets/images/quiz-pending.png" alt="quiz-pending.png">
                                 <div class="panel-col">
                                     <p>Pending Quizzes</p>
                                     <span><?php echo htmlspecialchars($totalPending); ?></span>
@@ -204,6 +204,6 @@ $page = '';
                 </div>
             </div>
             <?php
-            include $_SERVER['DOCUMENT_ROOT'] . '/frontend/admin/partials/admin-footer.php';
+            include $_SERVER['DOCUMENT_ROOT'] . '/SCES/frontend/admin/partials/admin-footer.php';
             ?>
-            <script src="/assets/script/admin-profile.js"></script>
+            <script src="/SCES/assets/script/admin-profile.js"></script>

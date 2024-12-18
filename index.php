@@ -1,5 +1,5 @@
 <?php
-include $_SERVER['DOCUMENT_ROOT'] . '/partials/head.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/SCES/partials/head.php';
 ?>
 <link rel="stylesheet" href="assets/style/landing.css" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -217,21 +217,21 @@ include $_SERVER['DOCUMENT_ROOT'] . '/partials/head.php';
           <p>Are you a student, teacher, or educational worker?</p>
         </div>
         <div class="item-container">
-          <a href="/frontend/student/login.php" class="modal-item">
+          <a href="/SCES/frontend/student/login.php" class="modal-item">
             <div class="item-group">
               <img src="assets/images/student.png" alt="student icon">
               <span>Student</span>
             </div>
             <i class="fa-solid fa-chevron-right"></i>
           </a>
-          <a href="/frontend/faculty/login.php" class="modal-item">
+          <a href="/SCES/frontend/faculty/login.php" class="modal-item">
             <div class="item-group">
               <img src="assets/images/school.png" alt="school icon">
               <span>Teacher</span>
             </div>
             <i class="fa-solid fa-chevron-right"></i>
           </a>
-          <a href="/frontend/admin/login.php" class="modal-item">
+          <a href="/SCES/frontend/admin/login.php" class="modal-item">
             <div class="item-group">
               <img src="assets/images/admin.png" alt="admin icon">
               <span>Educational Worker</span>
@@ -242,7 +242,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/partials/head.php';
       </div>
     </div>
   </div>
-  <script src="/assets/script/landing.js"></script>
+  <script src="/SCES/assets/script/landing.js"></script>
   <?php
-  include $_SERVER['DOCUMENT_ROOT'] . '/partials/footer.php';
+  include $_SERVER['DOCUMENT_ROOT'] . '/SCES/partials/footer.php';
   ?>

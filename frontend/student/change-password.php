@@ -1,6 +1,6 @@
 <?php
-include $_SERVER['DOCUMENT_ROOT'] . '/frontend/student/partials/head.php';
-include $_SERVER['DOCUMENT_ROOT'] . '/frontend/student/partials/password-head.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/SCES/frontend/student/partials/head.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/SCES/frontend/student/partials/password-head.php';
 ?>
 <title>Change Password | SCES Online Learning Platform</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -15,19 +15,19 @@ include $_SERVER['DOCUMENT_ROOT'] . '/frontend/student/partials/password-head.ph
                         <h1>Change Password</h1>
                     </div>
                     <div class="wrapper">
-                        <img src="/assets/images/signup.png" alt="sign up icon" />
+                        <img src="/SCES/assets/images/signup.png" alt="sign up icon" />
                     </div>
                 </div>
                 <div class="column right">
                     <div class="form-wrapper">
                         <form id="studChangePass">
-                            <img src="/assets/images/logo.png" alt="sces logo" class="logo-img" />
+                            <img src="/SCES/assets/images/logo.png" alt="sces logo" class="logo-img" />
                             <h1>Set Up New Password</h1>
                             <div class="input-icons-recover">
                                 <span>Enter and confirm your new password. Your new password must be at least 6
                                     characters.</span>
                             </div>
-                            <input type="hidden" name="email" id="email" value="<?php echo htmlspecialchars($email);?>">
+                            <input type="hidden" name="email" id="email" value="<?php echo htmlspecialchars($email); ?>">
                             <div class="input-icons">
                                 <label for="password">
                                     <i class="fa-solid fa-lock icon"></i>
@@ -54,8 +54,8 @@ include $_SERVER['DOCUMENT_ROOT'] . '/frontend/student/partials/password-head.ph
             </div>
         </div>
     <?php else: ?>
-        <?php include $_SERVER['DOCUMENT_ROOT'] . '/frontend/student/partials/page-error.php'; ?>
+        <?php include $_SERVER['DOCUMENT_ROOT'] . '/SCES/frontend/student/partials/page-error.php'; ?>
     <?php endif; ?>
     <?php
-    include $_SERVER['DOCUMENT_ROOT'] . '/frontend/student/partials/footer.php';
+    include $_SERVER['DOCUMENT_ROOT'] . '/SCES/frontend/student/partials/footer.php';
     ?>

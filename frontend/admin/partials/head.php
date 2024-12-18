@@ -8,13 +8,13 @@ header("Expires: 0");
 
 // If the user is already logged in, redirect them to the dashboard
 if (isset($_SESSION['teacher_id']) && $_SESSION['role'] == 'Admin') {
-    header("Location: /frontend/admin/dashboard.php");
+    header("Location: /SCES/frontend/admin/dashboard.php");
     exit();
 }
-include $_SERVER['DOCUMENT_ROOT'] . '/backend/global.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/SCES/backend/global.php';
 
 $log = new adminloggedIn();
-$log->needLogout(); 
+$log->needLogout();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,9 +22,6 @@ $log->needLogout();
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/assets/style/style.css" />
-    <link rel="stylesheet" href="/assets/font-awesome/css/all.css">
-    <link rel="icon" href="/assets/images/favicon.ico" />
-    
-
-    
+    <link rel="stylesheet" href="/SCES/assets/style/style.css" />
+    <link rel="stylesheet" href="/SCES/assets/font-awesome/css/all.css">
+    <link rel="icon" href="/SCES/assets/images/favicon.ico" />

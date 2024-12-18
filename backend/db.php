@@ -1,8 +1,8 @@
 <?php
-define("db_host", "127.0.0.1");
-define("db_user", "u540688077_SCES");
-define("db_pass", "SCESadmin2024");
-define("db_name", "u540688077_SCES_db");
+define("db_host", "localhost");
+define("db_user", "root");
+define("db_pass", "");
+define("db_name", "sces_db");
 
 class db_connect
 {

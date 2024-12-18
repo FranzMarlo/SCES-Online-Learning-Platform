@@ -1,5 +1,5 @@
 <?php
-include $_SERVER['DOCUMENT_ROOT'] . '/frontend/admin/partials/head.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/SCES/frontend/admin/partials/head.php';
 ?>
 <title>Admin Log In | SCES Online Learning Platform</title>
 </head>
@@ -13,13 +13,13 @@ include $_SERVER['DOCUMENT_ROOT'] . '/frontend/admin/partials/head.php';
                     <h1>Please Log In</h1>
                 </div>
                 <div class="wrapper">
-                    <img src="/assets/images/login-admin.png" alt="sign up icon" class="img-500px" />
+                    <img src="/SCES/assets/images/login-admin.png" alt="sign up icon" class="img-500px" />
                 </div>
             </div>
             <div class="column right">
                 <div class="form-wrapper">
                     <form id="adminLogin">
-                        <img src="/assets/images/logo.png" alt="sces logo" class="logo-img" />
+                        <img src="/SCES/assets/images/logo.png" alt="sces logo" class="logo-img" />
                         <h1>Log In</h1>
                         <div class="input-icons">
                             <label for="email">
@@ -36,7 +36,8 @@ include $_SERVER['DOCUMENT_ROOT'] . '/frontend/admin/partials/head.php';
                                 <i class="fa-solid fa-eye-slash icon" id="toggleIcon"></i>
                             </span>
                         </div>
-                        <div class="input-icons-span"><a href="forgot-password.php" class="link-text">Forgot Password?</a></div>
+                        <div class="input-icons-span"><a href="forgot-password.php" class="link-text">Forgot
+                                Password?</a></div>
                         <button type="submit" id="adminLoginBtn">Login</button>
                     </form>
                 </div>
@@ -52,5 +53,5 @@ include $_SERVER['DOCUMENT_ROOT'] . '/frontend/admin/partials/head.php';
         </div>
     </div>
     <?php
-    include $_SERVER['DOCUMENT_ROOT'] . '/frontend/admin/partials/footer.php';
+    include $_SERVER['DOCUMENT_ROOT'] . '/SCES/frontend/admin/partials/footer.php';
     ?>

@@ -1,11 +1,11 @@
 <?php
-include $_SERVER['DOCUMENT_ROOT'] . '/frontend/admin/partials/admin-head.php';
-include $_SERVER['DOCUMENT_ROOT'] . '/frontend/admin/partials/subject-head.php';
-include $_SERVER['DOCUMENT_ROOT'] . '/frontend/admin/partials/data-tables.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/SCES/frontend/admin/partials/admin-head.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/SCES/frontend/admin/partials/subject-head.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/SCES/frontend/admin/partials/data-tables.php';
 ?>
-<link rel="stylesheet" href="/assets/style/admin-lesson.css" />
-<link rel="stylesheet" href="/assets/style/filter.css" />
-<title><?php echo htmlspecialchars($subject['subject_title']);?> | SCES Online Learning Platform</title>
+<link rel="stylesheet" href="/SCES/assets/style/admin-lesson.css" />
+<link rel="stylesheet" href="/SCES/assets/style/filter.css" />
+<title><?php echo htmlspecialchars($subject['subject_title']); ?> | SCES Online Learning Platform</title>
 </head>
 
 <body data-section="<?php echo htmlspecialchars($_GET['section'] ?? '', ENT_QUOTES); ?>"
@@ -16,20 +16,20 @@ include $_SERVER['DOCUMENT_ROOT'] . '/frontend/admin/partials/data-tables.php';
   data-title="<?php echo htmlspecialchars($subject['subject_title'] ?? '', ENT_QUOTES); ?>"
   data-subject-name="<?php echo htmlspecialchars($subject['subject'] ?? '', ENT_QUOTES); ?>">
   <?php
-  include $_SERVER['DOCUMENT_ROOT'] . '/frontend/admin/partials/admin-popup.php';
+  include $_SERVER['DOCUMENT_ROOT'] . '/SCES/frontend/admin/partials/admin-popup.php';
   ?>
   <div class="container">
     <?php
-    include $_SERVER['DOCUMENT_ROOT'] . '/frontend/admin/partials/admin-sidebar.php';
+    include $_SERVER['DOCUMENT_ROOT'] . '/SCES/frontend/admin/partials/admin-sidebar.php';
     ?>
     <div class="content">
       <?php
-      include $_SERVER['DOCUMENT_ROOT'] . '/frontend/admin/partials/admin-header.php';
+      include $_SERVER['DOCUMENT_ROOT'] . '/SCES/frontend/admin/partials/admin-header.php';
       ?>
       <div class="lesson-panel">
         <div class="title-box">
           <div class="text-box">
-            <img src="/assets/images/graduation-cap.png" alt="graduation-cap.png">
+            <img src="/SCES/assets/images/graduation-cap.png" alt="graduation-cap.png">
             <h1><?php echo htmlspecialchars($page); ?></h1>
           </div>
         </div>
@@ -44,7 +44,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/frontend/admin/partials/data-tables.php';
             <div class="lesson-header">
               <div class="header-bg <?php echo strtolower($subject['subject_code']); ?>">
                 <div class="icon-container">
-                  <img src="/assets/images/<?php echo htmlspecialchars($subject['icon']); ?>" alt="ap-icon">
+                  <img src="/SCES/assets/images/<?php echo htmlspecialchars($subject['icon']); ?>" alt="ap-icon">
                 </div>
               </div>
               <div class="header-text">
@@ -72,7 +72,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/frontend/admin/partials/data-tables.php';
               <div class="lesson-box" id="lessonContainer">
                 <div class="add-lesson" id="addLesson">
                   <div class="add-item">
-                    <img src="/assets/images/bag-icon.png" alt="add lesson icon">
+                    <img src="/SCES/assets/images/bag-icon.png" alt="add lesson icon">
                     <span>Add lesson to class subject</span>
                   </div>
                   <div class="add-item">
@@ -81,29 +81,29 @@ include $_SERVER['DOCUMENT_ROOT'] . '/frontend/admin/partials/data-tables.php';
                 </div>
                 <?php $lessons = $db->facultyGetLessons($subject['level_id'], $subject['subject_id'], $subject['section_id']); ?>
                 <?php if ($lessons): ?>
-                  <?php foreach ($lessons as $lesson): ?>
-                    <div class="lesson-item <?php echo strtolower($subject['subject_code']); ?>-item">
-                      <div class="lesson-title">
-                        <h1>Lesson <?php echo htmlspecialchars($lesson['lesson_number']); ?></h1>
-                        <span><?php echo htmlspecialchars($lesson['lesson_title']); ?></span>
-                      </div>
-                      <a href="/frontend/admin/view-lesson.php?pdf=<?php echo urlencode($lesson['pdf_file']); ?>&lesson_number=<?php echo urlencode($lesson['lesson_number']); ?>&subject_id=<?php echo urlencode($lesson['subject_id']); ?>"
-                        class="view-lesson" target="_blank">View Lesson <i class="fa-solid fa-circle-chevron-right"></i></a>
-                    </div>
-                  <?php endforeach; ?>
+                    <?php foreach ($lessons as $lesson): ?>
+                        <div class="lesson-item <?php echo strtolower($subject['subject_code']); ?>-item">
+                          <div class="lesson-title">
+                            <h1>Lesson <?php echo htmlspecialchars($lesson['lesson_number']); ?></h1>
+                            <span><?php echo htmlspecialchars($lesson['lesson_title']); ?></span>
+                          </div>
+                          <a href="/SCES/frontend/admin/view-lesson.php?pdf=<?php echo urlencode($lesson['pdf_file']); ?>&lesson_number=<?php echo urlencode($lesson['lesson_number']); ?>&subject_id=<?php echo urlencode($lesson['subject_id']); ?>"
+                            class="view-lesson" target="_blank">View Lesson <i class="fa-solid fa-circle-chevron-right"></i></a>
+                        </div>
+                    <?php endforeach; ?>
                 <?php else: ?>
-                  <div class="no-data-box">
-                    <img src="/assets/images/no-data-icon.png" alt="no-data-icon.png">
-                    <h1>No lessons uploaded.</h1>
-                    <h1>Upload a lesson by clicking the button above.</h1>
-                  </div>
+                    <div class="no-data-box">
+                      <img src="/SCES/assets/images/no-data-icon.png" alt="no-data-icon.png">
+                      <h1>No lessons uploaded.</h1>
+                      <h1>Upload a lesson by clicking the button above.</h1>
+                    </div>
                 <?php endif; ?>
               </div>
             </div>
           </div>
           <div class="tab-container" id="studentContainer">
             <div class="container-title">
-              <img src="/assets/images/profile-scores.png" alt="profile-scores.png">
+              <img src="/SCES/assets/images/profile-scores.png" alt="profile-scores.png">
               <h1>Student List</h1>
             </div>
             <div class="table-responsive">
@@ -128,7 +128,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/frontend/admin/partials/data-tables.php';
           </div>
           <div class="tab-container" id="recordsContainer">
             <div class="container-title">
-              <img src="/assets/images/personal-info.png" alt="personal-info.png">
+              <img src="/SCES/assets/images/personal-info.png" alt="personal-info.png">
               <h1>Student Records</h1>
             </div>
             <div class="table-responsive">
@@ -150,33 +150,33 @@ include $_SERVER['DOCUMENT_ROOT'] . '/frontend/admin/partials/data-tables.php';
           </div>
           <div class="tab-container" id="analyticsContainer">
             <div class="container-title">
-              <img src="/assets/images/profile-analytics.png" alt="profile-analytics.png">
+              <img src="/SCES/assets/images/profile-analytics.png" alt="profile-analytics.png">
               <h1>Analytics</h1>
             </div>
             <div class="stats-panel">
               <div class="panel-box completed">
-                <img src="/assets/images/quiz-passed.png" alt="quiz-passed.png">
+                <img src="/SCES/assets/images/quiz-passed.png" alt="quiz-passed.png">
                 <div class="panel-col">
                   <p>Quiz Completed</p>
                   <span id="subjectTotalCompletion"></span>
                 </div>
               </div>
               <div class="panel-box pending">
-                <img src="/assets/images/hourglass.png" alt="hourglass.png">
+                <img src="/SCES/assets/images/hourglass.png" alt="hourglass.png">
                 <div class="panel-col">
                   <p>Pending Quiz</p>
                   <span id="subjectTotalQuizzes"></span>
                 </div>
               </div>
               <div class="panel-box quiz-score">
-                <img src="/assets/images/gpa.png" alt="gpa.png">
+                <img src="/SCES/assets/images/gpa.png" alt="gpa.png">
                 <div class="panel-col">
                   <p>Average Score</p>
                   <span id="subjectAverageScore"></span>
                 </div>
               </div>
               <div class="panel-box average">
-                <img src="/assets/images/subject-highest.png" alt="subject-highest.png">
+                <img src="/SCES/assets/images/subject-highest.png" alt="subject-highest.png">
                 <div class="panel-col">
                   <p>Highest Average</p>
                   <span id="subjectHighestAverage"></span>
@@ -192,7 +192,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/frontend/admin/partials/data-tables.php';
               </div>
             </div>
             <div class="container-title">
-              <img src="/assets/images/quiz-score.png" alt="quiz-score.png">
+              <img src="/SCES/assets/images/quiz-score.png" alt="quiz-score.png">
               <h1>Students Ranking</h1>
             </div>
             <div class="table-responsive">
@@ -217,10 +217,10 @@ include $_SERVER['DOCUMENT_ROOT'] . '/frontend/admin/partials/data-tables.php';
     </div>
   </div>
   <?php
-  include $_SERVER['DOCUMENT_ROOT'] . '/frontend/admin/partials/admin-add-lesson.php';
-  include $_SERVER['DOCUMENT_ROOT'] . '/frontend/admin/partials/view-students-modal.php';
-  include $_SERVER['DOCUMENT_ROOT'] . '/frontend/admin/partials/admin-footer.php';
+  include $_SERVER['DOCUMENT_ROOT'] . '/SCES/frontend/admin/partials/admin-add-lesson.php';
+  include $_SERVER['DOCUMENT_ROOT'] . '/SCES/frontend/admin/partials/view-students-modal.php';
+  include $_SERVER['DOCUMENT_ROOT'] . '/SCES/frontend/admin/partials/admin-footer.php';
   ?>
-  <script src="/assets/script/datatables.min.js"></script>
+  <script src="/SCES/assets/script/datatables.min.js"></script>
   <script src="https://cdn.datatables.net/responsive/2.4.0/js/dataTables.responsive.min.js"></script>
-  <script src="/assets/script/admin-lesson.js"></script>
+  <script src="/SCES/assets/script/admin-lesson.js"></script>

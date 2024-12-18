@@ -6,7 +6,7 @@
                 <span class="close-btn" id="closeFacultyModal">&times;</span>
             </div>
             <div class="head-row">
-                <img src="/storage/faculty/images/default-profile.png" alt="default-profile.png" id="profileImage">
+                <img src="/SCES/storage/faculty/images/default-profile.png" alt="default-profile.png" id="profileImage">
                 <div class="head-col">
                     <span id="fullName"></span>
                     <span id="teachId"></span>
@@ -24,7 +24,7 @@
         <div class="tab-container" id="profileContainer">
             <div class="tab-panel">
                 <div class="title-box">
-                    <img src="/assets/images/personal-info.png" alt="personal-info.png">
+                    <img src="/SCES/assets/images/personal-info.png" alt="personal-info.png">
                     <h1>Personal Information</h1>
                 </div>
                 <div class="tab-row">
@@ -60,7 +60,7 @@
             </div>
             <div class="tab-panel">
                 <div class="title-box">
-                    <img src="/assets/images/school-info.png" alt="school-info.png">
+                    <img src="/SCES/assets/images/school-info.png" alt="school-info.png">
                     <h1>School Information</h1>
                 </div>
                 <div class="tab-row">
@@ -86,7 +86,7 @@
             </div>
             <div class="tab-panel">
                 <div class="title-box">
-                    <img src="/assets/images/background-info.png" alt="background-info.png">
+                    <img src="/SCES/assets/images/background-info.png" alt="background-info.png">
                     <h1>Background Information</h1>
                 </div>
                 <div class="tab-row">
@@ -113,33 +113,33 @@
         </div>
         <div class="tab-container" id="analyticsContainer">
             <div class="title-box">
-                <img src="/assets/images/profile-analytics.png" alt="profile-analytics.png">
+                <img src="/SCES/assets/images/profile-analytics.png" alt="profile-analytics.png">
                 <h1>Analytics</h1>
             </div>
             <div class="stats-panel">
                 <div class="panel-box pending">
-                    <img src="/assets/images/quiz-lesson.png" alt="quiz-lesson.png">
+                    <img src="/SCES/assets/images/quiz-lesson.png" alt="quiz-lesson.png">
                     <div class="panel-col">
                         <p>Uploaded Lessons</p>
                         <span id="totalLessons"></span>
                     </div>
                 </div>
                 <div class="panel-box quiz-score">
-                    <img src="/assets/images/quiz-grade-section.png" alt="quiz-grade-section.png">
+                    <img src="/SCES/assets/images/quiz-grade-section.png" alt="quiz-grade-section.png">
                     <div class="panel-col">
                         <p>Handled Students</p>
                         <span id="totalStudents"></span>
                     </div>
                 </div>
                 <div class="panel-box completed">
-                    <img src="/assets/images/quiz-passed.png" alt="quiz-passed.png">
+                    <img src="/SCES/assets/images/quiz-passed.png" alt="quiz-passed.png">
                     <div class="panel-col">
                         <p>Completed Quizzes</p>
                         <span id="totalCompleted"></span>
                     </div>
                 </div>
                 <div class="panel-box average">
-                    <img src="/assets/images/quiz-pending.png" alt="quiz-pending.png">
+                    <img src="/SCES/assets/images/quiz-pending.png" alt="quiz-pending.png">
                     <div class="panel-col">
                         <p>Pending Quizzes</p>
                         <span id="totalPending"></span>

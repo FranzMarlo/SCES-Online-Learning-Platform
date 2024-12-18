@@ -5,7 +5,7 @@ $("#studLogin").on("submit", function (e) {
 
   $.ajax({
     type: "POST",
-    url: "/backend/global.php",
+    url: "/SCES/backend/global.php",
     data: {
       submitType: "studentLogin",
       email: email,
@@ -13,17 +13,29 @@ $("#studLogin").on("submit", function (e) {
     },
     success: function (response) {
       if (response == "200") {
-        window.location.href = "/frontend/student/dashboard.php";
+        window.location.href = "/SCES/frontend/student/dashboard.php";
       } else if (response == "451") {
-        showAlert("warning", "Please Enter Your Email", "Ensure that the email you are using is registered in the platform");
+        showAlert(
+          "warning",
+          "Please Enter Your Email",
+          "Ensure that the email you are using is registered in the platform"
+        );
       } else if (response == "452") {
         showAlert("warning", "Please Enter Your Password");
       } else if (response == "453") {
         showAlert("warning", "Please Enter Valid Email");
       } else if (response == "454") {
-        showAlert("error", "Account Disabled", "Your account has been disabled, if this is wrong please contact your adviser.");
+        showAlert(
+          "error",
+          "Account Disabled",
+          "Your account has been disabled, if this is wrong please contact your adviser."
+        );
       } else {
-        showAlert("error", "Login Failed", "Please check your email and password and try again");
+        showAlert(
+          "error",
+          "Login Failed",
+          "Please check your email and password and try again"
+        );
       }
     },
   });
@@ -44,7 +56,7 @@ $("#studSignUp").on("submit", function (e) {
 
   $.ajax({
     type: "POST",
-    url: "/backend/global.php",
+    url: "/SCES/backend/global.php",
     data: {
       submitType: "studentSignUp",
       firstName: firstName,
@@ -60,11 +72,20 @@ $("#studSignUp").on("submit", function (e) {
     },
     success: function (response) {
       if (response == "200") {
-        showRedirectAlert("success", "Sign Up Succesful", "", "/frontend/student/dashboard.php");
+        showRedirectAlert(
+          "success",
+          "Sign Up Succesful",
+          "",
+          "/SCES/frontend/student/dashboard.php"
+        );
       } else if (response == "452") {
         showAlert("warning", "First Name Cannot Be Empty");
       } else if (response == "453") {
-        showAlert("warning", "Middle Name Cannot Be Empty", "If middle name is not applicable, please enter N/A");
+        showAlert(
+          "warning",
+          "Middle Name Cannot Be Empty",
+          "If middle name is not applicable, please enter N/A"
+        );
       } else if (response == "454") {
         showAlert("warning", "Last Name Cannot Be Empty");
       } else if (response == "455") {
@@ -86,13 +107,29 @@ $("#studSignUp").on("submit", function (e) {
       } else if (response == "463") {
         showAlert("warning", "Email Already In Use");
       } else if (response == "464") {
-        showAlert("warning", "Please Select Suffix", "Select None if not applicable");
+        showAlert(
+          "warning",
+          "Please Select Suffix",
+          "Select None if not applicable"
+        );
       } else if (response == "465") {
-        showAlert("warning", "Please Enter Your LRN", "LRN or Learner Reference Number is provided by your school and can be seen on your school ID");
+        showAlert(
+          "warning",
+          "Please Enter Your LRN",
+          "LRN or Learner Reference Number is provided by your school and can be seen on your school ID"
+        );
       } else if (response == "466") {
-        showAlert("warning", "Invalid Student Details", "Please register with your LRN and current Grade & Section");
+        showAlert(
+          "warning",
+          "Invalid Student Details",
+          "Please register with your LRN and current Grade & Section"
+        );
       } else if (response == "467") {
-        showAlert("warning", "LRN Already Registered In The System", "Please proceed to login if you are already registered. If this is wrong, please contact your adviser");
+        showAlert(
+          "warning",
+          "LRN Already Registered In The System",
+          "Please proceed to login if you are already registered. If this is wrong, please contact your adviser"
+        );
       } else {
         showAlert("warning", "Sign Up Failed", "Please Try Again");
       }
@@ -107,7 +144,7 @@ $("#editProfileForm").on("submit", function (e) {
 
   $.ajax({
     type: "POST",
-    url: "/backend/global.php",
+    url: "/SCES/backend/global.php",
     data: {
       submitType: "editProfileForm",
       firstName: firstName,
@@ -140,7 +177,7 @@ $("#editPersonalForm").on("submit", function (e) {
 
   $.ajax({
     type: "POST",
-    url: "/backend/global.php",
+    url: "/SCES/backend/global.php",
     data: {
       submitType: "editPersonalForm",
       firstName: firstName,
@@ -170,7 +207,11 @@ $("#editPersonalForm").on("submit", function (e) {
       } else if (response == "472") {
         showAlert("warning", "Please Select Your Gender");
       } else if (response == "464") {
-        showAlert("warning", "Please Select Suffix", "Select None if not applicable");
+        showAlert(
+          "warning",
+          "Please Select Suffix",
+          "Select None if not applicable"
+        );
       } else {
         showAlert("error", "Update Profile Failed Please Try Again");
       }
@@ -188,7 +229,7 @@ $("#editBackgroundForm").on("submit", function (e) {
 
   $.ajax({
     type: "POST",
-    url: "/backend/global.php",
+    url: "/SCES/backend/global.php",
     data: {
       submitType: "editBackgroundForm",
       city: city,
@@ -229,7 +270,7 @@ $("#changeAvatarForm").on("submit", function (e) {
 
   $.ajax({
     type: "POST",
-    url: "/backend/global.php",
+    url: "/SCES/backend/global.php",
     data: formData,
     processData: false,
     contentType: false,
@@ -237,13 +278,19 @@ $("#changeAvatarForm").on("submit", function (e) {
       if (response == "200") {
         showReloadAlert("success", "Profile Picture Updated");
       } else if (response == "475") {
-        showAlert("error", "Error In Moving The Uploaded File Please Try Again");
+        showAlert(
+          "error",
+          "Error In Moving The Uploaded File Please Try Again"
+        );
       } else if (response == "476") {
         showAlert("warning", "Please Upload Valid Image File");
       } else if (response == "477") {
         showAlert("error", "Error In Uploading File Please Try Again");
       } else {
-        showReloadAlert("error", "Update Profile Failed Please Try Again Later");
+        showReloadAlert(
+          "error",
+          "Update Profile Failed Please Try Again Later"
+        );
       }
     },
   });
@@ -257,7 +304,7 @@ $("#updatePassword").on("submit", function (e) {
 
   $.ajax({
     type: "POST",
-    url: "/backend/global.php",
+    url: "/SCES/backend/global.php",
     data: {
       submitType: "updatePassword",
       currentPassword: currentPassword,
@@ -295,7 +342,7 @@ $("#adminLogin").on("submit", function (e) {
 
   $.ajax({
     type: "POST",
-    url: "/backend/global.php",
+    url: "/SCES/backend/global.php",
     data: {
       submitType: "adminLogin",
       email: email,
@@ -303,17 +350,29 @@ $("#adminLogin").on("submit", function (e) {
     },
     success: function (response) {
       if (response == "200") {
-        window.location.href = "/frontend/admin/dashboard.php";
+        window.location.href = "/SCES/frontend/admin/dashboard.php";
       } else if (response == "451") {
-        showAlert("warning", "Please Enter Your Email", "Ensure that the email you are using is registered in the platform");
+        showAlert(
+          "warning",
+          "Please Enter Your Email",
+          "Ensure that the email you are using is registered in the platform"
+        );
       } else if (response == "452") {
         showAlert("warning", "Please Enter Your Password");
       } else if (response == "453") {
         showAlert("warning", "Please Enter Valid Email");
       } else if (response == "454") {
-        showAlert("error", "Account Disabled", "Your account has been disabled, if this is wrong please contact an admin.");
+        showAlert(
+          "error",
+          "Account Disabled",
+          "Your account has been disabled, if this is wrong please contact an admin."
+        );
       } else {
-        showAlert("error", "Login Failed", "Please check your email and password and try again");
+        showAlert(
+          "error",
+          "Login Failed",
+          "Please check your email and password and try again"
+        );
       }
     },
   });
@@ -332,7 +391,7 @@ $("#adminSignUp").on("submit", function (e) {
   var confirmPassword = $("#confirmPassword").val();
   $.ajax({
     type: "POST",
-    url: "/backend/global.php",
+    url: "/SCES/backend/global.php",
     data: {
       submitType: "adminSignUp",
       firstName: firstName,
@@ -347,15 +406,28 @@ $("#adminSignUp").on("submit", function (e) {
     },
     success: function (response) {
       if (response == "200") {
-        showRedirectAlert("success", "Sign Up Succesful", "", "/frontend/admin/dashboard.php");
+        showRedirectAlert(
+          "success",
+          "Sign Up Succesful",
+          "",
+          "/SCES/frontend/admin/dashboard.php"
+        );
       } else if (response == "452") {
         showAlert("warning", "First Name Cannot Be Empty");
       } else if (response == "453") {
-        showAlert("warning", "Middle Name Cannot Be Empty", "If middle name is not applicable, please enter N/A");
+        showAlert(
+          "warning",
+          "Middle Name Cannot Be Empty",
+          "If middle name is not applicable, please enter N/A"
+        );
       } else if (response == "454") {
         showAlert("warning", "Last Name Cannot Be Empty");
       } else if (response == "455") {
-        showAlert("warning", "Please Select Suffix", "Select None if not applicable");
+        showAlert(
+          "warning",
+          "Please Select Suffix",
+          "Select None if not applicable"
+        );
       } else if (response == "472") {
         showAlert("warning", "Please Select Your Gender");
       } else if (response == "457") {
@@ -373,11 +445,23 @@ $("#adminSignUp").on("submit", function (e) {
       } else if (response == "463") {
         showAlert("warning", "Email Already In Use");
       } else if (response == "464") {
-        showAlert("error", "Admin Data Not Found", "Please check your control number");
+        showAlert(
+          "error",
+          "Admin Data Not Found",
+          "Please check your control number"
+        );
       } else if (response == "465") {
-        showAlert("error", "Control Number Already Registered In The System", "If this is wrong, please contact an admin");
+        showAlert(
+          "error",
+          "Control Number Already Registered In The System",
+          "If this is wrong, please contact an admin"
+        );
       } else if (response == "466") {
-        showAlert("warning", "Please enter control number", "Your control number is provided by your admin");
+        showAlert(
+          "warning",
+          "Please enter control number",
+          "Your control number is provided by your admin"
+        );
       } else {
         showAlert("error", "Sign Up Failed", "Please Try Again");
       }
@@ -392,7 +476,7 @@ $("#adminEditProfileForm").on("submit", function (e) {
 
   $.ajax({
     type: "POST",
-    url: "/backend/global.php",
+    url: "/SCES/backend/global.php",
     data: {
       submitType: "adminEditProfileForm",
       firstName: firstName,
@@ -425,7 +509,7 @@ $("#adminEditPersonalForm").on("submit", function (e) {
 
   $.ajax({
     type: "POST",
-    url: "/backend/global.php",
+    url: "/SCES/backend/global.php",
     data: {
       submitType: "adminEditPersonalForm",
       firstName: firstName,
@@ -455,7 +539,11 @@ $("#adminEditPersonalForm").on("submit", function (e) {
       } else if (response == "472") {
         showAlert("warning", "Please Select Your Gender");
       } else if (response == "464") {
-        showAlert("warning", "Please Select Suffix", "Select None if not applicable");
+        showAlert(
+          "warning",
+          "Please Select Suffix",
+          "Select None if not applicable"
+        );
       } else {
         showAlert("error", "Update Profile Failed Please Try Again");
       }
@@ -472,7 +560,7 @@ $("#adminEditBackgroundForm").on("submit", function (e) {
 
   $.ajax({
     type: "POST",
-    url: "/backend/global.php",
+    url: "/SCES/backend/global.php",
     data: {
       submitType: "adminEditBackgroundForm",
       city: city,
@@ -510,7 +598,7 @@ $("#adminChangeAvatarForm").on("submit", function (e) {
 
   $.ajax({
     type: "POST",
-    url: "/backend/global.php",
+    url: "/SCES/backend/global.php",
     data: formData,
     processData: false,
     contentType: false,
@@ -518,13 +606,19 @@ $("#adminChangeAvatarForm").on("submit", function (e) {
       if (response == "200") {
         showReloadAlert("success", "Profile Picture Updated");
       } else if (response == "475") {
-        showAlert("error", "Error In Moving The Uploaded File Please Try Again");
+        showAlert(
+          "error",
+          "Error In Moving The Uploaded File Please Try Again"
+        );
       } else if (response == "476") {
         showAlert("warning", "Please Upload Valid Image File");
       } else if (response == "477") {
         showAlert("error", "Error In Uploading File Please Try Again");
       } else {
-        showReloadAlert("error", "Update Profile Failed Please Try Again Later");
+        showReloadAlert(
+          "error",
+          "Update Profile Failed Please Try Again Later"
+        );
       }
     },
   });
@@ -538,7 +632,7 @@ $("#adminUpdatePassword").on("submit", function (e) {
 
   $.ajax({
     type: "POST",
-    url: "/backend/global.php",
+    url: "/SCES/backend/global.php",
     data: {
       submitType: "adminUpdatePassword",
       currentPassword: currentPassword,
@@ -587,7 +681,7 @@ $("#adminAddLesson").on("submit", function (e) {
   formData.append("subject_title", subjectTitle);
   $.ajax({
     type: "POST",
-    url: "/backend/global.php",
+    url: "/SCES/backend/global.php",
     data: formData,
     processData: false,
     contentType: false,
@@ -603,11 +697,19 @@ $("#adminAddLesson").on("submit", function (e) {
       } else if (response == "487") {
         showAlert("error", "PDF File Upload Failed", "Please Try Again");
       } else if (response == "488") {
-        showAlert("warning", "File Type Not Supported", "Please Upload PDF Files Only");
+        showAlert(
+          "warning",
+          "File Type Not Supported",
+          "Please Upload PDF Files Only"
+        );
       } else if (response == "489") {
         showAlert("warning", "Please Attach A PDF File");
       } else if (response == "490") {
-        showAlert("warning", "Lesson Number Exists", "Please Enter A Different Lesson Number");
+        showAlert(
+          "warning",
+          "Lesson Number Exists",
+          "Please Enter A Different Lesson Number"
+        );
       } else {
         showAlert("error", "Lesson Upload Failed", "Please Try Again Later");
       }
@@ -622,7 +724,7 @@ $("#facultyLogin").on("submit", function (e) {
 
   $.ajax({
     type: "POST",
-    url: "/backend/global.php",
+    url: "/SCES/backend/global.php",
     data: {
       submitType: "facultyLogin",
       email: email,
@@ -630,17 +732,29 @@ $("#facultyLogin").on("submit", function (e) {
     },
     success: function (response) {
       if (response == "200") {
-        window.location.href = "/frontend/faculty/dashboard.php";
+        window.location.href = "/SCES/frontend/faculty/dashboard.php";
       } else if (response == "451") {
-        showAlert("warning", "Please Enter Your Email", "Ensure that the email you are using is registered in the platform");
+        showAlert(
+          "warning",
+          "Please Enter Your Email",
+          "Ensure that the email you are using is registered in the platform"
+        );
       } else if (response == "452") {
         showAlert("warning", "Please Enter Your Password");
       } else if (response == "453") {
         showAlert("warning", "Please Enter Valid Email");
       } else if (response == "454") {
-        showAlert("error", "Account Disabled", "Your account has been disabled, if this is wrong please contact an admin.");
+        showAlert(
+          "error",
+          "Account Disabled",
+          "Your account has been disabled, if this is wrong please contact an admin."
+        );
       } else {
-        showAlert("error", "Login Failed", "Please check your email and password and try again");
+        showAlert(
+          "error",
+          "Login Failed",
+          "Please check your email and password and try again"
+        );
       }
     },
   });
@@ -659,7 +773,7 @@ $("#facultySignUp").on("submit", function (e) {
   var confirmPassword = $("#confirmPassword").val();
   $.ajax({
     type: "POST",
-    url: "/backend/global.php",
+    url: "/SCES/backend/global.php",
     data: {
       submitType: "facultySignUp",
       firstName: firstName,
@@ -674,15 +788,28 @@ $("#facultySignUp").on("submit", function (e) {
     },
     success: function (response) {
       if (response == "200") {
-        showRedirectAlert("success", "Sign Up Succesful", "", "/frontend/faculty/dashboard.php");
+        showRedirectAlert(
+          "success",
+          "Sign Up Succesful",
+          "",
+          "/SCES/frontend/faculty/dashboard.php"
+        );
       } else if (response == "452") {
         showAlert("warning", "First Name Cannot Be Empty");
       } else if (response == "453") {
-        showAlert("warning", "Middle Name Cannot Be Empty", "If middle name is not applicable, please enter N/A");
+        showAlert(
+          "warning",
+          "Middle Name Cannot Be Empty",
+          "If middle name is not applicable, please enter N/A"
+        );
       } else if (response == "454") {
         showAlert("warning", "Last Name Cannot Be Empty");
       } else if (response == "455") {
-        showAlert("warning", "Please Select Suffix", "Select None if not applicable");
+        showAlert(
+          "warning",
+          "Please Select Suffix",
+          "Select None if not applicable"
+        );
       } else if (response == "472") {
         showAlert("warning", "Please Select Your Gender");
       } else if (response == "457") {
@@ -700,11 +827,23 @@ $("#facultySignUp").on("submit", function (e) {
       } else if (response == "463") {
         showAlert("warning", "Email Already In Use");
       } else if (response == "464") {
-        showAlert("error", "Faculty Data Not Found", "Please check your control number");
+        showAlert(
+          "error",
+          "Faculty Data Not Found",
+          "Please check your control number"
+        );
       } else if (response == "465") {
-        showAlert("error", "Control Number Already Registered In The System", "If this is wrong, please contact an admin");
+        showAlert(
+          "error",
+          "Control Number Already Registered In The System",
+          "If this is wrong, please contact an admin"
+        );
       } else if (response == "466") {
-        showAlert("warning", "Please enter control number", "Your control number is provided by your admin");
+        showAlert(
+          "warning",
+          "Please enter control number",
+          "Your control number is provided by your admin"
+        );
       } else {
         showAlert("error", "Sign Up Failed", "Please Try Again");
       }
@@ -719,7 +858,7 @@ $("#facultyEditProfileForm").on("submit", function (e) {
 
   $.ajax({
     type: "POST",
-    url: "/backend/global.php",
+    url: "/SCES/backend/global.php",
     data: {
       submitType: "facultyEditProfileForm",
       firstName: firstName,
@@ -752,7 +891,7 @@ $("#facultyEditPersonalForm").on("submit", function (e) {
 
   $.ajax({
     type: "POST",
-    url: "/backend/global.php",
+    url: "/SCES/backend/global.php",
     data: {
       submitType: "facultyEditPersonalForm",
       firstName: firstName,
@@ -782,7 +921,11 @@ $("#facultyEditPersonalForm").on("submit", function (e) {
       } else if (response == "472") {
         showAlert("warning", "Please Select Your Gender");
       } else if (response == "464") {
-        showAlert("warning", "Please Select Suffix", "Select None if not applicable");
+        showAlert(
+          "warning",
+          "Please Select Suffix",
+          "Select None if not applicable"
+        );
       } else {
         showAlert("error", "Update Profile Failed Please Try Again");
       }
@@ -799,7 +942,7 @@ $("#facultyEditBackgroundForm").on("submit", function (e) {
 
   $.ajax({
     type: "POST",
-    url: "/backend/global.php",
+    url: "/SCES/backend/global.php",
     data: {
       submitType: "facultyEditBackgroundForm",
       city: city,
@@ -837,7 +980,7 @@ $("#facultyChangeAvatarForm").on("submit", function (e) {
 
   $.ajax({
     type: "POST",
-    url: "/backend/global.php",
+    url: "/SCES/backend/global.php",
     data: formData,
     processData: false,
     contentType: false,
@@ -845,13 +988,19 @@ $("#facultyChangeAvatarForm").on("submit", function (e) {
       if (response == "200") {
         showReloadAlert("success", "Profile Picture Updated");
       } else if (response == "475") {
-        showAlert("error", "Error In Moving The Uploaded File Please Try Again");
+        showAlert(
+          "error",
+          "Error In Moving The Uploaded File Please Try Again"
+        );
       } else if (response == "476") {
         showAlert("warning", "Please Upload Valid Image File");
       } else if (response == "477") {
         showAlert("error", "Error In Uploading File Please Try Again");
       } else {
-        showReloadAlert("error", "Update Profile Failed Please Try Again Later");
+        showReloadAlert(
+          "error",
+          "Update Profile Failed Please Try Again Later"
+        );
       }
     },
   });
@@ -865,7 +1014,7 @@ $("#facultyUpdatePassword").on("submit", function (e) {
 
   $.ajax({
     type: "POST",
-    url: "/backend/global.php",
+    url: "/SCES/backend/global.php",
     data: {
       submitType: "facultyUpdatePassword",
       currentPassword: currentPassword,
@@ -915,7 +1064,7 @@ $("#facultyAddLesson").on("submit", function (e) {
 
   $.ajax({
     type: "POST",
-    url: "/backend/global.php",
+    url: "/SCES/backend/global.php",
     data: formData,
     processData: false,
     contentType: false,
@@ -931,11 +1080,19 @@ $("#facultyAddLesson").on("submit", function (e) {
       } else if (response == "487") {
         showAlert("error", "PDF File Upload Failed", "Please Try Again");
       } else if (response == "488") {
-        showAlert("warning", "File Type Not Supported", "Please Upload PDF Files Only");
+        showAlert(
+          "warning",
+          "File Type Not Supported",
+          "Please Upload PDF Files Only"
+        );
       } else if (response == "489") {
         showAlert("warning", "Please Attach A PDF File");
       } else if (response == "490") {
-        showAlert("warning", "Lesson Number Exists", "Please Enter A Different Lesson Number");
+        showAlert(
+          "warning",
+          "Lesson Number Exists",
+          "Please Enter A Different Lesson Number"
+        );
       } else {
         showAlert("error", "Lesson Upload Failed", "Please Try Again Later");
       }
@@ -955,14 +1112,14 @@ $("#addGradeForm").on("submit", function (e) {
 
   $.ajax({
     type: "POST",
-    url: "/backend/global.php",
+    url: "/SCES/backend/global.php",
     data: formData,
     processData: false,
     contentType: false,
     success: function (response) {
       if (response == "200") {
         $.getScript(
-          "/vendor/node_modules/sweetalert2/dist/sweetalert2.all.min.js",
+          "/SCES/vendor/node_modules/sweetalert2/dist/sweetalert2.all.min.js",
           function () {
             Swal.fire({
               icon: "success",
@@ -982,13 +1139,22 @@ $("#addGradeForm").on("submit", function (e) {
           }
         );
       } else if (response == "491") {
-        showAlert("warning", "Subject Grade For Selected Quarter Already Uploaded");
+        showAlert(
+          "warning",
+          "Subject Grade For Selected Quarter Already Uploaded"
+        );
       } else if (response == "492") {
         showAlert("warning", "Subject Grade For Student Cannot Be Empty");
       } else if (response == "493") {
-        showAlert("warning", "Subject Grade For Student Cannot Be Lower Than 0");
+        showAlert(
+          "warning",
+          "Subject Grade For Student Cannot Be Lower Than 0"
+        );
       } else if (response == "494") {
-        showAlert("warning", "Subject Grade For Student Cannot Be Higher Than 100");
+        showAlert(
+          "warning",
+          "Subject Grade For Student Cannot Be Higher Than 100"
+        );
       } else if (response == "495") {
         showAlert("warning", "Please Select Quarter For Subject Grade");
       } else {
@@ -1006,14 +1172,14 @@ $("#editGradeForm").on("submit", function (e) {
 
   $.ajax({
     type: "POST",
-    url: "/backend/global.php",
+    url: "/SCES/backend/global.php",
     data: formData,
     processData: false,
     contentType: false,
     success: function (response) {
       if (response == "200") {
         $.getScript(
-          "/vendor/node_modules/sweetalert2/dist/sweetalert2.all.min.js",
+          "/SCES/vendor/node_modules/sweetalert2/dist/sweetalert2.all.min.js",
           function () {
             Swal.fire({
               icon: "success",
@@ -1034,13 +1200,22 @@ $("#editGradeForm").on("submit", function (e) {
           }
         );
       } else if (response == "491") {
-        showAlert("warning", "Subject Grade For Selected Quarter Already Uploaded");
+        showAlert(
+          "warning",
+          "Subject Grade For Selected Quarter Already Uploaded"
+        );
       } else if (response == "492") {
         showAlert("warning", "Subject Grade For Student Cannot Be Empty");
       } else if (response == "493") {
-        showAlert("warning", "Subject Grade For Student Cannot Be Lower Than 0");
+        showAlert(
+          "warning",
+          "Subject Grade For Student Cannot Be Lower Than 0"
+        );
       } else if (response == "494") {
-        showAlert("warning", "Subject Grade For Student Cannot Be Higher Than 100");
+        showAlert(
+          "warning",
+          "Subject Grade For Student Cannot Be Higher Than 100"
+        );
       } else if (response == "495") {
         showAlert("warning", "Please Select Quarter For Subject Grade");
       } else {
@@ -1058,13 +1233,17 @@ $("#addTeacherForm").on("submit", function (e) {
 
   $.ajax({
     type: "POST",
-    url: "/backend/global.php",
+    url: "/SCES/backend/global.php",
     data: formData,
     processData: false,
     contentType: false,
     success: function (response) {
       if (response == "200") {
-        showReloadAlert("success", "Teacher Inserted To Masterlist", "You can share the control number generated for their registration");
+        showReloadAlert(
+          "success",
+          "Teacher Inserted To Masterlist",
+          "You can share the control number generated for their registration"
+        );
       } else if (response == "491") {
         showAlert("warning", "Last Name For Teacher Cannot Be Empty");
       } else if (response == "492") {
@@ -1072,7 +1251,11 @@ $("#addTeacherForm").on("submit", function (e) {
       } else if (response == "493") {
         showAlert("warning", "Middle Name For Teacher Cannot Be Empty");
       } else if (response == "494") {
-        showAlert("warning", "Please Select Suffix", "Select 'None' if not applicable");
+        showAlert(
+          "warning",
+          "Please Select Suffix",
+          "Select 'None' if not applicable"
+        );
       } else if (response == "495") {
         showAlert("warning", "Please Select Role For Teacher");
       } else {
@@ -1090,13 +1273,17 @@ $("#addStudentForm").on("submit", function (e) {
 
   $.ajax({
     type: "POST",
-    url: "/backend/global.php",
+    url: "/SCES/backend/global.php",
     data: formData,
     processData: false,
     contentType: false,
     success: function (response) {
       if (response == "200") {
-        showReloadAlert("success", "Student Inserted To Masterlist", "Student can now register in the system by referencing their LRN");
+        showReloadAlert(
+          "success",
+          "Student Inserted To Masterlist",
+          "Student can now register in the system by referencing their LRN"
+        );
       } else if (response == "489") {
         showAlert("warning", "Student LRN Already Exists In The Masterlist");
       } else if (response == "490") {
@@ -1108,7 +1295,11 @@ $("#addStudentForm").on("submit", function (e) {
       } else if (response == "493") {
         showAlert("warning", "Middle Name For Student Cannot Be Empty");
       } else if (response == "494") {
-        showAlert("warning", "Please Select Suffix", "Select 'None' if not applicable");
+        showAlert(
+          "warning",
+          "Please Select Suffix",
+          "Select 'None' if not applicable"
+        );
       } else if (response == "495") {
         showAlert("warning", "Student Age Cannot Be Empty Or Zero");
       } else if (response == "496") {
@@ -1137,7 +1328,7 @@ $("#addQuiz").on("submit", function (e) {
 
   $.ajax({
     type: "POST",
-    url: "/backend/global.php",
+    url: "/SCES/backend/global.php",
     data: {
       submitType: "addQuiz",
       quizNumber: quizNumber,
@@ -1148,7 +1339,12 @@ $("#addQuiz").on("submit", function (e) {
     dataType: "json",
     success: function (response) {
       if (response.status == "200") {
-        showRedirectAlert("success", "Quiz Added Successfully", "", `?active=2&quiz_id=${response.quizId}`);
+        showRedirectAlert(
+          "success",
+          "Quiz Added Successfully",
+          "",
+          `?active=2&quiz_id=${response.quizId}`
+        );
       } else if (response.status == "482") {
         showAlert("warning", "Quiz Number Cannot Be Empty");
       } else if (response.status == "483") {
@@ -1177,7 +1373,7 @@ $("#addQuestion").on("submit", function (e) {
   var correctAnswer = $("#correctAnswer").val();
   $.ajax({
     type: "POST",
-    url: "/backend/global.php",
+    url: "/SCES/backend/global.php",
     data: {
       submitType: "addQuestion",
       quizId: quizId,
@@ -1194,15 +1390,31 @@ $("#addQuestion").on("submit", function (e) {
       } else if (response == "482") {
         showAlert("warning", "Please Enter A Valid Question For Quiz");
       } else if (response == "483") {
-        showAlert("warning", "Please Enter The First Answer Choice For Question");
+        showAlert(
+          "warning",
+          "Please Enter The First Answer Choice For Question"
+        );
       } else if (response == "484") {
-        showAlert("warning", "Please Enter The Second Answer Choice For Question");
+        showAlert(
+          "warning",
+          "Please Enter The Second Answer Choice For Question"
+        );
       } else if (response == "485") {
-        showAlert("warning", "Please Enter At Least 2 Answer Choice For Question");
+        showAlert(
+          "warning",
+          "Please Enter At Least 2 Answer Choice For Question"
+        );
       } else if (response == "486") {
-        showAlert("warning", "Please Select The Correct Answer Choice For Question");
+        showAlert(
+          "warning",
+          "Please Select The Correct Answer Choice For Question"
+        );
       } else if (response == "487") {
-        showAlert("warning", "Please Select Valid Correct Answer", "Correct Answer Cannot Be Null Please Check Your Input");
+        showAlert(
+          "warning",
+          "Please Select Valid Correct Answer",
+          "Correct Answer Cannot Be Null Please Check Your Input"
+        );
       } else {
         showAlert("error", "Question Upload Failed", "Please Try Again");
       }
@@ -1230,7 +1442,7 @@ $("#editQuestion").on("submit", function (e) {
   var correct_value = $("#correct_value").val();
   $.ajax({
     type: "POST",
-    url: "/backend/global.php",
+    url: "/SCES/backend/global.php",
     data: {
       submitType: "editQuestion",
       editQuestionId: editQuestionId,
@@ -1258,15 +1470,31 @@ $("#editQuestion").on("submit", function (e) {
       } else if (response == "482") {
         showAlert("warning", "Please Enter A Valid Question For Quiz");
       } else if (response == "483") {
-        showAlert("warning", "Please Enter The First Answer Choice For Question");
+        showAlert(
+          "warning",
+          "Please Enter The First Answer Choice For Question"
+        );
       } else if (response == "484") {
-        showAlert("warning", "Please Enter The Second Answer Choice For Question");
+        showAlert(
+          "warning",
+          "Please Enter The Second Answer Choice For Question"
+        );
       } else if (response == "485") {
-        showAlert("warning", "Please Enter At Least 2 Answer Choice For Question");
+        showAlert(
+          "warning",
+          "Please Enter At Least 2 Answer Choice For Question"
+        );
       } else if (response == "486") {
-        showAlert("warning", "Please Select The Correct Answer Choice For Question");
+        showAlert(
+          "warning",
+          "Please Select The Correct Answer Choice For Question"
+        );
       } else if (response == "487") {
-        showAlert("warning", "Please Select Valid Correct Answer", "Correct Answer Cannot Be Null Please Check Your Input");
+        showAlert(
+          "warning",
+          "Please Select Valid Correct Answer",
+          "Correct Answer Cannot Be Null Please Check Your Input"
+        );
       } else {
         showAlert("error", "Error Updating Question", "Please Try Again");
       }
@@ -1290,7 +1518,7 @@ $("#editQuiz").on("submit", function (e) {
 
   $.ajax({
     type: "POST",
-    url: "/backend/global.php",
+    url: "/SCES/backend/global.php",
     data: {
       submitType: "editQuiz",
       editQuizId: editQuizId,
@@ -1313,7 +1541,11 @@ $("#editQuiz").on("submit", function (e) {
       } else if (response == "483") {
         showAlert("warning", "Quiz Number Cannot Be Empty");
       } else if (response == "484") {
-        showAlert("warning", "Quiz Number Exists", "Please Enter A Different Quiz Number");
+        showAlert(
+          "warning",
+          "Quiz Number Exists",
+          "Please Enter A Different Quiz Number"
+        );
       } else if (response == "485") {
         showAlert("warning", "Please Select Subject Of Quiz");
       } else if (response == "486") {
@@ -1333,7 +1565,7 @@ $("#addSubjectForm").on("submit", function (e) {
 
   $.ajax({
     type: "POST",
-    url: "/backend/global.php",
+    url: "/SCES/backend/global.php",
     data: formData,
     processData: false,
     contentType: false,
@@ -1365,7 +1597,7 @@ $("#editSubjectForm").on("submit", function (e) {
 
   $.ajax({
     type: "POST",
-    url: "/backend/global.php",
+    url: "/SCES/backend/global.php",
     data: formData,
     processData: false,
     contentType: false,
@@ -1399,7 +1631,7 @@ $("#addSectionForm").on("submit", function (e) {
 
   $.ajax({
     type: "POST",
-    url: "/backend/global.php",
+    url: "/SCES/backend/global.php",
     data: formData,
     processData: false,
     contentType: false,
@@ -1429,7 +1661,7 @@ $("#editSectionForm").on("submit", function (e) {
 
   $.ajax({
     type: "POST",
-    url: "/backend/global.php",
+    url: "/SCES/backend/global.php",
     data: formData,
     processData: false,
     contentType: false,
@@ -1461,15 +1693,14 @@ $("#promoteStudentForm").on("submit", function (e) {
 
   $.ajax({
     type: "POST",
-    url: "/backend/global.php",
+    url: "/SCES/backend/global.php",
     data: formData,
     processData: false,
     contentType: false,
     success: function (response) {
       if (response == "200") {
-        
         $.getScript(
-          "/vendor/node_modules/sweetalert2/dist/sweetalert2.all.min.js",
+          "/SCES/vendor/node_modules/sweetalert2/dist/sweetalert2.all.min.js",
           function () {
             Swal.fire({
               icon: "success",
@@ -1491,9 +1722,17 @@ $("#promoteStudentForm").on("submit", function (e) {
       } else if (response == "483") {
         showAlert("warning", "Please Select New Section For Student");
       } else if (response == "484") {
-        showReloadAlert("error", "Updating Student Records Failed", "Please Try Again Later");
+        showReloadAlert(
+          "error",
+          "Updating Student Records Failed",
+          "Please Try Again Later"
+        );
       } else if (response == "485") {
-        showReloadAlert("error", "Updating Student Section Failed", "Please Try Again Later");
+        showReloadAlert(
+          "error",
+          "Updating Student Section Failed",
+          "Please Try Again Later"
+        );
       } else {
         showAlert("error", "Operation Failed", "Please Try Again Later");
       }
@@ -1509,14 +1748,14 @@ $("#retainStudentForm").on("submit", function (e) {
 
   $.ajax({
     type: "POST",
-    url: "/backend/global.php",
+    url: "/SCES/backend/global.php",
     data: formData,
     processData: false,
     contentType: false,
     success: function (response) {
       if (response == "200") {
         $.getScript(
-          "/vendor/node_modules/sweetalert2/dist/sweetalert2.all.min.js",
+          "/SCES/vendor/node_modules/sweetalert2/dist/sweetalert2.all.min.js",
           function () {
             Swal.fire({
               icon: "success",
@@ -1535,13 +1774,20 @@ $("#retainStudentForm").on("submit", function (e) {
             });
           }
         );
-      }
-      else if (response == "483") {
+      } else if (response == "483") {
         showAlert("warning", "Please Select New Section For Student");
       } else if (response == "484") {
-        showReloadAlert("error", "Updating Student Records Failed", "Please Try Again Later");
+        showReloadAlert(
+          "error",
+          "Updating Student Records Failed",
+          "Please Try Again Later"
+        );
       } else if (response == "485") {
-        showReloadAlert("error", "Updating Student Section Failed", "Please Try Again Later");
+        showReloadAlert(
+          "error",
+          "Updating Student Section Failed",
+          "Please Try Again Later"
+        );
       } else {
         showAlert("error", "Operation Failed", "Please Try Again Later");
       }
@@ -1554,7 +1800,7 @@ $("#studForgotPass").on("submit", function (e) {
   var email = $("#email").val();
   $.ajax({
     type: "POST",
-    url: "/backend/global.php",
+    url: "/SCES/backend/global.php",
     data: {
       submitType: "studentForgotPass",
       email: email,
@@ -1563,16 +1809,28 @@ $("#studForgotPass").on("submit", function (e) {
       if (response == "200") {
         $.ajax({
           type: "POST",
-          url: "/backend/student/send-password-link.php",
+          url: "/SCES/backend/student/send-password-link.php",
           success: function (sendEmailResponse) {
             if (sendEmailResponse === "200") {
-              showAlert("success", "Email Sent", "The password reset link has been sent to your email");
+              showAlert(
+                "success",
+                "Email Sent",
+                "The password reset link has been sent to your email"
+              );
             } else {
-              showAlert("error", "Failed to Send Email", "Please try again later");
+              showAlert(
+                "error",
+                "Failed to Send Email",
+                "Please try again later"
+              );
             }
           },
           error: function () {
-            showAlert("error", "Server Error", "Unable to complete your request. Please try again later.");
+            showAlert(
+              "error",
+              "Server Error",
+              "Unable to complete your request. Please try again later."
+            );
           },
         });
       } else if (response == "450") {
@@ -1580,9 +1838,17 @@ $("#studForgotPass").on("submit", function (e) {
       } else if (response == "451") {
         showAlert("warning", "Please Enter Valid Email");
       } else if (response == "452") {
-        showAlert("error", "Account Recovery Cannot Be Processed", "Registered email is unverified");
+        showAlert(
+          "error",
+          "Account Recovery Cannot Be Processed",
+          "Registered email is unverified"
+        );
       } else {
-        showAlert("error", "Account Not Found", "Please enter the email used in your registration");
+        showAlert(
+          "error",
+          "Account Not Found",
+          "Please enter the email used in your registration"
+        );
       }
     },
   });
@@ -1595,7 +1861,7 @@ $("#studChangePass").on("submit", function (e) {
   var confirmPassword = $("#confirmPassword").val();
   $.ajax({
     type: "POST",
-    url: "/backend/global.php",
+    url: "/SCES/backend/global.php",
     data: {
       submitType: "studentChangePass",
       email: email,
@@ -1604,7 +1870,12 @@ $("#studChangePass").on("submit", function (e) {
     },
     success: function (response) {
       if (response == "200") {
-        showRedirectAlert("success", "Password Changed", "Please login with your new password", "/frontend/student/login.php");
+        showRedirectAlert(
+          "success",
+          "Password Changed",
+          "Please login with your new password",
+          "/SCES/frontend/student/login.php"
+        );
       } else if (response == "450") {
         showAlert("warning", "Please Enter New Password");
       } else if (response == "451") {
@@ -1625,7 +1896,7 @@ $("#facultyForgotPass").on("submit", function (e) {
   var email = $("#email").val();
   $.ajax({
     type: "POST",
-    url: "/backend/global.php",
+    url: "/SCES/backend/global.php",
     data: {
       submitType: "facultyForgotPass",
       email: email,
@@ -1634,16 +1905,28 @@ $("#facultyForgotPass").on("submit", function (e) {
       if (response == "200") {
         $.ajax({
           type: "POST",
-          url: "/backend/faculty/send-password-link.php",
+          url: "/SCES/backend/faculty/send-password-link.php",
           success: function (sendEmailResponse) {
             if (sendEmailResponse === "200") {
-              showAlert("success", "Email Sent", "The password reset link has been sent to your email");
+              showAlert(
+                "success",
+                "Email Sent",
+                "The password reset link has been sent to your email"
+              );
             } else {
-              showAlert("error", "Failed to Send Email", "Please try again later");
+              showAlert(
+                "error",
+                "Failed to Send Email",
+                "Please try again later"
+              );
             }
           },
           error: function () {
-            showAlert("error", "Server Error", "Unable to complete your request. Please try again later.");
+            showAlert(
+              "error",
+              "Server Error",
+              "Unable to complete your request. Please try again later."
+            );
           },
         });
       } else if (response == "450") {
@@ -1651,9 +1934,17 @@ $("#facultyForgotPass").on("submit", function (e) {
       } else if (response == "451") {
         showAlert("warning", "Please Enter Valid Email");
       } else if (response == "452") {
-        showAlert("error", "Account Recovery Cannot Be Processed", "Registered email is unverified");
+        showAlert(
+          "error",
+          "Account Recovery Cannot Be Processed",
+          "Registered email is unverified"
+        );
       } else {
-        showAlert("error", "Account Not Found", "Please enter the email used in your registration");
+        showAlert(
+          "error",
+          "Account Not Found",
+          "Please enter the email used in your registration"
+        );
       }
     },
   });
@@ -1666,7 +1957,7 @@ $("#facultyChangePass").on("submit", function (e) {
   var confirmPassword = $("#confirmPassword").val();
   $.ajax({
     type: "POST",
-    url: "/backend/global.php",
+    url: "/SCES/backend/global.php",
     data: {
       submitType: "facultyChangePass",
       email: email,
@@ -1675,7 +1966,12 @@ $("#facultyChangePass").on("submit", function (e) {
     },
     success: function (response) {
       if (response == "200") {
-        showRedirectAlert("success", "Password Changed", "Please login with your new password", "/frontend/faculty/login.php");
+        showRedirectAlert(
+          "success",
+          "Password Changed",
+          "Please login with your new password",
+          "/SCES/frontend/faculty/login.php"
+        );
       } else if (response == "450") {
         showAlert("warning", "Please Enter New Password");
       } else if (response == "451") {
@@ -1696,7 +1992,7 @@ $("#adminForgotPass").on("submit", function (e) {
   var email = $("#email").val();
   $.ajax({
     type: "POST",
-    url: "/backend/global.php",
+    url: "/SCES/backend/global.php",
     data: {
       submitType: "adminForgotPass",
       email: email,
@@ -1705,16 +2001,28 @@ $("#adminForgotPass").on("submit", function (e) {
       if (response == "200") {
         $.ajax({
           type: "POST",
-          url: "/backend/admin/send-password-link.php",
+          url: "/SCES/backend/admin/send-password-link.php",
           success: function (sendEmailResponse) {
             if (sendEmailResponse === "200") {
-              showAlert("success", "Email Sent", "The password reset link has been sent to your email");
+              showAlert(
+                "success",
+                "Email Sent",
+                "The password reset link has been sent to your email"
+              );
             } else {
-              showAlert("error", "Failed to Send Email", "Please try again later");
+              showAlert(
+                "error",
+                "Failed to Send Email",
+                "Please try again later"
+              );
             }
           },
           error: function () {
-            showAlert("error", "Server Error", "Unable to complete your request. Please try again later.");
+            showAlert(
+              "error",
+              "Server Error",
+              "Unable to complete your request. Please try again later."
+            );
           },
         });
       } else if (response == "450") {
@@ -1722,9 +2030,17 @@ $("#adminForgotPass").on("submit", function (e) {
       } else if (response == "451") {
         showAlert("warning", "Please Enter Valid Email");
       } else if (response == "452") {
-        showAlert("error", "Account Recovery Cannot Be Processed", "Registered email is unverified");
+        showAlert(
+          "error",
+          "Account Recovery Cannot Be Processed",
+          "Registered email is unverified"
+        );
       } else {
-        showAlert("error", "Account Not Found", "Please enter the email used in your registration");
+        showAlert(
+          "error",
+          "Account Not Found",
+          "Please enter the email used in your registration"
+        );
       }
     },
   });
@@ -1737,7 +2053,7 @@ $("#adminChangePass").on("submit", function (e) {
   var confirmPassword = $("#confirmPassword").val();
   $.ajax({
     type: "POST",
-    url: "/backend/global.php",
+    url: "/SCES/backend/global.php",
     data: {
       submitType: "adminChangePass",
       email: email,
@@ -1746,7 +2062,12 @@ $("#adminChangePass").on("submit", function (e) {
     },
     success: function (response) {
       if (response == "200") {
-        showRedirectAlert("success", "Password Changed", "Please login with your new password", "/frontend/admin/login.php");
+        showRedirectAlert(
+          "success",
+          "Password Changed",
+          "Please login with your new password",
+          "/SCES/frontend/admin/login.php"
+        );
       } else if (response == "450") {
         showAlert("warning", "Please Enter New Password");
       } else if (response == "451") {
@@ -1762,7 +2083,6 @@ $("#adminChangePass").on("submit", function (e) {
   });
 });
 
-
 function logoutFunc() {
   Swal.fire({
     icon: "question",
@@ -1775,7 +2095,7 @@ function logoutFunc() {
     cancelButtonText: "No",
   }).then((result) => {
     if (result.isConfirmed) {
-      window.location.href = "/backend/student/student-logout.php";
+      window.location.href = "/SCES/backend/student/student-logout.php";
     }
   });
 }
@@ -1792,7 +2112,7 @@ function adminLogoutFunc() {
     cancelButtonText: "No",
   }).then((result) => {
     if (result.isConfirmed) {
-      window.location.href = "/backend/admin/admin-logout.php";
+      window.location.href = "/SCES/backend/admin/admin-logout.php";
     }
   });
 }
@@ -1809,25 +2129,28 @@ function facultyLogoutFunc() {
     cancelButtonText: "No",
   }).then((result) => {
     if (result.isConfirmed) {
-      window.location.href = "/backend/faculty/faculty-logout.php";
+      window.location.href = "/SCES/backend/faculty/faculty-logout.php";
     }
   });
 }
 
-function showAlert(icon, title, text=""){
-  $.getScript("/vendor/node_modules/sweetalert2/dist/sweetalert2.all.min.js", function () {
-    Swal.fire({
-      icon: icon,
-      title: title,
-      text: text,
-      confirmButtonColor: "#4CAF50",
-    });
-  });
+function showAlert(icon, title, text = "") {
+  $.getScript(
+    "/SCES/vendor/node_modules/sweetalert2/dist/sweetalert2.all.min.js",
+    function () {
+      Swal.fire({
+        icon: icon,
+        title: title,
+        text: text,
+        confirmButtonColor: "#4CAF50",
+      });
+    }
+  );
 }
 
 function showRedirectAlert(icon, title, text = "", redirectUrl = null) {
   $.getScript(
-    "/vendor/node_modules/sweetalert2/dist/sweetalert2.all.min.js",
+    "/SCES/vendor/node_modules/sweetalert2/dist/sweetalert2.all.min.js",
     function () {
       Swal.fire({
         icon: icon,
@@ -1846,7 +2169,7 @@ function showRedirectAlert(icon, title, text = "", redirectUrl = null) {
 
 function showReloadAlert(icon, title, text = "") {
   $.getScript(
-    "/vendor/node_modules/sweetalert2/dist/sweetalert2.all.min.js",
+    "/SCES/vendor/node_modules/sweetalert2/dist/sweetalert2.all.min.js",
     function () {
       Swal.fire({
         icon: icon,

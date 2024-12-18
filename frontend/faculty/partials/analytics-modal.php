@@ -6,7 +6,7 @@
                 <span class="close-btn" id="closeStudentModal">&times;</span>
             </div>
             <div class="head-row">
-                <img src="/storage/student/images/default-profile.png" alt="default-profile.png" id="profileImage">
+                <img src="/SCES/storage/student/images/default-profile.png" alt="default-profile.png" id="profileImage">
                 <div class="head-col">
                     <span id="fullName"></span>
                     <span id="studId"></span>
@@ -22,7 +22,7 @@
         <div class="tab-container" id="profileContainer">
             <div class="tab-panel">
                 <div class="title-box">
-                    <img src="/assets/images/personal-info.png" alt="personal-info.png">
+                    <img src="/SCES/assets/images/personal-info.png" alt="personal-info.png">
                     <h1>Personal Information</h1>
                 </div>
                 <div class="tab-row">
@@ -58,7 +58,7 @@
             </div>
             <div class="tab-panel">
                 <div class="title-box">
-                    <img src="/assets/images/school-info.png" alt="school-info.png">
+                    <img src="/SCES/assets/images/school-info.png" alt="school-info.png">
                     <h1>School Information</h1>
                 </div>
                 <div class="tab-row">
@@ -90,7 +90,7 @@
             </div>
             <div class="tab-panel">
                 <div class="title-box">
-                    <img src="/assets/images/background-info.png" alt="background-info.png">
+                    <img src="/SCES/assets/images/background-info.png" alt="background-info.png">
                     <h1>Background Information</h1>
                 </div>
                 <div class="tab-row">
@@ -123,7 +123,7 @@
         </div>
         <div class="tab-container" id="recordsContainer">
             <div class="title-box">
-                <img src="/assets/images/profile-scores.png" alt="profile-scores.png">
+                <img src="/SCES/assets/images/profile-scores.png" alt="profile-scores.png">
                 <h1>Quiz Scores</h1>
             </div>
             <div class="table-responsive">
@@ -142,7 +142,7 @@
                 </table>
             </div>
             <div class="title-box">
-                <img src="/assets/images/profile-grades.png" alt="profile-grades.png">
+                <img src="/SCES/assets/images/profile-grades.png" alt="profile-grades.png">
                 <h1>Grades</h1>
             </div>
             <div class="table-responsive">
@@ -160,33 +160,33 @@
         </div>
         <div class="tab-container" id="analyticsContainer">
             <div class="title-box">
-                <img src="/assets/images/profile-analytics.png" alt="profile-analytics.png">
+                <img src="/SCES/assets/images/profile-analytics.png" alt="profile-analytics.png">
                 <h1>Analytics</h1>
             </div>
             <div class="stats-panel">
                 <div class="panel-box completed">
-                    <img src="/assets/images/quiz-passed.png" alt="quiz-passed.png">
+                    <img src="/SCES/assets/images/quiz-passed.png" alt="quiz-passed.png">
                     <div class="panel-col">
                         <p>Quiz Completed</p>
                         <span id="studentCompletion"></span>
                     </div>
                 </div>
                 <div class="panel-box pending">
-                    <img src="/assets/images/hourglass.png" alt="hourglass.png">
+                    <img src="/SCES/assets/images/hourglass.png" alt="hourglass.png">
                     <div class="panel-col">
                         <p>Pending Quiz</p>
                         <span id="studentQuizzes"></span>
                     </div>
                 </div>
                 <div class="panel-box quiz-score">
-                    <img src="/assets/images/gpa.png" alt="gpa.png">
+                    <img src="/SCES/assets/images/gpa.png" alt="gpa.png">
                     <div class="panel-col">
                         <p>Average Score</p>
                         <span id="studentAverageScore"></span>
                     </div>
                 </div>
                 <div class="panel-box average">
-                    <img src="/assets/images/profile-gwa.png" alt="profile-gwa.png">
+                    <img src="/SCES/assets/images/profile-gwa.png" alt="profile-gwa.png">
                     <div class="panel-col">
                         <p>General Average</p>
                         <span id="studentGeneralAverage"></span>
@@ -195,14 +195,15 @@
             </div>
             <div class="modal-stats-container">
                 <div class="modal-stats-box completed">
-                    <img id="studentPredictedPerformanceIcon" src="/assets/images/passed.png" alt="performance.png">
+                    <img id="studentPredictedPerformanceIcon" src="/SCES/assets/images/passed.png"
+                        alt="performance.png">
                     <div class="stats-col">
                         <span>Predicted Performance</span>
                         <p id="studentPredictedPerformance"></p>
                     </div>
                 </div>
                 <div class="modal-stats-box pending">
-                    <img src="/assets/images/success-rate.png" alt="success-rate.png">
+                    <img src="/SCES/assets/images/success-rate.png" alt="success-rate.png">
                     <div class="stats-col">
                         <span>Predicted Success Rate</span>
                         <p id="studentPredictedSuccess"></p>
@@ -210,15 +211,15 @@
                 </div>
             </div>
             <div class="stats-container">
-            <div class="modal-stats-box average">
-                    <img src="/assets/images/gwa.png" alt="gwa.png">
+                <div class="modal-stats-box average">
+                    <img src="/SCES/assets/images/gwa.png" alt="gwa.png">
                     <div class="stats-col">
                         <span>Predicted GWA</span>
                         <p id="studentPredictedGWA"></p>
                     </div>
                 </div>
                 <div class="modal-stats-box quiz-score">
-                    <img id="studentPredictedRemarksIcon" src="/assets/images/outstanding.png" alt="remarks.png">
+                    <img id="studentPredictedRemarksIcon" src="/SCES/assets/images/outstanding.png" alt="remarks.png">
                     <div class="stats-col">
                         <span>Predicted Remarks</span>
                         <p id="studentPredictedRemarks"></p>
@@ -234,7 +235,7 @@
             </fieldset>
             <div class="filter-container">
                 <div class="title-box">
-                    <img src="/assets/images/quiz-rate.png" alt="quiz-rate.png">
+                    <img src="/SCES/assets/images/quiz-rate.png" alt="quiz-rate.png">
                     <h1>Subject Analytics</h1>
                 </div>
                 <div class="filter-part">

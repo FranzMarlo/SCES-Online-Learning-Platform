@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
   document
-  .getElementById("yearFilterDropdown")
-  .addEventListener("change", filterSubjects);
+    .getElementById("yearFilterDropdown")
+    .addEventListener("change", filterSubjects);
   const subjectTab = document.getElementById("subjectTab");
   const archivedTab = document.getElementById("archivedTab");
   const subjectContainer = document.getElementById("subjectContainer");
@@ -106,7 +106,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function fetchOptions(levelId, targetElementId, submitType, value) {
     const xhr = new XMLHttpRequest();
-    xhr.open("POST", "/backend/fetch-class.php", true);
+    xhr.open("POST", "/SCES/backend/fetch-class.php", true);
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
     xhr.onreadystatechange = function () {
@@ -199,7 +199,7 @@ document.addEventListener("DOMContentLoaded", function () {
         document.body.style.overflow = "hidden";
 
         // Fetch the subject details
-        fetch("/backend/fetch-class.php", {
+        fetch("/SCES/backend/fetch-class.php", {
           method: "POST",
           headers: {
             "Content-Type": "application/x-www-form-urlencoded",
@@ -275,7 +275,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
   function archiveSubject(subjectId) {
-    fetch("/backend/global.php", {
+    fetch("/SCES/backend/global.php", {
       method: "POST",
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
@@ -327,7 +327,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const yearValue = selectFilter.value;
 
     // Fetch updated subjects
-    fetch("/backend/global.php", {
+    fetch("/SCES/backend/global.php", {
       method: "POST",
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
@@ -344,7 +344,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (searchTerm.trim() !== "") {
           filterSubjects();
         }
-        if (yearValue !== 'All'){
+        if (yearValue !== "All") {
           filterSubjects();
         }
         updateSubjectNoDataBox();
@@ -354,7 +354,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function toggleArchivedSubject(subjectId) {
-    fetch("/backend/global.php", {
+    fetch("/SCES/backend/global.php", {
       method: "POST",
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
@@ -407,7 +407,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const yearValue = selectFilter.value;
 
     // Fetch updated subjects
-    fetch("/backend/global.php", {
+    fetch("/SCES/backend/global.php", {
       method: "POST",
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
@@ -424,7 +424,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (searchTerm.trim() !== "") {
           filterSubjects();
         }
-        if (yearValue !== 'All'){
+        if (yearValue !== "All") {
           filterSubjects();
         }
         updateSubjectNoDataBox();

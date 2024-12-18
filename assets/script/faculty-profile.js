@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", function () {
   showContainer(activeTab);
 
   $.ajax({
-    url: "/backend/fetch-class.php",
+    url: "/SCES/backend/fetch-class.php",
     type: "POST",
     dataType: "json",
     data: {
@@ -67,7 +67,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 backgroundColor: "#ade0fb",
                 borderColor: "#59ADF6",
                 borderWidth: 3,
-                tension: 0.4, 
+                tension: 0.4,
                 fill: true,
               },
             ],
@@ -110,7 +110,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   $.ajax({
-    url: "/backend/fetch-class.php",
+    url: "/SCES/backend/fetch-class.php",
     type: "POST",
     dataType: "json",
     data: {
@@ -187,7 +187,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   $.ajax({
-    url: "/backend/fetch-class.php",
+    url: "/SCES/backend/fetch-class.php",
     type: "POST",
     data: {
       submitType: "facultyQuizCompletion",
@@ -204,11 +204,7 @@ document.addEventListener("DOMContentLoaded", function () {
       console.error("Error fetching data: " + error);
     },
   });
-  function initializeQuizPieChart(
-    totalCompleted,
-    totalInactive,
-    totalActive
-  ) {
+  function initializeQuizPieChart(totalCompleted, totalInactive, totalActive) {
     var ctxPie = document.getElementById("pieChart").getContext("2d");
 
     // Destroy existing chart if it exists

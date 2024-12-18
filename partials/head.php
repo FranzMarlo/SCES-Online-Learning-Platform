@@ -1,6 +1,6 @@
 <?php
 session_start();
-include $_SERVER['DOCUMENT_ROOT'] . '/backend/global.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/SCES/backend/global.php';
 
 
 if (isset($_SESSION['admin_id'])) {
@@ -20,5 +20,6 @@ if (isset($_SESSION['admin_id'])) {
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/assets/style/style.css" />
-    <link rel="icon" href="/assets/images/favicon.ico" />
+    <link rel="stylesheet" href="/SCES/assets/style/style.css" />
+    <link rel="stylesheet" href="/SCES/assets/font-awesome/css/all.css">
+    <link rel="icon" href="/SCES/assets/images/favicon.ico" />

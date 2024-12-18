@@ -11,7 +11,7 @@ require $_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php';
 $dotenv = Dotenv::createImmutable($_SERVER['DOCUMENT_ROOT'] . '');
 $dotenv->load();
 
-include $_SERVER['DOCUMENT_ROOT'] . '/backend/db_class.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/SCES/backend/db_class.php';
 $db = new globalClass();
 
 if (isset($_SESSION['email']) && isset($_SESSION['student_fname'])) {

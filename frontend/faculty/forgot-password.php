@@ -1,5 +1,5 @@
 <?php
-include $_SERVER['DOCUMENT_ROOT'] . '/frontend/faculty/partials/head.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/SCES/frontend/faculty/partials/head.php';
 ?>
 <title>Forgot Password | SCES Online Learning Platform</title>
 </head>
@@ -13,13 +13,13 @@ include $_SERVER['DOCUMENT_ROOT'] . '/frontend/faculty/partials/head.php';
                     <h1>Let's Recover Your Account</h1>
                 </div>
                 <div class="wrapper">
-                    <img src="/assets/images/admin-login.png" alt="sign up icon" class="img-500px" />
+                    <img src="/SCES/assets/images/admin-login.png" alt="sign up icon" class="img-500px" />
                 </div>
             </div>
             <div class="column right">
                 <div class="form-wrapper">
                     <form id="facultyForgotPass">
-                        <img src="/assets/images/logo.png" alt="sces logo" class="logo-img" />
+                        <img src="/SCES/assets/images/logo.png" alt="sces logo" class="logo-img" />
                         <h1>Recover Account</h1>
                         <div class="input-icons-recover">
                             <span>Please enter your registered email. After verification, a password reset link will be
@@ -46,5 +46,5 @@ include $_SERVER['DOCUMENT_ROOT'] . '/frontend/faculty/partials/head.php';
         </div>
     </div>
     <?php
-    include $_SERVER['DOCUMENT_ROOT'] . '/frontend/faculty/partials/footer.php';
+    include $_SERVER['DOCUMENT_ROOT'] . '/SCES/frontend/faculty/partials/footer.php';
     ?>

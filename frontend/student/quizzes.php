@@ -1,30 +1,30 @@
 <?php
-include $_SERVER['DOCUMENT_ROOT'] . '/frontend/student/partials/student-head.php';
-include $_SERVER['DOCUMENT_ROOT'] . '/frontend/student/partials/helper.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/SCES/frontend/student/partials/student-head.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/SCES/frontend/student/partials/helper.php';
 ?>
-<link rel="stylesheet" href="/assets/style/quizzes.css" />
-<script src="/assets/script/student-quiz.js"></script>
+<link rel="stylesheet" href="/SCES/assets/style/quizzes.css" />
+<script src="/SCES/assets/script/student-quiz.js"></script>
 <title>Filipino | SCES Online Learning Platform</title>
 </head>
 
 <body>
   <?php
-  include $_SERVER['DOCUMENT_ROOT'] . '/frontend/student/partials/student-popup.php';
+  include $_SERVER['DOCUMENT_ROOT'] . '/SCES/frontend/student/partials/student-popup.php';
   ?>
   <div class="container">
     <?php
-    include $_SERVER['DOCUMENT_ROOT'] . '/frontend/student/partials/student-sidebar.php';
+    include $_SERVER['DOCUMENT_ROOT'] . '/SCES/frontend/student/partials/student-sidebar.php';
     ?>
     <div class="content">
       <?php
-      include $_SERVER['DOCUMENT_ROOT'] . '/frontend/student/partials/student-header.php';
+      include $_SERVER['DOCUMENT_ROOT'] . '/SCES/frontend/student/partials/student-header.php';
       ?>
       <div class="quiz-panel">
         <?php $activeQuizzes = $db->studentGetQuizzes($sectionId, $studentId, 'Active'); ?>
         <?php $pastQuizzes = $db->studentGetQuizzes($sectionId, $studentId, 'Completed'); ?>
         <div class="title-box">
           <div class="text-box">
-            <img src="/assets/images/graduation-cap.png" alt="graduation-cap.png">
+            <img src="/SCES/assets/images/graduation-cap.png" alt="graduation-cap.png">
             <h1>Academic Quizzes</h1>
           </div>
           <div class="quiz-dropdown" id="activeDropdown">
@@ -33,7 +33,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/frontend/student/partials/helper.php';
             </div>
             <div class="quiz-dropdown-content">
               <div class="quiz-dropdown-title">
-                <img src="/assets/images/pending-quiz.png" alt="pending-quiz.png">
+                <img src="/SCES/assets/images/pending-quiz.png" alt="pending-quiz.png">
                 <h1>Quizzes</h1>
               </div>
               <?php if ($activeQuizzes): ?>
@@ -46,7 +46,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/frontend/student/partials/helper.php';
                 <?php endforeach; ?>
               <?php else: ?>
                 <div class="no-data-item">
-                  <img src="/assets/images/no-data-icon.png" alt="no-data-icon.png">
+                  <img src="/SCES/assets/images/no-data-icon.png" alt="no-data-icon.png">
                   <h1>No Quiz Added.</h1>
                   <h1>Add A Quiz By Clicking The Button Above.</h1>
                 </div>
@@ -59,7 +59,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/frontend/student/partials/helper.php';
             </div>
             <div class="quiz-dropdown-content">
               <div class="quiz-dropdown-title">
-                <img src="/assets/images/quiz-past.png" alt="quiz-past.png">
+                <img src="/SCES/assets/images/quiz-past.png" alt="quiz-past.png">
                 <h1>Past Quizzes</h1>
               </div>
               <?php if ($pastQuizzes): ?>
@@ -72,7 +72,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/frontend/student/partials/helper.php';
                 <?php endforeach; ?>
               <?php else: ?>
                 <div class="no-data-item">
-                  <img src="/assets/images/no-data-icon.png" alt="no-data-icon.png">
+                  <img src="/SCES/assets/images/no-data-icon.png" alt="no-data-icon.png">
                   <h1>No Quiz Added.</h1>
                   <h1>Add A Quiz By Clicking The Button Above.</h1>
                 </div>
@@ -88,7 +88,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/frontend/student/partials/helper.php';
           <div class="sub-container" id="activeQuizContainer">
             <div class="pending-container">
               <div class="pending-title">
-                <img src="/assets/images/pending-quiz.png" alt="pending-quiz.png">
+                <img src="/SCES/assets/images/pending-quiz.png" alt="pending-quiz.png">
                 <h1>Pending Quizzes</h1>
               </div>
               <?php if ($activeQuizzes): ?>
@@ -101,7 +101,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/frontend/student/partials/helper.php';
                 <?php endforeach; ?>
               <?php else: ?>
                 <div class="no-data-item">
-                  <img src="/assets/images/no-data-icon.png" alt="no-data-icon.png">
+                  <img src="/SCES/assets/images/no-data-icon.png" alt="no-data-icon.png">
                   <h1>No pending quiz found</h1>
                   <h1>Quiz hasn't been published yet</h1>
                 </div>
@@ -115,12 +115,12 @@ include $_SERVER['DOCUMENT_ROOT'] . '/frontend/student/partials/helper.php';
                     style="display: <?php echo ($index === 0) ? 'block' : 'none'; ?>;">
                     <div class="header-bg <?php echo strtolower($quiz['subject_code']); ?>">
                       <div class="icon-container">
-                        <img src="/assets/images/<?php echo htmlspecialchars($quiz['icon']); ?>"
+                        <img src="/SCES/assets/images/<?php echo htmlspecialchars($quiz['icon']); ?>"
                           alt="<?php echo htmlspecialchars($quiz['icon']); ?>">
                       </div>
                     </div>
                     <div class="header-text">
-                      <img src="/assets/images/quiz-1.png" alt="quiz-1.png">
+                      <img src="/SCES/assets/images/quiz-1.png" alt="quiz-1.png">
                       <h1>Quiz
                         <?php echo htmlspecialchars($quiz['quiz_number']) . ' - ' . htmlspecialchars($quiz['title']); ?>
                       </h1>
@@ -128,7 +128,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/frontend/student/partials/helper.php';
                   </div>
                   <div class="notice-box" id="notice-quiz-<?php echo htmlspecialchars($quiz['quiz_id']); ?>"
                     style="display: <?php echo ($index === 0) ? 'flex' : 'none'; ?>;">
-                    <img src="/assets/images/quiz-notice.png" alt="quiz-notice.png">
+                    <img src="/SCES/assets/images/quiz-notice.png" alt="quiz-notice.png">
                     <span><?php echo htmlspecialchars(getQuizAttemptNotice($quiz['attempts'])); ?></span>
                   </div>
 
@@ -137,21 +137,21 @@ include $_SERVER['DOCUMENT_ROOT'] . '/frontend/student/partials/helper.php';
                     style="display: <?php echo ($index === 0) ? 'flex' : 'none'; ?>;">
                     <div class="info-part">
                       <div class="info-data">
-                        <img src="/assets/images/quiz-subject.png" alt="quiz-subject.png">
+                        <img src="/SCES/assets/images/quiz-subject.png" alt="quiz-subject.png">
                         <div class="quiz-info">
                           <h1>Subject</h1>
                           <span><?php echo htmlspecialchars($quiz['subject_title']); ?></span>
                         </div>
                       </div>
                       <div class="info-data">
-                        <img src="/assets/images/quiz-lesson.png" alt="quiz-lesson.png">
+                        <img src="/SCES/assets/images/quiz-lesson.png" alt="quiz-lesson.png">
                         <div class="quiz-info">
                           <h1>Lesson</h1>
                           <span><?php echo htmlspecialchars($quiz['lesson_title']); ?></span>
                         </div>
                       </div>
                       <div class="info-data">
-                        <img src="/assets/images/quiz-grade-section.png" alt="quiz-grade-section.png">
+                        <img src="/SCES/assets/images/quiz-grade-section.png" alt="quiz-grade-section.png">
                         <div class="quiz-info">
                           <h1>Grade & Section</h1>
                           <span><?php echo htmlspecialchars($quiz['grade_level']) . ' - ' . htmlspecialchars($quiz['section']); ?></span>
@@ -159,7 +159,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/frontend/student/partials/helper.php';
                       </div>
                       <div class="info-data">
                         <img
-                          src="/assets/images/<?php echo ($quiz['gender'] == 'Female') ? 'quiz-female-teacher.png' : 'quiz-male-teacher.png'; ?>"
+                          src="/SCES/assets/images/<?php echo ($quiz['gender'] == 'Female') ? 'quiz-female-teacher.png' : 'quiz-male-teacher.png'; ?>"
                           alt="quiz-teacher.png">
                         <div class="quiz-info">
                           <h1>Teacher</h1>
@@ -169,7 +169,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/frontend/student/partials/helper.php';
                     </div>
                     <div class="info-part">
                       <div class="info-data">
-                        <img src="/assets/images/quiz-question.png" alt="quiz-question.png">
+                        <img src="/SCES/assets/images/quiz-question.png" alt="quiz-question.png">
                         <div class="quiz-info">
                           <h1>Number of Items</h1>
                           <span><?php echo htmlspecialchars($quiz['item_number']); ?></span>
@@ -178,14 +178,14 @@ include $_SERVER['DOCUMENT_ROOT'] . '/frontend/student/partials/helper.php';
                       <?php
                       $formattedDate = formatDueDate($quiz['due_date']); ?>
                       <div class="info-data">
-                        <img src="/assets/images/quiz-due-date.png" alt="quiz-due-date.png">
+                        <img src="/SCES/assets/images/quiz-due-date.png" alt="quiz-due-date.png">
                         <div class="quiz-info">
                           <h1>Due Date</h1>
                           <span><?php echo htmlspecialchars($formattedDate); ?></span>
                         </div>
                       </div>
                       <div class="info-data">
-                        <img src="/assets/images/quiz-score.png" alt="quiz-score.png">
+                        <img src="/SCES/assets/images/quiz-score.png" alt="quiz-score.png">
                         <div class="quiz-info">
                           <h1>Score</h1>
                           <span><?php echo formatQuizScore($quiz['score'], $quiz['item_number']); ?></span>
@@ -210,7 +210,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/frontend/student/partials/helper.php';
                 <?php endforeach; ?>
               <?php else: ?>
                 <div class="no-quiz-header">
-                  <img src="/assets/images/info-icon.png" alt="info-icon.png">
+                  <img src="/SCES/assets/images/info-icon.png" alt="info-icon.png">
                   <h1>Uploaded quiz info will be displayed here</h1>
                 </div>
               <?php endif; ?>
@@ -220,7 +220,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/frontend/student/partials/helper.php';
           <div class="sub-container" id="pastQuizContainer">
             <div class="pending-container">
               <div class="pending-title">
-                <img src="/assets/images/quiz-past.png" alt="quiz-past.png">
+                <img src="/SCES/assets/images/quiz-past.png" alt="quiz-past.png">
                 <h1>Quizzes</h1>
               </div>
               <?php if ($pastQuizzes): ?>
@@ -233,7 +233,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/frontend/student/partials/helper.php';
                 <?php endforeach; ?>
               <?php else: ?>
                 <div class="no-data-item">
-                  <img src="/assets/images/no-data-icon.png" alt="no-data-icon.png">
+                  <img src="/SCES/assets/images/no-data-icon.png" alt="no-data-icon.png">
                   <h1>No Quizzes found in history</h1>
                 </div>
               <?php endif; ?>
@@ -246,12 +246,12 @@ include $_SERVER['DOCUMENT_ROOT'] . '/frontend/student/partials/helper.php';
                     style="display: <?php echo ($index === 0) ? 'block' : 'none'; ?>;">
                     <div class="header-bg <?php echo strtolower($quiz['subject_code']); ?>">
                       <div class="icon-container">
-                        <img src="/assets/images/<?php echo htmlspecialchars($quiz['icon']); ?>"
+                        <img src="/SCES/assets/images/<?php echo htmlspecialchars($quiz['icon']); ?>"
                           alt="<?php echo htmlspecialchars($quiz['icon']); ?>">
                       </div>
                     </div>
                     <div class="header-text">
-                      <img src="/assets/images/quiz-1.png" alt="quiz-1.png">
+                      <img src="/SCES/assets/images/quiz-1.png" alt="quiz-1.png">
                       <h1>Quiz
                         <?php echo htmlspecialchars($quiz['quiz_number']) . ' - ' . htmlspecialchars($quiz['title']); ?>
                       </h1>
@@ -259,7 +259,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/frontend/student/partials/helper.php';
                   </div>
                   <div class="notice-box" id="notice-quiz-<?php echo htmlspecialchars($quiz['quiz_id']); ?>"
                     style="display: <?php echo ($index === 0) ? 'flex' : 'none'; ?>;">
-                    <img src="/assets/images/quiz-notice.png" alt="quiz-notice.png">
+                    <img src="/SCES/assets/images/quiz-notice.png" alt="quiz-notice.png">
                     <span><?php echo htmlspecialchars(getQuizAttemptCount($quiz['attempts'])); ?></span>
                   </div>
 
@@ -268,21 +268,21 @@ include $_SERVER['DOCUMENT_ROOT'] . '/frontend/student/partials/helper.php';
                     style="display: <?php echo ($index === 0) ? 'flex' : 'none'; ?>;">
                     <div class="info-part">
                       <div class="info-data">
-                        <img src="/assets/images/quiz-subject.png" alt="quiz-subject.png">
+                        <img src="/SCES/assets/images/quiz-subject.png" alt="quiz-subject.png">
                         <div class="quiz-info">
                           <h1>Subject</h1>
                           <span><?php echo htmlspecialchars($quiz['subject_title']); ?></span>
                         </div>
                       </div>
                       <div class="info-data">
-                        <img src="/assets/images/quiz-lesson.png" alt="quiz-lesson.png">
+                        <img src="/SCES/assets/images/quiz-lesson.png" alt="quiz-lesson.png">
                         <div class="quiz-info">
                           <h1>Lesson</h1>
                           <span><?php echo htmlspecialchars($quiz['lesson_title']); ?></span>
                         </div>
                       </div>
                       <div class="info-data">
-                        <img src="/assets/images/quiz-grade-section.png" alt="quiz-grade-section.png">
+                        <img src="/SCES/assets/images/quiz-grade-section.png" alt="quiz-grade-section.png">
                         <div class="quiz-info">
                           <h1>Grade & Section</h1>
                           <span><?php echo htmlspecialchars($quiz['grade_level']) . ' - ' . htmlspecialchars($quiz['section']); ?></span>
@@ -290,7 +290,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/frontend/student/partials/helper.php';
                       </div>
                       <div class="info-data">
                         <img
-                          src="/assets/images/<?php echo ($quiz['gender'] == 'Female') ? 'quiz-female-teacher.png' : 'quiz-male-teacher.png'; ?>"
+                          src="/SCES/assets/images/<?php echo ($quiz['gender'] == 'Female') ? 'quiz-female-teacher.png' : 'quiz-male-teacher.png'; ?>"
                           alt="quiz-teacher.png">
                         <div class="quiz-info">
                           <h1>Teacher</h1>
@@ -300,7 +300,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/frontend/student/partials/helper.php';
                     </div>
                     <div class="info-part">
                       <div class="info-data">
-                        <img src="/assets/images/quiz-question.png" alt="quiz-question.png">
+                        <img src="/SCES/assets/images/quiz-question.png" alt="quiz-question.png">
                         <div class="quiz-info">
                           <h1>Number of Items</h1>
                           <span><?php echo htmlspecialchars($quiz['item_number']); ?></span>
@@ -309,14 +309,14 @@ include $_SERVER['DOCUMENT_ROOT'] . '/frontend/student/partials/helper.php';
                       <?php
                       $formattedDate = formatCompletionDate($quiz['due_date']); ?>
                       <div class="info-data">
-                        <img src="/assets/images/quiz-due-date.png" alt="quiz-due-date.png">
+                        <img src="/SCES/assets/images/quiz-due-date.png" alt="quiz-due-date.png">
                         <div class="quiz-info">
                           <h1>Completed</h1>
                           <span><?php echo htmlspecialchars($formattedDate); ?></span>
                         </div>
                       </div>
                       <div class="info-data">
-                        <img src="/assets/images/quiz-score.png" alt="quiz-score.png">
+                        <img src="/SCES/assets/images/quiz-score.png" alt="quiz-score.png">
                         <div class="quiz-info">
                           <h1>Score</h1>
                           <span><?php echo formatQuizScore($quiz['score'], $quiz['item_number']); ?></span>
@@ -340,7 +340,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/frontend/student/partials/helper.php';
                 <?php endforeach; ?>
               <?php else: ?>
                 <div class="no-quiz-header">
-                  <img src="/assets/images/info-icon.png" alt="info-icon.png">
+                  <img src="/SCES/assets/images/info-icon.png" alt="info-icon.png">
                   <h1>Past quiz info will be displayed here</h1>
                 </div>
               <?php endif; ?>
@@ -353,6 +353,6 @@ include $_SERVER['DOCUMENT_ROOT'] . '/frontend/student/partials/helper.php';
   </div>
 
   <?php
-  include $_SERVER['DOCUMENT_ROOT'] . '/frontend/student/partials/take-quiz.php';
-  include $_SERVER['DOCUMENT_ROOT'] . '/frontend/student/partials/student-footer.php';
+  include $_SERVER['DOCUMENT_ROOT'] . '/SCES/frontend/student/partials/take-quiz.php';
+  include $_SERVER['DOCUMENT_ROOT'] . '/SCES/frontend/student/partials/student-footer.php';
   ?>

@@ -77,7 +77,7 @@ function initializeDonutChart(data) {
 }
 
 $.ajax({
-  url: "/backend/fetch-class.php",
+  url: "/SCES/backend/fetch-class.php",
   type: "POST",
   dataType: "json",
   data: {
@@ -140,7 +140,7 @@ function initializeBarChart(labels, counts) {
 }
 
 $.ajax({
-  url: "/backend/fetch-class.php",
+  url: "/SCES/backend/fetch-class.php",
   type: "POST",
   dataType: "json",
   data: {

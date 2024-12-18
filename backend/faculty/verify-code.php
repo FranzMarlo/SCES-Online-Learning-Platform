@@ -1,5 +1,5 @@
 <?php
-include $_SERVER['DOCUMENT_ROOT'] . '/backend/db_class.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/SCES/backend/db_class.php';
 
 $db = new globalClass();
 
@@ -16,8 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if ($updateVerification) {
             echo "200";
             $_SESSION['email_verification'] = 'Verified';
-        }
-        else{
+        } else {
             echo "400";
         }
     } else {

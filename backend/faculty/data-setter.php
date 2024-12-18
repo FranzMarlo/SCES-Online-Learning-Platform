@@ -25,10 +25,10 @@ if (isset($_SESSION['teacher_id'])) {
     $firstName = getFirstName($teacherFname);
     $accountStatus = $db->getFacultyAccountStatus($teacherId);
     if ($role != 'Faculty') {
-        header('Location: /frontend/admin/login.php');
+        header('Location: /SCES/frontend/admin/login.php');
     }
 } else {
-    header('Location: /frontend/faculty/login.php');
+    header('Location: /SCES/frontend/faculty/login.php');
 }
 
 function getMiddleInitial($middleName)

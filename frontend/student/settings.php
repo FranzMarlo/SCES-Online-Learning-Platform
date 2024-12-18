@@ -1,22 +1,22 @@
 <?php
-include $_SERVER['DOCUMENT_ROOT'] . '/frontend/student/partials/student-head.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/SCES/frontend/student/partials/student-head.php';
 ?>
-<link rel="stylesheet" href="/assets/style/student-settings.css" />
-<script src="/assets/script/settings.js"></script>
+<link rel="stylesheet" href="/SCES/assets/style/student-settings.css" />
+<script src="/SCES/assets/script/settings.js"></script>
 <title>Settings | SCES Online Learning Platform</title>
 </head>
 
 <body>
 	<?php
-	include $_SERVER['DOCUMENT_ROOT'] . '/frontend/student/partials/student-popup.php';
+	include $_SERVER['DOCUMENT_ROOT'] . '/SCES/frontend/student/partials/student-popup.php';
 	?>
 	<div class="container">
 		<?php
-		include $_SERVER['DOCUMENT_ROOT'] . '/frontend/student/partials/student-sidebar.php';
+		include $_SERVER['DOCUMENT_ROOT'] . '/SCES/frontend/student/partials/student-sidebar.php';
 		?>
 		<div class="content">
 			<?php
-			include $_SERVER['DOCUMENT_ROOT'] . '/frontend/student/partials/student-header.php';
+			include $_SERVER['DOCUMENT_ROOT'] . '/SCES/frontend/student/partials/student-header.php';
 			?>
 			<div class="title-box">
 				<h1>Account Settings</h1>
@@ -33,9 +33,9 @@ include $_SERVER['DOCUMENT_ROOT'] . '/frontend/student/partials/student-head.php
 					<div class="user-profile">
 						<div class="profile-part">
 							<div class="user-icon">
-								<img src="/storage/student/images/<?php echo $image; ?>" alt="user icon"
+								<img src="/SCES/storage/student/images/<?php echo $image; ?>" alt="user icon"
 									id="current-user-avatar">
-								<img src="/assets/images/change-avatar.png" alt="user icon"
+								<img src="/SCES/assets/images/change-avatar.png" alt="user icon"
 									id="change-avatar-icon">
 							</div>
 							<div class="profile-info">
@@ -176,6 +176,6 @@ include $_SERVER['DOCUMENT_ROOT'] . '/frontend/student/partials/student-head.php
 	</div>
 	</div>
 	<?php
-	include $_SERVER['DOCUMENT_ROOT'] . '/frontend/student/partials/student-edit-modal.php';
-	include $_SERVER['DOCUMENT_ROOT'] . '/frontend/student/partials/student-footer.php';
+	include $_SERVER['DOCUMENT_ROOT'] . '/SCES/frontend/student/partials/student-edit-modal.php';
+	include $_SERVER['DOCUMENT_ROOT'] . '/SCES/frontend/student/partials/student-footer.php';
 	?>

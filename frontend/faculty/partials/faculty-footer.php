@@ -1,12 +1,12 @@
 </div>
 <div class="overlay"></div>
-<script src="/vendor/node_modules/jquery/dist/jquery.min.js"></script>
-<script src="/vendor/node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
-<script src="/assets/script/global.js"></script>
-<script src="/assets/script/admin.js"></script>
+<script src="/SCES/vendor/node_modules/jquery/dist/jquery.min.js"></script>
+<script src="/SCES/vendor/node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
+<script src="/SCES/assets/script/global.js"></script>
+<script src="/SCES/assets/script/admin.js"></script>
 <?php
 if ($accountStatus === 'True') {
-    echo "
+  echo "
     <script>
             Swal.fire({
                 icon: 'warning',
@@ -17,7 +17,7 @@ if ($accountStatus === 'True') {
                 allowOutsideClick: false,
             }).then((result) => {
               if (result.isConfirmed) {
-            window.location.href = '/backend/faculty/faculty-logout.php';
+            window.location.href = '/SCES/backend/faculty/faculty-logout.php';
           }
           });
     </script>";

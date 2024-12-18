@@ -4,7 +4,7 @@
             <i class="fa-solid fa-bars"></i>
         </div>
         <div class="logo-panel">
-            <img src="/assets/images/logo.png" alt="SCES Logo">
+            <img src="/SCES/assets/images/logo.png" alt="SCES Logo">
             <h1>SCES</h1>
         </div>
     </div>
@@ -12,13 +12,13 @@
         <div class="menu">
             <ul>
                 <li class="<?= $current_page == 'dashboard.php' ? 'active' : '' ?>">
-                    <a href="/frontend/admin/dashboard.php">
+                    <a href="/SCES/frontend/admin/dashboard.php">
                         <i class="fa-solid fa-house icon"></i>
                         <span class="text">Home</span>
                     </a>
                 </li>
                 <li class="<?= $current_page == 'profile.php' ? 'active' : '' ?>">
-                    <a href="/frontend/admin/profile.php">
+                    <a href="/SCES/frontend/admin/profile.php">
                         <i class="fa-solid fa-user icon"></i>
                         <span class="text">My Profile</span>
                     </a>
@@ -31,13 +31,13 @@
                     </a>
                     <ul class="sub-menu">
                         <li class="<?= $current_page == 'subject.php' ? 'active' : '' ?>">
-                            <a href="/frontend/admin/subject.php">
+                            <a href="/SCES/frontend/admin/subject.php">
                                 <i class="fa-solid fa-square-poll-horizontal icon"></i>
                                 <span class="text">Subjects</span>
                             </a>
                         </li>
                         <li class="<?= $current_page == 'quizzes.php' ? 'active' : '' ?>">
-                            <a href="/frontend/admin/quizzes.php">
+                            <a href="/SCES/frontend/admin/quizzes.php">
                                 <i class="fa-solid fa-pen-to-square icon"></i>
                                 <span class="text">Quizzes</span>
                             </a>
@@ -53,13 +53,13 @@
                     <ul class="sub-menu">
                         <li
                             class="<?= in_array($current_page, ['section.php', 'student-section.php']) ? 'active' : '' ?>">
-                            <a href="/frontend/admin/section.php">
+                            <a href="/SCES/frontend/admin/section.php">
                                 <i class="fa-solid fa-users-rectangle icon"></i>
                                 <span class="text">Sections</span>
                             </a>
                         </li>
                         <li class="<?= $current_page == 'student-list.php' ? 'active' : '' ?>">
-                            <a href="/frontend/admin/student-list.php">
+                            <a href="/SCES/frontend/admin/student-list.php">
                                 <i class="fa-solid fa-list icon"></i>
                                 <span class="text">Student List</span>
                             </a>
@@ -67,25 +67,25 @@
                     </ul>
                 </li>
                 <li class="<?= $current_page == 'faculty-list.php' ? 'active' : '' ?>">
-                    <a href="/frontend/admin/faculty-list.php">
+                    <a href="/SCES/frontend/admin/faculty-list.php">
                         <i class="fa-solid fa-chalkboard-user icon"></i>
                         <span class="text">Faculty List</span>
                     </a>
                 </li>
                 <li class="<?= $current_page == 'analytics.php' ? 'active' : '' ?>">
-                    <a href="/frontend/admin/analytics.php">
+                    <a href="/SCES/frontend/admin/analytics.php">
                         <i class="fa-solid fa-chart-simple icon"></i>
                         <span class="text">Analytics</span>
                     </a>
                 </li>
                 <li class="<?= $current_page == 'settings.php' ? 'active' : '' ?>">
-                    <a href="/frontend/admin/settings.php">
+                    <a href="/SCES/frontend/admin/settings.php">
                         <i class="fa-solid fa-gear icon"></i>
                         <span class="text">Settings</span>
                     </a>
                 </li>
                 <li class="<?= $current_page == 'help.php' ? 'active' : '' ?>">
-                    <a href="/frontend/admin/help.php">
+                    <a href="/SCES/frontend/admin/help.php">
                         <i class="fa-solid fa-circle-info icon"></i>
                         <span class="text">Help</span>
                     </a>
@@ -106,13 +106,13 @@
             <i class="fa-solid fa-bars"></i>
         </div>
         <div class="logo-panel">
-            <img src="/assets/images/logo.png" alt="SCES Logo">
+            <img src="/SCES/assets/images/logo.png" alt="SCES Logo">
             <h1>SCES</h1>
         </div>
     </div>
     <div class="menu-part">
-        <a href="/frontend/admin/profile.php?active=1">
-            <img src="/storage/admin/images/<?php echo $image; ?>" alt="admin icon" class="user-icon">
+        <a href="/SCES/frontend/admin/profile.php?active=1">
+            <img src="/SCES/storage/admin/images/<?php echo $image; ?>" alt="admin icon" class="user-icon">
         </a>
     </div>
 </div>

@@ -11,11 +11,11 @@
         <div class="modal-quiz-header">
             <div class="modal-header-bg">
                 <div class="modal-icon-container">
-                    <img src="/assets/images/quiz-1.png" alt="quiz-icon">
+                    <img src="/SCES/assets/images/quiz-1.png" alt="quiz-icon">
                 </div>
             </div>
             <div class="modal-header-text">
-                <img src="/assets/images/quiz-1.png" alt="quiz-icon">
+                <img src="/SCES/assets/images/quiz-1.png" alt="quiz-icon">
                 <h1></h1>
             </div>
         </div>

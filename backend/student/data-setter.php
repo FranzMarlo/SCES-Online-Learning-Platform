@@ -35,7 +35,7 @@ if (isset($_SESSION['student_id'])) {
     $accountStatus = $db->getStudentAccountStatus($studentId);
 
 } else {
-    header('Location: /frontend/student/login.php');
+    header('Location: /SCES/frontend/student/login.php');
 }
 
 function getMiddleInitial($middleName)

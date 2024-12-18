@@ -1352,7 +1352,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
   document.getElementById("verifyEmail").addEventListener("click", function () {
     var xhr = new XMLHttpRequest();
-    xhr.open("POST", "/backend/faculty/send-verif-code.php", true);
+    xhr.open("POST", "/SCES/backend/faculty/send-verif-code.php", true);
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
     xhr.send();
@@ -1362,7 +1362,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (xhr.status === 200) {
           var response = xhr.response.trim();
           $.getScript(
-            "/vendor/node_modules/sweetalert2/dist/sweetalert2.all.min.js",
+            "/SCES/vendor/node_modules/sweetalert2/dist/sweetalert2.all.min.js",
             function () {
               if (response === "200") {
                 Swal.fire({
@@ -1393,7 +1393,7 @@ document.addEventListener("DOMContentLoaded", function () {
           );
         } else {
           $.getScript(
-            "/vendor/node_modules/sweetalert2/dist/sweetalert2.all.min.js",
+            "/SCES/vendor/node_modules/sweetalert2/dist/sweetalert2.all.min.js",
             function () {
               Swal.fire({
                 icon: "error",
@@ -1423,7 +1423,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       if (enteredCode === "") {
         $.getScript(
-          "/vendor/node_modules/sweetalert2/dist/sweetalert2.all.min.js",
+          "/SCES/vendor/node_modules/sweetalert2/dist/sweetalert2.all.min.js",
           function () {
             Swal.fire({
               icon: "warning",
@@ -1437,7 +1437,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
 
       var xhr = new XMLHttpRequest();
-      xhr.open("POST", "/backend/faculty/verify-code.php", true);
+      xhr.open("POST", "/SCES/backend/faculty/verify-code.php", true);
       xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
       xhr.send("verificationCode=" + encodeURIComponent(enteredCode));
@@ -1445,7 +1445,7 @@ document.addEventListener("DOMContentLoaded", function () {
       xhr.onreadystatechange = function () {
         if (xhr.readyState === 4) {
           $.getScript(
-            "/vendor/node_modules/sweetalert2/dist/sweetalert2.all.min.js",
+            "/SCES/vendor/node_modules/sweetalert2/dist/sweetalert2.all.min.js",
             function () {
               if (xhr.status === 200) {
                 var response = xhr.response.trim();

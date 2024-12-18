@@ -1,23 +1,23 @@
 <?php
-include $_SERVER['DOCUMENT_ROOT'] . '/frontend/admin/partials/admin-head.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/SCES/frontend/admin/partials/admin-head.php';
 $page = '';
 ?>
-<link rel="stylesheet" href="/assets/style/settings.css" />
-<script src="/assets/script/admin-settings.js"></script>
+<link rel="stylesheet" href="/SCES/assets/style/settings.css" />
+<script src="/SCES/assets/script/admin-settings.js"></script>
 <title>Settings | SCES Online Learning Platform</title>
 </head>
 
 <body>
     <?php
-    include $_SERVER['DOCUMENT_ROOT'] . '/frontend/admin/partials/admin-popup.php';
+    include $_SERVER['DOCUMENT_ROOT'] . '/SCES/frontend/admin/partials/admin-popup.php';
     ?>
     <div class="container">
         <?php
-        include $_SERVER['DOCUMENT_ROOT'] . '/frontend/admin/partials/admin-sidebar.php';
+        include $_SERVER['DOCUMENT_ROOT'] . '/SCES/frontend/admin/partials/admin-sidebar.php';
         ?>
         <div class="content">
             <?php
-            include $_SERVER['DOCUMENT_ROOT'] . '/frontend/admin/partials/admin-header.php';
+            include $_SERVER['DOCUMENT_ROOT'] . '/SCES/frontend/admin/partials/admin-header.php';
             ?>
             <div class="title-box">
                 <h1>Account Settings</h1>
@@ -34,9 +34,9 @@ $page = '';
                     <div class="user-profile">
                         <div class="profile-part">
                             <div class="user-icon">
-                                <img src="/storage/admin/images/<?php echo $image; ?>" alt="user icon"
+                                <img src="/SCES/storage/admin/images/<?php echo $image; ?>" alt="user icon"
                                     id="current-user-avatar">
-                                <img src="/assets/images/change-avatar.png" alt="user icon"
+                                <img src="/SCES/assets/images/change-avatar.png" alt="user icon"
                                     id="change-avatar-icon">
                             </div>
                             <div class="profile-info">
@@ -174,6 +174,6 @@ $page = '';
     </div>
 
     <?php
-    include $_SERVER['DOCUMENT_ROOT'] . '/frontend/admin/partials/admin-edit-modal.php';
-    include $_SERVER['DOCUMENT_ROOT'] . '/frontend/admin/partials/admin-footer.php';
+    include $_SERVER['DOCUMENT_ROOT'] . '/SCES/frontend/admin/partials/admin-edit-modal.php';
+    include $_SERVER['DOCUMENT_ROOT'] . '/SCES/frontend/admin/partials/admin-footer.php';
     ?>

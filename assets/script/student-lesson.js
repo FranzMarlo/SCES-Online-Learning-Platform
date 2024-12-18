@@ -143,7 +143,7 @@ document.addEventListener("DOMContentLoaded", function () {
           },
         },
         ajax: {
-          url: "/backend/fetch-class.php",
+          url: "/SCES/backend/fetch-class.php",
           type: "POST",
           data: function (d) {
             d.submitType = "studentGetQuizRecordsBySubject";
@@ -202,7 +202,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const quizId = btn.getAttribute("data-quiz-id");
         const quizTaker = btn.getAttribute("data-quiz-taker");
 
-        fetch("/backend/fetch-class.php", {
+        fetch("/SCES/backend/fetch-class.php", {
           method: "POST",
           headers: {
             "Content-Type": "application/x-www-form-urlencoded",
@@ -216,11 +216,15 @@ document.addEventListener("DOMContentLoaded", function () {
               return;
             }
 
-            if (data.status !== 'Completed'){
-              showAlert("warning", "Quiz cannot be viewed", "Active quizzes cannot be viewed and will only be available for viewing when its mark as completed by instructor");
+            if (data.status !== "Completed") {
+              showAlert(
+                "warning",
+                "Quiz cannot be viewed",
+                "Active quizzes cannot be viewed and will only be available for viewing when its mark as completed by instructor"
+              );
               return;
             }
-            
+
             const viewQuizModal = document.getElementById("viewQuizModal");
 
             viewQuizModal.querySelector(
@@ -344,7 +348,7 @@ document.addEventListener("DOMContentLoaded", function () {
           },
         },
         ajax: {
-          url: "/backend/fetch-class.php",
+          url: "/SCES/backend/fetch-class.php",
           type: "POST",
           data: function (d) {
             d.submitType = "facultyGetGradesBySubject";

@@ -17,6 +17,6 @@ header("Pragma: no-cache");
 header("Expires: 0");
 
 // Redirect to the login page
-header("Location: /frontend/student/login.php");
+header("Location: /SCES/frontend/student/login.php");
 exit();
 

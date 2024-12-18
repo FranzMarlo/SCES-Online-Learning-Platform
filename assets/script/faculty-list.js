@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", function () {
           },
         },
         ajax: {
-          url: "/backend/fetch-class.php",
+          url: "/SCES/backend/fetch-class.php",
           type: "POST",
           data: function (d) {
             d.submitType = "fetchAllFacultyDataTable";
@@ -70,11 +70,11 @@ document.addEventListener("DOMContentLoaded", function () {
             render: function (data, type, row) {
               const imagePath =
                 row.role === "Admin"
-                  ? `/storage/admin/images/${data}`
-                  : `/storage/faculty/images/${data}`;
+                  ? `/SCES/storage/admin/images/${data}`
+                  : `/SCES/storage/faculty/images/${data}`;
 
               return `<div class="center-image">
-                            <img src="${imagePath}" alt="Profile Image" onerror="this.onerror=null; this.src='/storage/faculty/images/default.jpg';">
+                            <img src="${imagePath}" alt="Profile Image" onerror="this.onerror=null; this.src='/SCES/storage/faculty/images/default.jpg';">
                           </div>`;
             },
             orderable: false,
@@ -123,7 +123,7 @@ document.addEventListener("DOMContentLoaded", function () {
           return;
         } else {
           if (role == "Faculty") {
-            fetch("/backend/fetch-class.php", {
+            fetch("/SCES/backend/fetch-class.php", {
               method: "POST",
               headers: {
                 "Content-Type": "application/x-www-form-urlencoded",
@@ -189,9 +189,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 );
 
                 const imageElement = document.getElementById("profileImage");
-                imageElement.src = `/storage/faculty/images/${data.image_profile}`;
+                imageElement.src = `/SCES/storage/faculty/images/${data.image_profile}`;
                 imageElement.onerror = function () {
-                  this.src = "/storage/faculty/images/default-profile.png";
+                  this.src = "/SCES/storage/faculty/images/default-profile.png";
                 };
                 document.getElementById("teachId").textContent =
                   data.teacher_id;
@@ -230,7 +230,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 showAlert("error", "Server Error", error);
               });
           } else {
-            fetch("/backend/fetch-class.php", {
+            fetch("/SCES/backend/fetch-class.php", {
               method: "POST",
               headers: {
                 "Content-Type": "application/x-www-form-urlencoded",
@@ -296,9 +296,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 );
 
                 const imageElement = document.getElementById("profileImage");
-                imageElement.src = `/storage/admin/images/${data.image_profile}`;
+                imageElement.src = `/SCES/storage/admin/images/${data.image_profile}`;
                 imageElement.onerror = function () {
-                  this.src = "/storage/admin/images/default-profile.png";
+                  this.src = "/SCES/storage/admin/images/default-profile.png";
                 };
                 document.getElementById("teachId").textContent =
                   data.teacher_id;
@@ -474,7 +474,7 @@ document.addEventListener("DOMContentLoaded", function () {
     data.append("submitType", "disableAdminAccount");
     data.append("teacher_id", teacherId);
 
-    fetch("/backend/global.php", {
+    fetch("/SCES/backend/global.php", {
       method: "POST",
       body: data,
     })
@@ -506,7 +506,7 @@ document.addEventListener("DOMContentLoaded", function () {
     data.append("submitType", "enableAdminAccount");
     data.append("teacher_id", teacherId);
 
-    fetch("/backend/global.php", {
+    fetch("/SCES/backend/global.php", {
       method: "POST",
       body: data,
     })
@@ -538,7 +538,7 @@ document.addEventListener("DOMContentLoaded", function () {
     data.append("submitType", "disableFacultyAccount");
     data.append("teacher_id", teacherId);
 
-    fetch("/backend/global.php", {
+    fetch("/SCES/backend/global.php", {
       method: "POST",
       body: data,
     })
@@ -570,7 +570,7 @@ document.addEventListener("DOMContentLoaded", function () {
     data.append("submitType", "enableFacultyAccount");
     data.append("teacher_id", teacherId);
 
-    fetch("/backend/global.php", {
+    fetch("/SCES/backend/global.php", {
       method: "POST",
       body: data,
     })
@@ -602,7 +602,7 @@ document.addEventListener("DOMContentLoaded", function () {
     data.append("submitType", "adminFetchPanelData");
     data.append("teacher_id", teacherId);
 
-    fetch("/backend/fetch-class.php", {
+    fetch("/SCES/backend/fetch-class.php", {
       method: "POST",
       body: data,
     })
@@ -624,7 +624,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function initializeFacultyLineChart(teacherId) {
     $.ajax({
-      url: "/backend/fetch-class.php",
+      url: "/SCES/backend/fetch-class.php",
       type: "POST",
       dataType: "json",
       data: {
@@ -742,7 +742,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function initializeFacultyBarChart(teacherId) {
     $.ajax({
-      url: "/backend/fetch-class.php",
+      url: "/SCES/backend/fetch-class.php",
       type: "POST",
       dataType: "json",
       data: {
@@ -826,7 +826,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function initializeQuizPieChart(teacherId) {
     $.ajax({
-      url: "/backend/fetch-class.php",
+      url: "/SCES/backend/fetch-class.php",
       type: "POST",
       data: {
         submitType: "adminQuizCompletion",
@@ -853,7 +853,7 @@ document.addEventListener("DOMContentLoaded", function () {
             datasets: [
               {
                 data: [totalCompleted, totalInactive, totalActive],
-                 backgroundColor: ["#ade0fb", "#266ca8", "#0f2473"],
+                backgroundColor: ["#ade0fb", "#266ca8", "#0f2473"],
                 borderWidth: 2,
                 borderColor: "#ccc",
               },

@@ -136,33 +136,39 @@ document.addEventListener("DOMContentLoaded", function () {
       setActiveClass("analyticsTab");
     });
 
-    document.getElementById("moduleLessons").addEventListener("click", function () {
+  document
+    .getElementById("moduleLessons")
+    .addEventListener("click", function () {
       updateTabDisplay("lessonTab", 1);
       setActiveClass("lessonTab");
     });
-  
-    document.getElementById("moduleStudents").addEventListener("click", function () {
+
+  document
+    .getElementById("moduleStudents")
+    .addEventListener("click", function () {
       updateTabDisplay("studentTab", 2);
       initializeStudentsTable();
       setActiveClass("studentTab");
     });
-  
-    document.getElementById("moduleRecords").addEventListener("click", function () {
+
+  document
+    .getElementById("moduleRecords")
+    .addEventListener("click", function () {
       updateTabDisplay("recordsTab", 3);
       initializeRecordsTable();
       setActiveClass("recordsTab");
     });
-  
-    document
-      .getElementById("moduleAnalytics")
-      .addEventListener("click", function () {
-        updateTabDisplay("analyticsTab", 4);
-        populateSubjectPanelData();
-        fetchSubjectPieChartData();
-        initializeSubjectLineChart();
-        initializeRankingTable();
-        setActiveClass("analyticsTab");
-      });
+
+  document
+    .getElementById("moduleAnalytics")
+    .addEventListener("click", function () {
+      updateTabDisplay("analyticsTab", 4);
+      populateSubjectPanelData();
+      fetchSubjectPieChartData();
+      initializeSubjectLineChart();
+      initializeRankingTable();
+      setActiveClass("analyticsTab");
+    });
 
   // Initialize the active tab on page load
   window.addEventListener("load", activateTabFromParams);
@@ -217,7 +223,7 @@ document.addEventListener("DOMContentLoaded", function () {
           },
         },
         ajax: {
-          url: "/backend/fetch-class.php",
+          url: "/SCES/backend/fetch-class.php",
           type: "POST",
           data: function (d) {
             d.submitType = "fetchStudentsDataTable";
@@ -231,7 +237,7 @@ document.addEventListener("DOMContentLoaded", function () {
             data: "profile_image",
             render: function (data, type, row) {
               return `<div class="center-image">
-                    <img src="/storage/student/images/${data}" alt="Profile Image" onerror="this.onerror=null; this.src='/storage/student/images/default.jpg';">
+                    <img src="/SCES/storage/student/images/${data}" alt="Profile Image" onerror="this.onerror=null; this.src='/SCES/storage/student/images/default.jpg';">
                   </div>`;
             },
             orderable: false,
@@ -274,7 +280,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const btn = event.target.closest(".more-btn");
         const studentId = btn.getAttribute("data-student-id");
 
-        fetch("/backend/fetch-class.php", {
+        fetch("/SCES/backend/fetch-class.php", {
           method: "POST",
           headers: {
             "Content-Type": "application/x-www-form-urlencoded",
@@ -317,9 +323,9 @@ document.addEventListener("DOMContentLoaded", function () {
             });
 
             const imageElement = document.getElementById("profileImage");
-            imageElement.src = `/storage/student/images/${student.profile_image}`;
+            imageElement.src = `/SCES/storage/student/images/${student.profile_image}`;
             imageElement.onerror = function () {
-              this.src = "/storage/student/images/default-profile.png";
+              this.src = "/SCES/storage/student/images/default-profile.png";
             };
             document.getElementById("studId").textContent = subject_name;
             document
@@ -338,7 +344,7 @@ document.addEventListener("DOMContentLoaded", function () {
             document.getElementById("lastName").textContent =
               student.student_lname;
             document.getElementById("suffix").textContent =
-                student.student_suffix;
+              student.student_suffix;
             document.getElementById("gender").textContent = student.gender;
             document.getElementById("age").textContent = student.age;
             document.getElementById("lrn").textContent = student.lrn;
@@ -470,7 +476,7 @@ document.addEventListener("DOMContentLoaded", function () {
           },
         },
         ajax: {
-          url: "/backend/fetch-class.php",
+          url: "/SCES/backend/fetch-class.php",
           type: "POST",
           data: function (d) {
             d.submitType = "facultyGetQuizRecordsBySubject";
@@ -531,7 +537,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const quizId = btn.getAttribute("data-quiz-id");
         const quizTaker = btn.getAttribute("data-quiz-taker");
 
-        fetch("/backend/fetch-class.php", {
+        fetch("/SCES/backend/fetch-class.php", {
           method: "POST",
           headers: {
             "Content-Type": "application/x-www-form-urlencoded",
@@ -671,7 +677,7 @@ document.addEventListener("DOMContentLoaded", function () {
           },
         },
         ajax: {
-          url: "/backend/fetch-class.php",
+          url: "/SCES/backend/fetch-class.php",
           type: "POST",
           data: function (d) {
             d.submitType = "facultyGetGradesBySubject";
@@ -718,7 +724,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const btn = event.target.closest(".more-btn");
         const gradeId = btn.getAttribute("data-grade-id");
 
-        fetch("/backend/fetch-class.php", {
+        fetch("/SCES/backend/fetch-class.php", {
           method: "POST",
           headers: {
             "Content-Type": "application/x-www-form-urlencoded",
@@ -784,7 +790,7 @@ document.addEventListener("DOMContentLoaded", function () {
     data.append("student_id", studentId);
     data.append("subject_id", subject_id);
 
-    fetch("/backend/fetch-class.php", {
+    fetch("/SCES/backend/fetch-class.php", {
       method: "POST",
       body: data,
     })
@@ -806,7 +812,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function fetchDonutChartData(studentId) {
     $.ajax({
-      url: "/backend/fetch-class.php",
+      url: "/SCES/backend/fetch-class.php",
       type: "POST",
       data: {
         submitType: "studentCompletionBySubject",
@@ -922,7 +928,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     $.ajax({
-      url: "/backend/fetch-class.php",
+      url: "/SCES/backend/fetch-class.php",
       type: "POST",
       data: {
         submitType: "studentAverageScoreBySubject",
@@ -1021,8 +1027,8 @@ document.addEventListener("DOMContentLoaded", function () {
       },
     });
   }
-  
-   function initializeStudentFullBarChart(studentId) {
+
+  function initializeStudentFullBarChart(studentId) {
     const ctxBar = document
       .getElementById("studentFullBarChart")
       .getContext("2d");
@@ -1032,7 +1038,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     $.ajax({
-      url: "/backend/fetch-class.php",
+      url: "/SCES/backend/fetch-class.php",
       type: "POST",
       dataType: "json",
       data: {
@@ -1099,8 +1105,8 @@ document.addEventListener("DOMContentLoaded", function () {
             <legend style="color: ${hasWarning ? "red" : "green"};">
               ${
                 hasWarning
-                  ? `<img src="/assets/images/at-risk.png" alt="Warning"> Student At Risk`
-                  : `<img src="/assets/images/quiz-passed.png" alt="Check"> No Warnings Found`
+                  ? `<img src="/SCES/assets/images/at-risk.png" alt="Warning"> Student At Risk`
+                  : `<img src="/SCES/assets/images/quiz-passed.png" alt="Check"> No Warnings Found`
               }
             </legend>
           `;
@@ -1206,8 +1212,7 @@ document.addEventListener("DOMContentLoaded", function () {
       },
     });
   }
-    
-    
+
   function initializeRecordsTable() {
     if ($.fn.dataTable.isDataTable("#recordsTable")) {
       return;
@@ -1240,7 +1245,7 @@ document.addEventListener("DOMContentLoaded", function () {
         },
       },
       ajax: {
-        url: "/backend/fetch-class.php",
+        url: "/SCES/backend/fetch-class.php",
         type: "POST",
         data: function (d) {
           d.submitType = "fetchStudentsRecordTable";
@@ -1328,7 +1333,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const quizId = btn.getAttribute("data-quiz-id");
         const quizTaker = btn.getAttribute("data-quiz-taker");
 
-        fetch("/backend/fetch-class.php", {
+        fetch("/SCES/backend/fetch-class.php", {
           method: "POST",
           headers: {
             "Content-Type": "application/x-www-form-urlencoded",
@@ -1433,7 +1438,7 @@ document.addEventListener("DOMContentLoaded", function () {
     data.append("section_id", section_id);
     data.append("subject_id", subject_id);
 
-    fetch("/backend/fetch-class.php", {
+    fetch("/SCES/backend/fetch-class.php", {
       method: "POST",
       body: data,
     })
@@ -1462,7 +1467,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     $.ajax({
-      url: "/backend/fetch-class.php",
+      url: "/SCES/backend/fetch-class.php",
       type: "POST",
       data: {
         submitType: "subjectAverageScore",
@@ -1563,7 +1568,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function fetchSubjectPieChartData() {
     $.ajax({
-      url: "/backend/fetch-class.php",
+      url: "/SCES/backend/fetch-class.php",
       type: "POST",
       data: {
         submitType: "subjectCompletion",
@@ -1673,7 +1678,7 @@ document.addEventListener("DOMContentLoaded", function () {
           },
         },
         ajax: {
-          url: "/backend/fetch-class.php",
+          url: "/SCES/backend/fetch-class.php",
           type: "POST",
           data: function (d) {
             d.submitType = "rankingStudentsBySubject";
@@ -1718,7 +1723,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const btn = event.target.closest(".more-btn");
         const studentId = btn.getAttribute("data-student-id");
 
-        fetch("/backend/fetch-class.php", {
+        fetch("/SCES/backend/fetch-class.php", {
           method: "POST",
           headers: {
             "Content-Type": "application/x-www-form-urlencoded",
@@ -1761,9 +1766,9 @@ document.addEventListener("DOMContentLoaded", function () {
             });
 
             const imageElement = document.getElementById("profileImage");
-            imageElement.src = `/storage/student/images/${student.profile_image}`;
+            imageElement.src = `/SCES/storage/student/images/${student.profile_image}`;
             imageElement.onerror = function () {
-              this.src = "/storage/student/images/default-profile.png";
+              this.src = "/SCES/storage/student/images/default-profile.png";
             };
             document.getElementById("studId").textContent = subject_name;
             document
@@ -1782,7 +1787,7 @@ document.addEventListener("DOMContentLoaded", function () {
             document.getElementById("lastName").textContent =
               student.student_lname;
             document.getElementById("suffix").textContent =
-                student.student_suffix;
+              student.student_suffix;
             document.getElementById("gender").textContent = student.gender;
             document.getElementById("age").textContent = student.age;
             document.getElementById("lrn").textContent = student.lrn;
@@ -1809,24 +1814,24 @@ document.addEventListener("DOMContentLoaded", function () {
           });
       }
     });
-    addGradeBtn.onclick = function () {
-      var studentId = document
-        .getElementById("studentRecordsTab")
-        .getAttribute("data-student-id");
-      document.getElementById("gradeStudentId").value = studentId;
-      document.getElementById("studentModal").style.display = "none";
-      addGradeModal.style.display = "flex";
-    };
-    closeGradeModal.onclick = function () {
+  addGradeBtn.onclick = function () {
+    var studentId = document
+      .getElementById("studentRecordsTab")
+      .getAttribute("data-student-id");
+    document.getElementById("gradeStudentId").value = studentId;
+    document.getElementById("studentModal").style.display = "none";
+    addGradeModal.style.display = "flex";
+  };
+  closeGradeModal.onclick = function () {
+    document.getElementById("studentModal").style.display = "flex";
+    addGradeModal.style.display = "none";
+    addGradeForm.reset();
+  };
+  window.onclick = function (event) {
+    if (event.target == addGradeModal) {
       document.getElementById("studentModal").style.display = "flex";
       addGradeModal.style.display = "none";
       addGradeForm.reset();
-    };
-    window.onclick = function (event) {
-      if (event.target == addGradeModal) {
-        document.getElementById("studentModal").style.display = "flex";
-        addGradeModal.style.display = "none";
-        addGradeForm.reset();
-      }
-    };
+    }
+  };
 });

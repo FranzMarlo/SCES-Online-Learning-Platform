@@ -337,7 +337,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   function promptQuiz(quizId) {
-    fetch(`/backend/fetch-class.php`, {
+    fetch(`/SCES/backend/fetch-class.php`, {
       method: "POST",
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
@@ -415,7 +415,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function rePromptQuiz(quizId) {
-    fetch(`/backend/fetch-class.php`, {
+    fetch(`/SCES/backend/fetch-class.php`, {
       method: "POST",
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
@@ -552,7 +552,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         const bodyData = `submitType=submitQuiz&quiz_id=${quizId}&${formData}`;
 
-        fetch(`/backend/global.php`, {
+        fetch(`/SCES/backend/global.php`, {
           method: "POST",
           headers: {
             "Content-Type": "application/x-www-form-urlencoded",
@@ -667,7 +667,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         const bodyData = `submitType=resubmitQuiz&quiz_id=${quizId}&${formData}`;
 
-        fetch(`/backend/global.php`, {
+        fetch(`/SCES/backend/global.php`, {
           method: "POST",
           headers: {
             "Content-Type": "application/x-www-form-urlencoded",
@@ -725,7 +725,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function viewQuiz(quizId) {
-    fetch(`/backend/fetch-class.php`, {
+    fetch(`/SCES/backend/fetch-class.php`, {
       method: "POST",
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
@@ -735,7 +735,7 @@ document.addEventListener("DOMContentLoaded", function () {
       .then((response) => response.json())
       .then((data) => {
         if (data.error) {
-          showAlert("error", "You haven\'t answer the quiz yet");
+          showAlert("error", "You haven't answer the quiz yet");
           return;
         }
 

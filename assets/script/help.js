@@ -50,16 +50,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const myAccountButton = document.getElementById("myAccountButton");
   const myAccountModal = document.getElementById("myAccountModal");
-  const myAccountContent = document.getElementById(
-    "myAccountContent"
-  );
-  const closeMyAccountModal = document.getElementById(
-    "closeMyAccountModal"
-  );
+  const myAccountContent = document.getElementById("myAccountContent");
+  const closeMyAccountModal = document.getElementById("closeMyAccountModal");
   const myAccountPCTab = document.getElementById("myAccountPCTab");
-  const myAccountMobileTab = document.getElementById(
-    "myAccountMobileTab"
-  );
+  const myAccountMobileTab = document.getElementById("myAccountMobileTab");
   const myAccountPC = document.getElementById("myAccountPC");
   const myAccountMobile = document.getElementById("myAccountMobile");
   const myAccountTop = document.getElementById("myAccountTop");
@@ -97,20 +91,28 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   };
 
-  const learningMaterialButton = document.getElementById("learningMaterialButton");
-  const learningMaterialModal = document.getElementById("learningMaterialModal");
+  const learningMaterialButton = document.getElementById(
+    "learningMaterialButton"
+  );
+  const learningMaterialModal = document.getElementById(
+    "learningMaterialModal"
+  );
   const learningMaterialContent = document.getElementById(
     "learningMaterialContent"
   );
   const closeLearningMaterialModal = document.getElementById(
     "closeLearningMaterialModal"
   );
-  const learningMaterialPCTab = document.getElementById("learningMaterialPCTab");
+  const learningMaterialPCTab = document.getElementById(
+    "learningMaterialPCTab"
+  );
   const learningMaterialMobileTab = document.getElementById(
     "learningMaterialMobileTab"
   );
   const learningMaterialPC = document.getElementById("learningMaterialPC");
-  const learningMaterialMobile = document.getElementById("learningMaterialMobile");
+  const learningMaterialMobile = document.getElementById(
+    "learningMaterialMobile"
+  );
   const learningMaterialTop = document.getElementById("learningMaterialTop");
 
   learningMaterialButton.addEventListener("click", function () {
@@ -148,16 +150,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const usageGuidesButton = document.getElementById("usageGuidesButton");
   const usageGuidesModal = document.getElementById("usageGuidesModal");
-  const usageGuidesContent = document.getElementById(
-    "usageGuidesContent"
-  );
+  const usageGuidesContent = document.getElementById("usageGuidesContent");
   const closeUsageGuidesModal = document.getElementById(
     "closeUsageGuidesModal"
   );
   const usageGuidesPCTab = document.getElementById("usageGuidesPCTab");
-  const usageGuidesMobileTab = document.getElementById(
-    "usageGuidesMobileTab"
-  );
+  const usageGuidesMobileTab = document.getElementById("usageGuidesMobileTab");
   const usageGuidesPC = document.getElementById("usageGuidesPC");
   const usageGuidesMobile = document.getElementById("usageGuidesMobile");
   const usageGuidesTop = document.getElementById("usageGuidesTop");
@@ -194,9 +192,13 @@ document.addEventListener("DOMContentLoaded", function () {
       behavior: "smooth",
     });
   };
-  
-  const learningInquiriesButton = document.getElementById("learningInquiriesButton");
-  const learningInquiriesModal = document.getElementById("learningInquiriesModal");
+
+  const learningInquiriesButton = document.getElementById(
+    "learningInquiriesButton"
+  );
+  const learningInquiriesModal = document.getElementById(
+    "learningInquiriesModal"
+  );
   const learningInquiriesContent = document.getElementById(
     "learningInquiriesContent"
   );
@@ -226,21 +228,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const faqBox = document.getElementById("faqBox");
   const faqModal = document.getElementById("faqModal");
-  const faqContent = document.getElementById(
-    "faqContent"
-  );
-  const closeFaqModal = document.getElementById(
-    "closeFaqModal"
-  );
+  const faqContent = document.getElementById("faqContent");
+  const closeFaqModal = document.getElementById("closeFaqModal");
   const faqPCTab = document.getElementById("faqPCTab");
-  const faqMobileTab = document.getElementById(
-    "faqMobileTab"
-  );
+  const faqMobileTab = document.getElementById("faqMobileTab");
   const faqPC = document.getElementById("faqPC");
   const faqMobile = document.getElementById("faqMobile");
   const faqTop = document.getElementById("faqTop");
   const faqSearch = document.getElementById("faqSearch");
-  
+
   faqBox.addEventListener("click", function () {
     faqModal.style.display = "flex";
     document.body.style.overflow = "hidden";
@@ -255,7 +251,7 @@ document.addEventListener("DOMContentLoaded", function () {
     faqContent.scrollTop = 0;
     faqModal.style.display = "none";
     document.body.style.overflow = "auto";
-    faqSearch.value = '';
+    faqSearch.value = "";
   });
 
   faqTop.onclick = () => {
@@ -289,7 +285,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   const updatesBox = document.getElementById("updatesBox");
-  updatesBox.addEventListener("click", function(){
+  updatesBox.addEventListener("click", function () {
     Swal.fire({
       icon: "info",
       title: "No Updates Found",
@@ -328,16 +324,12 @@ document.addEventListener("DOMContentLoaded", function () {
       faqContent.scrollTop = 0;
       faqModal.style.display = "none";
       document.body.style.overflow = "auto";
-      faqSearch.value = '';
+      faqSearch.value = "";
     }
   };
-
-
 });
 function filterQuestions() {
-  const searchTerm = document
-    .getElementById("faqSearch")
-    .value.toLowerCase();
+  const searchTerm = document.getElementById("faqSearch").value.toLowerCase();
   const faqModal = document.getElementById("faqModal");
   const modalItems = faqModal.querySelectorAll(".modal-item");
 
@@ -346,13 +338,9 @@ function filterQuestions() {
 
   // Loop through all subject items and filter by search term
   modalItems.forEach(function (modalItem) {
-    const questionData = modalItem
-      .getAttribute("data-question")
-      .toLowerCase();
+    const questionData = modalItem.getAttribute("data-question").toLowerCase();
 
-    if (
-      questionData.includes(searchTerm)
-    ) {
+    if (questionData.includes(searchTerm)) {
       if (modalItem.closest("#faqPC")) {
         modalItem.style.display = "flex";
         anyVisiblePC = true;
@@ -364,7 +352,9 @@ function filterQuestions() {
       modalItem.style.display = "none";
     }
   });
-  let modalEnd = document.getElementById('faqContent').querySelector(".modal-end");
+  let modalEnd = document
+    .getElementById("faqContent")
+    .querySelector(".modal-end");
   let noDataBoxPC = document
     .getElementById("faqPC")
     .querySelector(".modal-no-data");
@@ -373,15 +363,15 @@ function filterQuestions() {
       noDataBoxPC = document.createElement("div");
       noDataBoxPC.classList.add("modal-no-data");
       noDataBoxPC.innerHTML = `
-                <img src="/assets/images/no-data-icon.png" alt="no-data-icon.png">
+                <img src="/SCES/assets/images/no-data-icon.png" alt="no-data-icon.png">
                 <h1>No topic found.</h1>
             `;
       document.getElementById("faqPC").appendChild(noDataBoxPC);
-      modalEnd.style.display = 'none';
+      modalEnd.style.display = "none";
     }
   } else if (noDataBoxPC) {
     document.getElementById("faqPC").removeChild(noDataBoxPC);
-    modalEnd.style.display = 'flex';
+    modalEnd.style.display = "flex";
   }
 
   let noDataBoxMobile = document
@@ -392,17 +382,15 @@ function filterQuestions() {
       noDataBoxMobile = document.createElement("div");
       noDataBoxMobile.classList.add("modal-no-data");
       noDataBoxMobile.innerHTML = `
-                <img src="/assets/images/no-data-icon.png" alt="no-data-icon.png">
+                <img src="/SCES/assets/images/no-data-icon.png" alt="no-data-icon.png">
                 <h1>No topic found.</h1>
             `;
-      document
-        .getElementById("faqMobile")
-        .appendChild(noDataBoxMobile);
-        modalEnd.style.display = 'none';
+      document.getElementById("faqMobile").appendChild(noDataBoxMobile);
+      modalEnd.style.display = "none";
     }
   } else if (noDataBoxMobile) {
     document.getElementById("faqMobile").removeChild(noDataBoxMobile);
-    modalEnd.style.display = 'flex';
+    modalEnd.style.display = "flex";
   }
 }
 function openFullscreen(img) {

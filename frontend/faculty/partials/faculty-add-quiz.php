@@ -180,21 +180,21 @@
             <div class="view-part">
                 <div class="analytics-tab low-padding">
                     <div class="tab-item sized">
-                        <img src="/assets/images/quiz-subject.png" alt="quiz-subject.png">
+                        <img src="/SCES/assets/images/quiz-subject.png" alt="quiz-subject.png">
                         <div class="item-group">
                             <h4>Subject</h4>
                             <span class="not-bold" id="viewQuizSubject"></span>
                         </div>
                     </div>
                     <div class="tab-item sized">
-                        <img src="/assets/images/quiz-grade-section.png" alt="quiz-grade-section.png">
+                        <img src="/SCES/assets/images/quiz-grade-section.png" alt="quiz-grade-section.png">
                         <div class="item-group">
                             <h4>Total Students</h4>
                             <span class="not-bold" id="viewQuizStudents"></span>
                         </div>
                     </div>
                     <div class="tab-item sized">
-                        <img src="/assets/images/quiz-question.png" alt="quiz-question.png">
+                        <img src="/SCES/assets/images/quiz-question.png" alt="quiz-question.png">
                         <div class="item-group">
                             <h4>Total Questions</h4>
                             <span class="not-bold" id="viewQuizItem"></span>
@@ -203,21 +203,21 @@
                 </div>
                 <div class="analytics-tab low-padding">
                     <div class="tab-item sized">
-                        <img src="/assets/images/quiz-1.png" alt="quiz-1.png" id="quiz-status">
+                        <img src="/SCES/assets/images/quiz-1.png" alt="quiz-1.png" id="quiz-status">
                         <div class="item-group">
                             <h4>Quiz Status</h4>
                             <span class="not-bold" id="viewQuizStatus"></span>
                         </div>
                     </div>
                     <div class="tab-item sized">
-                        <img src="/assets/images/quiz-due-date.png" alt="quiz-due-date.png">
+                        <img src="/SCES/assets/images/quiz-due-date.png" alt="quiz-due-date.png">
                         <div class="item-group">
                             <h4>Due Date</h4>
                             <span class="not-bold" id="viewQuizDue"></span>
                         </div>
                     </div>
                     <div class="tab-item sized">
-                        <img src="/assets/images/quiz-rate.png" alt="quiz-rate.png">
+                        <img src="/SCES/assets/images/quiz-rate.png" alt="quiz-rate.png">
                         <div class="item-group">
                             <h4>Average Score</h4>
                             <span class="not-bold" id="viewQuizAve"></span>
@@ -273,28 +273,28 @@
         </div>
         <div class="analytics-tab">
             <div class="tab-item">
-                <img src="/assets/images/quiz-grade-section.png" alt="quiz-grade-section.png">
+                <img src="/SCES/assets/images/quiz-grade-section.png" alt="quiz-grade-section.png">
                 <div class="item-group">
                     <h3 id="totalResponses"></h3>
                     <span>Total Responses</span>
                 </div>
             </div>
             <div class="tab-item">
-                <img src="/assets/images/quiz-passed.png" alt="quiz-passed.png">
+                <img src="/SCES/assets/images/quiz-passed.png" alt="quiz-passed.png">
                 <div class="item-group">
                     <h3 id="totalCorrect"></h3>
                     <span>Total Correct</span>
                 </div>
             </div>
             <div class="tab-item">
-                <img src="/assets/images/quiz-failed.png" alt="quiz-failed.png">
+                <img src="/SCES/assets/images/quiz-failed.png" alt="quiz-failed.png">
                 <div class="item-group">
                     <h3 id="totalIncorrect"></h3>
                     <span>Total Incorrect</span>
                 </div>
             </div>
             <div class="tab-item">
-                <img src="/assets/images/quiz-rate.png" alt="quiz-rate.png">
+                <img src="/SCES/assets/images/quiz-rate.png" alt="quiz-rate.png">
                 <div class="item-group">
                     <h3 id="accuracy"></h3>
                     <span>Accuracy</span>

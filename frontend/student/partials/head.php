@@ -8,13 +8,13 @@ header("Expires: 0");
 
 // If the user is already logged in, redirect them to the dashboard
 if (isset($_SESSION['student_id'])) {
-    header("Location: /frontend/student/dashboard.php");
+    header("Location: /SCES/frontend/student/dashboard.php");
     exit();
 }
-include $_SERVER['DOCUMENT_ROOT'] . '/backend/global.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/SCES/backend/global.php';
 
 $log = new loggedIn();
-$log->needLogout(); 
+$log->needLogout();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,9 +22,6 @@ $log->needLogout();
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/assets/style/style.css" />
-    <link rel="stylesheet" href="/assets/font-awesome/css/all.css">
-    <link rel="icon" href="/assets/images/favicon.ico" />
-    
-
-    
+    <link rel="stylesheet" href="/SCES/assets/style/style.css" />
+    <link rel="stylesheet" href="/SCES/assets/font-awesome/css/all.css">
+    <link rel="icon" href="/SCES/assets/images/favicon.ico" />

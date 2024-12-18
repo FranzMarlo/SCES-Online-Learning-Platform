@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", function () {
-
   const performanceImg = document.getElementById(
     "studentPredictedPerformanceIcon"
   );
@@ -44,7 +43,7 @@ document.addEventListener("DOMContentLoaded", function () {
           },
         },
         ajax: {
-          url: "/backend/fetch-class.php",
+          url: "/SCES/backend/fetch-class.php",
           type: "POST",
           data: function (d) {
             d.submitType = "fetchAllStudentsDataTable";
@@ -57,7 +56,7 @@ document.addEventListener("DOMContentLoaded", function () {
             data: "profile_image",
             render: function (data, type, row) {
               return `<div class="center-image">
-                      <img src="/storage/student/images/${data}" alt="Profile Image" onerror="this.onerror=null; this.src='/storage/student/images/default.jpg';">
+                      <img src="/SCES/storage/student/images/${data}" alt="Profile Image" onerror="this.onerror=null; this.src='/SCES/storage/student/images/default.jpg';">
                     </div>`;
             },
             orderable: false,
@@ -102,7 +101,7 @@ document.addEventListener("DOMContentLoaded", function () {
           showAlert("error", "Student is not registered in the platform");
           return;
         } else {
-          fetch("/backend/fetch-class.php", {
+          fetch("/SCES/backend/fetch-class.php", {
             method: "POST",
             headers: {
               "Content-Type": "application/x-www-form-urlencoded",
@@ -148,9 +147,9 @@ document.addEventListener("DOMContentLoaded", function () {
               });
 
               const imageElement = document.getElementById("profileImage");
-              imageElement.src = `/storage/student/images/${student.profile_image}`;
+              imageElement.src = `/SCES/storage/student/images/${student.profile_image}`;
               imageElement.onerror = function () {
-                this.src = "/storage/student/images/default-profile.png";
+                this.src = "/SCES/storage/student/images/default-profile.png";
               };
               document.getElementById("studId").textContent =
                 student.student_id;
@@ -314,7 +313,7 @@ document.addEventListener("DOMContentLoaded", function () {
           },
         },
         ajax: {
-          url: "/backend/fetch-class.php",
+          url: "/SCES/backend/fetch-class.php",
           type: "POST",
           data: function (d) {
             d.submitType = "facultyGetQuizRecords";
@@ -374,7 +373,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const quizTaker = btn.getAttribute("data-quiz-taker");
         const quizSubject = btn.getAttribute("data-quiz-subject");
 
-        fetch("/backend/fetch-class.php", {
+        fetch("/SCES/backend/fetch-class.php", {
           method: "POST",
           headers: {
             "Content-Type": "application/x-www-form-urlencoded",
@@ -516,7 +515,7 @@ document.addEventListener("DOMContentLoaded", function () {
           },
         },
         ajax: {
-          url: "/backend/fetch-class.php",
+          url: "/SCES/backend/fetch-class.php",
           type: "POST",
           data: function (d) {
             d.submitType = "facultyGetGrades";
@@ -550,7 +549,7 @@ document.addEventListener("DOMContentLoaded", function () {
     data.append("student_id", studentId);
     data.append("section_id", section_id);
 
-    fetch("/backend/fetch-class.php", {
+    fetch("/SCES/backend/fetch-class.php", {
       method: "POST",
       body: data,
     })
@@ -575,7 +574,7 @@ document.addEventListener("DOMContentLoaded", function () {
     data.append("submitType", "facultyGetGWA");
     data.append("student_id", studentId);
 
-    fetch("/backend/fetch-class.php", {
+    fetch("/SCES/backend/fetch-class.php", {
       method: "POST",
       body: data,
     })
@@ -645,7 +644,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Fetch GWA records for the bar chart
     $.ajax({
-      url: "/backend/fetch-class.php",
+      url: "/SCES/backend/fetch-class.php",
       type: "POST",
       dataType: "json",
       data: {
@@ -710,8 +709,8 @@ document.addEventListener("DOMContentLoaded", function () {
               <legend style="color: ${hasWarning ? "red" : "green"};">
                 ${
                   hasWarning
-                    ? `<img src="/assets/images/at-risk.png" alt="Warning"> Action Required`
-                    : `<img src="/assets/images/quiz-passed.png" alt="Check"> No Warnings Found`
+                    ? `<img src="/SCES/assets/images/at-risk.png" alt="Warning"> Action Required`
+                    : `<img src="/SCES/assets/images/quiz-passed.png" alt="Check"> No Warnings Found`
                 }
               </legend>
             `;
@@ -788,7 +787,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     $.ajax({
-      url: "/backend/fetch-class.php",
+      url: "/SCES/backend/fetch-class.php",
       type: "POST",
       dataType: "json",
       data: {
@@ -874,8 +873,8 @@ document.addEventListener("DOMContentLoaded", function () {
               <legend style="color: ${hasWarning ? "red" : "green"};">
                 ${
                   hasWarning
-                    ? `<img src="/assets/images/at-risk.png" alt="Warning"> Action Required`
-                    : `<img src="/assets/images/quiz-passed.png" alt="Check"> No Warnings Found`
+                    ? `<img src="/SCES/assets/images/at-risk.png" alt="Warning"> Action Required`
+                    : `<img src="/SCES/assets/images/quiz-passed.png" alt="Check"> No Warnings Found`
                 }
               </legend>
             `;
@@ -987,23 +986,23 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function getRemarksIcon(remarks) {
     if (remarks === "Outstanding") {
-      return "/assets/images/outstanding.png";
+      return "/SCES/assets/images/outstanding.png";
     } else if (remarks === "Very Satisfactory") {
-      return "/assets/images/very-good.png";
+      return "/SCES/assets/images/very-good.png";
     } else if (remarks === "Satisfactory") {
-      return "/assets/images/good.png";
+      return "/SCES/assets/images/good.png";
     } else if (remarks === "Fairly Satisfactory") {
-      return "/assets/images/fair.png";
+      return "/SCES/assets/images/fair.png";
     } else {
-      return "/assets/images/at-risk.png";
+      return "/SCES/assets/images/at-risk.png";
     }
   }
 
   function getPerformanceIcon(performance) {
     if (performance == "Passed") {
-      return "/assets/images/passed.png";
+      return "/SCES/assets/images/passed.png";
     } else {
-      return "/assets/images/at-risk.png";
+      return "/SCES/assets/images/at-risk.png";
     }
   }
 });

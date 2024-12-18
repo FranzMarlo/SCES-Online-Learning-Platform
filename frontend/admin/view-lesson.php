@@ -3,15 +3,15 @@ $pdf = isset($_GET['pdf']) ? htmlspecialchars($_GET['pdf']) : null;
 $lessonNumber = isset($_GET['lesson_number']) ? htmlspecialchars($_GET['lesson_number']) : null;
 $subjectId = isset($_GET['subject_id']) ? htmlspecialchars($_GET['subject_id']) : null;
 
-if (!$pdf || !file_exists($_SERVER['DOCUMENT_ROOT'] . '/storage/lessons/' . $pdf)) {
+if (!$pdf || !file_exists($_SERVER['DOCUMENT_ROOT'] . '/SCES/storage/lessons/' . $pdf)) {
     die('Invalid or missing PDF file.');
 }
-include $_SERVER['DOCUMENT_ROOT'] . '/frontend/admin/partials/admin-head.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/SCES/frontend/admin/partials/admin-head.php';
 $db = new globalClass();
 $subjectTitle = $db->getSubject($subjectId);
 ?>
 <title>View Lesson</title>
-<link rel="stylesheet" href="/assets/style/view-lesson.css">
+<link rel="stylesheet" href="/SCES/assets/style/view-lesson.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.min.js"></script>
 </head>
 
@@ -20,7 +20,7 @@ $subjectTitle = $db->getSubject($subjectId);
         <h2>Lesson <?php echo htmlspecialchars($lessonNumber); ?> -
             <?php echo htmlspecialchars($subjectTitle['subject_title']); ?>
         </h2>
-        <a href="/storage/lessons/<?php echo $pdf; ?>" download class="download-link">
+        <a href="/SCES/storage/lessons/<?php echo $pdf; ?>" download class="download-link">
             <i class="fas fa-download download-icon"></i>
         </a>
     </div>
@@ -39,13 +39,13 @@ $subjectTitle = $db->getSubject($subjectId);
         </div>
     </div>
     <div class="rotate-box">
-        <img src="/assets/images/rotate-icon.png" alt="rotate icon">
+        <img src="/SCES/assets/images/rotate-icon.png" alt="rotate icon">
         <span>Please Rotate Your Device For Better Lesson Viewing Experience</span>
     </div>
     <script>
         pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.worker.min.js';
 
-        const url = '/storage/lessons/<?php echo $pdf; ?>';
+        const url = '/SCES/storage/lessons/<?php echo $pdf; ?>';
 
         let pdfDoc = null,
             pageNum = 1,

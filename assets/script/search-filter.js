@@ -56,7 +56,7 @@ function filterSubjects() {
       noDataBoxSubject = document.createElement("div");
       noDataBoxSubject.classList.add("no-data-box");
       noDataBoxSubject.innerHTML = `
-                <img src="/assets/images/no-data-icon.png" alt="no-data-icon.png">
+                <img src="/SCES/assets/images/no-data-icon.png" alt="no-data-icon.png">
                 <h1>No subject found.</h1>
             `;
       document
@@ -80,7 +80,7 @@ function filterSubjects() {
       noDataBoxArchived = document.createElement("div");
       noDataBoxArchived.classList.add("no-data-box");
       noDataBoxArchived.innerHTML = `
-                <img src="/assets/images/no-data-icon.png" alt="no-data-icon.png">
+                <img src="/SCES/assets/images/no-data-icon.png" alt="no-data-icon.png">
                 <h1>No archived subject found.</h1>
             `;
       document
@@ -155,7 +155,7 @@ function filterSections() {
       noDataBoxSection = document.createElement("div");
       noDataBoxSection.classList.add("no-data-box");
       noDataBoxSection.innerHTML = `
-                  <img src="/assets/images/no-data-icon.png" alt="no-data-icon.png">
+                  <img src="/SCES/assets/images/no-data-icon.png" alt="no-data-icon.png">
                   <h1>No section found.</h1>
               `;
       document
@@ -180,7 +180,7 @@ function filterSections() {
       noDataBoxArchived = document.createElement("div");
       noDataBoxArchived.classList.add("no-data-box");
       noDataBoxArchived.innerHTML = `
-                  <img src="/assets/images/no-data-icon.png" alt="no-data-icon.png">
+                  <img src="/SCES/assets/images/no-data-icon.png" alt="no-data-icon.png">
                   <h1>No archived section found.</h1>
               `;
       document
@@ -251,7 +251,7 @@ function facultyFilterSections() {
       noDataBoxSection = document.createElement("div");
       noDataBoxSection.classList.add("no-data-box");
       noDataBoxSection.innerHTML = `
-                <img src="/assets/images/no-data-icon.png" alt="no-data-icon.png">
+                <img src="/SCES/assets/images/no-data-icon.png" alt="no-data-icon.png">
                 <h1>No section found.</h1>
             `;
       document
@@ -276,7 +276,7 @@ function facultyFilterSections() {
       noDataBoxArchived = document.createElement("div");
       noDataBoxArchived.classList.add("no-data-box");
       noDataBoxArchived.innerHTML = `
-                <img src="/assets/images/no-data-icon.png" alt="no-data-icon.png">
+                <img src="/SCES/assets/images/no-data-icon.png" alt="no-data-icon.png">
                 <h1>No archived section found.</h1>
             `;
       document
@@ -293,4 +293,3 @@ function facultyFilterSections() {
     document.getElementById("archivedContainer").removeChild(noDataBoxArchived);
   }
 }
-

@@ -316,7 +316,7 @@ if (isset($_POST['submitType'])) {
             $allowedfileExtensions = array('jpg', 'gif', 'png', 'jpeg');
             if (in_array($fileExtension, $allowedfileExtensions)) {
 
-                $uploadFileDir = $_SERVER['DOCUMENT_ROOT'] . '/storage/student/images/';
+                $uploadFileDir = $_SERVER['DOCUMENT_ROOT'] . '/SCES/storage/student/images/';
                 $newFileName = md5(time() . $fileName) . '.' . $fileExtension;
                 $dest_path = $uploadFileDir . $newFileName;
 
@@ -695,7 +695,7 @@ if (isset($_POST['submitType'])) {
             $allowedfileExtensions = array('jpg', 'gif', 'png', 'jpeg');
             if (in_array($fileExtension, $allowedfileExtensions)) {
 
-                $uploadFileDir = $_SERVER['DOCUMENT_ROOT'] . '/storage/admin/images/';
+                $uploadFileDir = $_SERVER['DOCUMENT_ROOT'] . '/SCES/storage/admin/images/';
                 $newFileName = md5(time() . $fileName) . '.' . $fileExtension;
                 $dest_path = $uploadFileDir . $newFileName;
 
@@ -801,7 +801,7 @@ if (isset($_POST['submitType'])) {
                 $fileExtension = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
 
                 if ($fileType === 'application/pdf' && $fileExtension === 'pdf') {
-                    $uploadDir = $_SERVER['DOCUMENT_ROOT'] . '/storage/lessons/' . $gradeLevel . '/' . $quarter . ' Quarter/' . $subject . '/';
+                    $uploadDir = $_SERVER['DOCUMENT_ROOT'] . '/SCES/storage/lessons/' . $gradeLevel . '/' . $quarter . ' Quarter/' . $subject . '/';
 
                     $newFileName = 'Lesson_' . $lessonNumber . '_' . uniqid() . '.pdf';
                     $fileDestination = $uploadDir . $newFileName;
@@ -1142,7 +1142,7 @@ if (isset($_POST['submitType'])) {
             $allowedfileExtensions = array('jpg', 'gif', 'png', 'jpeg');
             if (in_array($fileExtension, $allowedfileExtensions)) {
 
-                $uploadFileDir = $_SERVER['DOCUMENT_ROOT'] . '/storage/faculty/images/';
+                $uploadFileDir = $_SERVER['DOCUMENT_ROOT'] . '/SCES/storage/faculty/images/';
                 $newFileName = md5(time() . $fileName) . '.' . $fileExtension;
                 $dest_path = $uploadFileDir . $newFileName;
 
@@ -1248,7 +1248,7 @@ if (isset($_POST['submitType'])) {
                 $fileExtension = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
 
                 if ($fileType === 'application/pdf' && $fileExtension === 'pdf') {
-                    $uploadDir = $_SERVER['DOCUMENT_ROOT'] . '/storage/lessons/' . $gradeLevel . '/' . $quarter . ' Quarter/' . $subject . '/';
+                    $uploadDir = $_SERVER['DOCUMENT_ROOT'] . '/SCES/storage/lessons/' . $gradeLevel . '/' . $quarter . ' Quarter/' . $subject . '/';
 
                     $newFileName = 'Lesson_' . $lessonNumber . '_' . uniqid() . '.pdf';
                     $fileDestination = $uploadDir . $newFileName;
@@ -1944,7 +1944,7 @@ if (isset($_POST['submitType'])) {
         }
     } else if ($_POST['submitType'] === 'addSectionData') {
         $addGradeLevel = validate($_POST['addGradeLevel']);
-        $addSection =validate($_POST['addSection']);
+        $addSection = validate($_POST['addSection']);
         $addTeacher = validate($_POST['addTeacher']);
         $checkSection = $db->checkSectionName($addSection, $addGradeLevel);
         if ($checkSection->num_rows > 0) {
@@ -2384,50 +2384,48 @@ if (isset($_POST['submitType'])) {
 
         if ($subjects):
             foreach ($subjects as $subject): ?>
-                <div class="subject-item"
-                    data-subject-name="<?php echo htmlspecialchars($subject['subject']); ?>"
-                    data-subject-year="<?php echo htmlspecialchars($subject['year']); ?>"
-                    data-subject-section="<?php echo htmlspecialchars($subject['section']); ?>"
-                    data-subject-level="<?php echo htmlspecialchars($subject['grade_level']); ?>">
-                    <a href="/frontend/admin/subject-module.php?section=<?php echo urlencode($subject['section_id']); ?>&subject=<?php echo urlencode($subject['subject_id']); ?>&gradelevel=<?php echo urlencode($subject['level_id']); ?>&teacher=<?php echo urlencode($subject['teacher_id']); ?>"
-                        class="hidden-link"></a>
-                    <div class="subject-icon <?php echo strtolower($subject['subject_code']); ?>"
-                        onclick="hiddenLink(this)">
-                        <button class="subject-btn" onclick="subjectBtn(event, this)">
-                            <i class="fa-solid fa-ellipsis-vertical"></i>
-                        </button>
-                        <div class="subject-in-title" onclick="hiddenLink(this)">
-                            <h1><?php echo htmlspecialchars($subject['subject']); ?></h1>
-                            <div class="in-part">
-                                <span><?php echo htmlspecialchars($subject['grade_level'] . ' - ' . $subject['section']); ?></span>
-                                <span><?php echo htmlspecialchars('SY: ' . $subject['year'] . ' - ' . ($subject['year'] + 1)); ?></span>
-                            </div>
-                        </div>
-                        <img src="/assets/images/<?php echo htmlspecialchars($subject['icon']); ?>"
-                            alt="<?php echo htmlspecialchars($subject['icon']); ?>">
-                    </div>
-                    <div class="subject-title" onclick="hiddenLink(this)">
-                        <h1><?php echo htmlspecialchars($subject['subject']); ?></h1>
-                        <span><?php echo htmlspecialchars($subject['grade_level'] . ' - ' . $subject['section']); ?></span>
-                        <span><?php echo htmlspecialchars('SY: ' . $subject['year'] . ' - ' . ($subject['year'] + 1)); ?></span>
-                    </div>
-                    <div class="popup-menu">
-                        <ul>
-                            <li><a href="javascript:void(0)" class="edit-btn"
-                                    data-subject-id="<?php echo htmlspecialchars($subject['subject_id']); ?>">Edit</a>
-                            </li>
-                            <li><a href="javascript:void(0)" class="archive-btn"
-                                    data-subject-id="<?php echo htmlspecialchars($subject['subject_id']); ?>">Archive</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            <?php endforeach;?>
+                                                                                                                                                                                                                                                        <div class="subject-item" data-subject-name="<?php echo htmlspecialchars($subject['subject']); ?>"
+                                                                                                                                                                                                                                                            data-subject-year="<?php echo htmlspecialchars($subject['year']); ?>"
+                                                                                                                                                                                                                                                            data-subject-section="<?php echo htmlspecialchars($subject['section']); ?>"
+                                                                                                                                                                                                                                                            data-subject-level="<?php echo htmlspecialchars($subject['grade_level']); ?>">
+                                                                                                                                                                                                                                                            <a href="/SCES/frontend/admin/subject-module.php?section=<?php echo urlencode($subject['section_id']); ?>&subject=<?php echo urlencode($subject['subject_id']); ?>&gradelevel=<?php echo urlencode($subject['level_id']); ?>&teacher=<?php echo urlencode($subject['teacher_id']); ?>"
+                                                                                                                                                                                                                                                                class="hidden-link"></a>
+                                                                                                                                                                                                                                                            <div class="subject-icon <?php echo strtolower($subject['subject_code']); ?>" onclick="hiddenLink(this)">
+                                                                                                                                                                                                                                                                <button class="subject-btn" onclick="subjectBtn(event, this)">
+                                                                                                                                                                                                                                                                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                                                                                                                                                                                                                                                                </button>
+                                                                                                                                                                                                                                                                <div class="subject-in-title" onclick="hiddenLink(this)">
+                                                                                                                                                                                                                                                                    <h1><?php echo htmlspecialchars($subject['subject']); ?></h1>
+                                                                                                                                                                                                                                                                    <div class="in-part">
+                                                                                                                                                                                                                                                                        <span><?php echo htmlspecialchars($subject['grade_level'] . ' - ' . $subject['section']); ?></span>
+                                                                                                                                                                                                                                                                        <span><?php echo htmlspecialchars('SY: ' . $subject['year'] . ' - ' . ($subject['year'] + 1)); ?></span>
+                                                                                                                                                                                                                                                                    </div>
+                                                                                                                                                                                                                                                                </div>
+                                                                                                                                                                                                                                                                <img src="/SCES/assets/images/<?php echo htmlspecialchars($subject['icon']); ?>"
+                                                                                                                                                                                                                                                                    alt="<?php echo htmlspecialchars($subject['icon']); ?>">
+                                                                                                                                                                                                                                                            </div>
+                                                                                                                                                                                                                                                            <div class="subject-title" onclick="hiddenLink(this)">
+                                                                                                                                                                                                                                                                <h1><?php echo htmlspecialchars($subject['subject']); ?></h1>
+                                                                                                                                                                                                                                                                <span><?php echo htmlspecialchars($subject['grade_level'] . ' - ' . $subject['section']); ?></span>
+                                                                                                                                                                                                                                                                <span><?php echo htmlspecialchars('SY: ' . $subject['year'] . ' - ' . ($subject['year'] + 1)); ?></span>
+                                                                                                                                                                                                                                                            </div>
+                                                                                                                                                                                                                                                            <div class="popup-menu">
+                                                                                                                                                                                                                                                                <ul>
+                                                                                                                                                                                                                                                                    <li><a href="javascript:void(0)" class="edit-btn"
+                                                                                                                                                                                                                                                                            data-subject-id="<?php echo htmlspecialchars($subject['subject_id']); ?>">Edit</a>
+                                                                                                                                                                                                                                                                    </li>
+                                                                                                                                                                                                                                                                    <li><a href="javascript:void(0)" class="archive-btn"
+                                                                                                                                                                                                                                                                            data-subject-id="<?php echo htmlspecialchars($subject['subject_id']); ?>">Archive</a>
+                                                                                                                                                                                                                                                                    </li>
+                                                                                                                                                                                                                                                                </ul>
+                                                                                                                                                                                                                                                            </div>
+                                                                                                                                                                                                                                                        </div>
+            <?php endforeach; ?>
         <?php else: ?>
-            <div class="no-data-box">
-                <img src="/assets/images/no-data-icon.png" alt="no-data-icon.png">
-                <h1>No subject found.</h1>
-            </div>
+                                                                                                                                                                                                                                                    <div class="no-data-box">
+                                                                                                                                                                                                                                                        <img src="/SCES/assets/images/no-data-icon.png" alt="no-data-icon.png">
+                                                                                                                                                                                                                                                        <h1>No subject found.</h1>
+                                                                                                                                                                                                                                                    </div>
         <?php endif;
         exit;
     } else if ($_POST['submitType'] === 'refreshArchived') {
@@ -2435,47 +2433,45 @@ if (isset($_POST['submitType'])) {
 
         if ($archived):
             foreach ($archived as $archive): ?>
-                <div class="subject-item"
-                    data-subject-name="<?php echo htmlspecialchars($archive['subject']); ?>"
-                    data-subject-year="<?php echo htmlspecialchars($archive['year']); ?>"
-                    data-subject-section="<?php echo htmlspecialchars($archive['section']); ?>"
-                    data-subject-level="<?php echo htmlspecialchars($archive['grade_level']); ?>">
-                    <a href="/frontend/admin/subject-module.php?section=<?php echo urlencode($archive['section_id']); ?>&subject=<?php echo urlencode($archive['subject_id']); ?>&gradelevel=<?php echo urlencode($archive['level_id']); ?>&teacher=<?php echo urlencode($archive['teacher_id']); ?>"
-                        class="hidden-link"></a>
-                    <div class="subject-icon <?php echo strtolower($archive['subject_code']); ?>"
-                        onclick="hiddenLink(this)">
-                        <button class="subject-btn" onclick="subjectBtn(event, this)">
-                            <i class="fa-solid fa-ellipsis-vertical"></i>
-                        </button>
-                        <div class="subject-in-title" onclick="hiddenLink(this)">
-                            <h1><?php echo htmlspecialchars($archive['subject']); ?></h1>
-                            <div class="in-part">
-                                <span><?php echo htmlspecialchars($archive['grade_level'] . ' - ' . $archive['section']); ?></span>
-                                <span><?php echo htmlspecialchars('SY: ' . $archive['year'] . ' - ' . ($archive['year'] + 1)); ?></span>
-                            </div>
-                        </div>
-                        <img src="/assets/images/<?php echo htmlspecialchars($archive['icon']); ?>"
-                            alt="<?php echo htmlspecialchars($archive['icon']); ?>">
-                    </div>
-                    <div class="subject-title" onclick="hiddenLink(this)">
-                        <h1><?php echo htmlspecialchars($archive['subject']); ?></h1>
-                        <span><?php echo htmlspecialchars($archive['grade_level'] . ' - ' . $archive['section']); ?></span>
-                        <span><?php echo htmlspecialchars('SY: ' . $archive['year'] . ' - ' . ($archive['year'] + 1)); ?></span>
-                    </div>
-                    <div class="popup-menu">
-                        <ul>
-                            <li><a href="javascript:void(0)" class="not-archive-btn"
-                                    data-subject-id="<?php echo htmlspecialchars($archive['subject_id']); ?>">Enable</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+                                                                                                                                                                                                                                                            <div class="subject-item" data-subject-name="<?php echo htmlspecialchars($archive['subject']); ?>"
+                                                                                                                                                                                                                                                                data-subject-year="<?php echo htmlspecialchars($archive['year']); ?>"
+                                                                                                                                                                                                                                                                data-subject-section="<?php echo htmlspecialchars($archive['section']); ?>"
+                                                                                                                                                                                                                                                                data-subject-level="<?php echo htmlspecialchars($archive['grade_level']); ?>">
+                                                                                                                                                                                                                                                                <a href="/SCES/frontend/admin/subject-module.php?section=<?php echo urlencode($archive['section_id']); ?>&subject=<?php echo urlencode($archive['subject_id']); ?>&gradelevel=<?php echo urlencode($archive['level_id']); ?>&teacher=<?php echo urlencode($archive['teacher_id']); ?>"
+                                                                                                                                                                                                                                                                    class="hidden-link"></a>
+                                                                                                                                                                                                                                                                <div class="subject-icon <?php echo strtolower($archive['subject_code']); ?>" onclick="hiddenLink(this)">
+                                                                                                                                                                                                                                                                    <button class="subject-btn" onclick="subjectBtn(event, this)">
+                                                                                                                                                                                                                                                                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                                                                                                                                                                                                                                                                    </button>
+                                                                                                                                                                                                                                                                    <div class="subject-in-title" onclick="hiddenLink(this)">
+                                                                                                                                                                                                                                                                        <h1><?php echo htmlspecialchars($archive['subject']); ?></h1>
+                                                                                                                                                                                                                                                                        <div class="in-part">
+                                                                                                                                                                                                                                                                            <span><?php echo htmlspecialchars($archive['grade_level'] . ' - ' . $archive['section']); ?></span>
+                                                                                                                                                                                                                                                                            <span><?php echo htmlspecialchars('SY: ' . $archive['year'] . ' - ' . ($archive['year'] + 1)); ?></span>
+                                                                                                                                                                                                                                                                        </div>
+                                                                                                                                                                                                                                                                    </div>
+                                                                                                                                                                                                                                                                    <img src="/SCES/assets/images/<?php echo htmlspecialchars($archive['icon']); ?>"
+                                                                                                                                                                                                                                                                        alt="<?php echo htmlspecialchars($archive['icon']); ?>">
+                                                                                                                                                                                                                                                                </div>
+                                                                                                                                                                                                                                                                <div class="subject-title" onclick="hiddenLink(this)">
+                                                                                                                                                                                                                                                                    <h1><?php echo htmlspecialchars($archive['subject']); ?></h1>
+                                                                                                                                                                                                                                                                    <span><?php echo htmlspecialchars($archive['grade_level'] . ' - ' . $archive['section']); ?></span>
+                                                                                                                                                                                                                                                                    <span><?php echo htmlspecialchars('SY: ' . $archive['year'] . ' - ' . ($archive['year'] + 1)); ?></span>
+                                                                                                                                                                                                                                                                </div>
+                                                                                                                                                                                                                                                                <div class="popup-menu">
+                                                                                                                                                                                                                                                                    <ul>
+                                                                                                                                                                                                                                                                        <li><a href="javascript:void(0)" class="not-archive-btn"
+                                                                                                                                                                                                                                                                                data-subject-id="<?php echo htmlspecialchars($archive['subject_id']); ?>">Enable</a>
+                                                                                                                                                                                                                                                                        </li>
+                                                                                                                                                                                                                                                                    </ul>
+                                                                                                                                                                                                                                                                </div>
+                                                                                                                                                                                                                                                            </div>
             <?php endforeach; ?>
         <?php else: ?>
-            <div class="no-data-box">
-                <img src="/assets/images/no-data-icon.png" alt="no-data-icon.png">
-                <h1>No archived subject found.</h1>
-            </div>
+                                                                                                                                                                                                                                                        <div class="no-data-box">
+                                                                                                                                                                                                                                                            <img src="/SCES/assets/images/no-data-icon.png" alt="no-data-icon.png">
+                                                                                                                                                                                                                                                            <h1>No archived subject found.</h1>
+                                                                                                                                                                                                                                                        </div>
         <?php endif;
         exit;
     } else if ($_POST['submitType'] === 'facultyRefreshSubject') {
@@ -2485,47 +2481,45 @@ if (isset($_POST['submitType'])) {
 
         if ($subjects):
             foreach ($subjects as $subject): ?>
-                <div class="subject-item"
-                    data-subject-name="<?php echo htmlspecialchars($subject['subject']); ?>"
-                    data-subject-year="<?php echo htmlspecialchars($subject['year']); ?>"
-                    data-subject-section="<?php echo htmlspecialchars($subject['section']); ?>"
-                    data-subject-level="<?php echo htmlspecialchars($subject['grade_level']); ?>">
-                    <a href="/frontend/faculty/subject-module.php?section=<?php echo urlencode($subject['section_id']); ?>&subject=<?php echo urlencode($subject['subject_id']); ?>&gradelevel=<?php echo urlencode($subject['level_id']); ?>"
-                    class="hidden-link"></a>
-                    <div class="subject-icon <?php echo strtolower($subject['subject_code']); ?>"
-                        onclick="hiddenLink(this)">
-                        <button class="subject-btn" onclick="subjectBtn(event, this)">
-                            <i class="fa-solid fa-ellipsis-vertical"></i>
-                        </button>
-                        <div class="subject-in-title" onclick="hiddenLink(this)">
-                            <h1><?php echo htmlspecialchars($subject['subject']); ?></h1>
-                            <div class="in-part">
-                                <span><?php echo htmlspecialchars($subject['grade_level'] . ' - ' . $subject['section']); ?></span>
-                                <span><?php echo htmlspecialchars('SY: ' . $subject['year'] . ' - ' . ($subject['year'] + 1)); ?></span>
-                            </div>
-                        </div>
-                        <img src="/assets/images/<?php echo htmlspecialchars($subject['icon']); ?>"
-                            alt="<?php echo htmlspecialchars($subject['icon']); ?>">
-                    </div>
-                    <div class="subject-title" onclick="hiddenLink(this)">
-                        <h1><?php echo htmlspecialchars($subject['subject']); ?></h1>
-                        <span><?php echo htmlspecialchars($subject['grade_level'] . ' - ' . $subject['section']); ?></span>
-                        <span><?php echo htmlspecialchars('SY: ' . $subject['year'] . ' - ' . ($subject['year'] + 1)); ?></span>
-                    </div>
-                    <div class="popup-menu">
-                        <ul>
-                            <li><a href="javascript:void(0)" class="archive-btn"
-                                    data-subject-id="<?php echo htmlspecialchars($subject['subject_id']); ?>">Archive</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            <?php endforeach;?>
+                                                                                                                                                                                                                                                                <div class="subject-item" data-subject-name="<?php echo htmlspecialchars($subject['subject']); ?>"
+                                                                                                                                                                                                                                                                    data-subject-year="<?php echo htmlspecialchars($subject['year']); ?>"
+                                                                                                                                                                                                                                                                    data-subject-section="<?php echo htmlspecialchars($subject['section']); ?>"
+                                                                                                                                                                                                                                                                    data-subject-level="<?php echo htmlspecialchars($subject['grade_level']); ?>">
+                                                                                                                                                                                                                                                                    <a href="/SCES/frontend/faculty/subject-module.php?section=<?php echo urlencode($subject['section_id']); ?>&subject=<?php echo urlencode($subject['subject_id']); ?>&gradelevel=<?php echo urlencode($subject['level_id']); ?>"
+                                                                                                                                                                                                                                                                        class="hidden-link"></a>
+                                                                                                                                                                                                                                                                    <div class="subject-icon <?php echo strtolower($subject['subject_code']); ?>" onclick="hiddenLink(this)">
+                                                                                                                                                                                                                                                                        <button class="subject-btn" onclick="subjectBtn(event, this)">
+                                                                                                                                                                                                                                                                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                                                                                                                                                                                                                                                                        </button>
+                                                                                                                                                                                                                                                                        <div class="subject-in-title" onclick="hiddenLink(this)">
+                                                                                                                                                                                                                                                                            <h1><?php echo htmlspecialchars($subject['subject']); ?></h1>
+                                                                                                                                                                                                                                                                            <div class="in-part">
+                                                                                                                                                                                                                                                                                <span><?php echo htmlspecialchars($subject['grade_level'] . ' - ' . $subject['section']); ?></span>
+                                                                                                                                                                                                                                                                                <span><?php echo htmlspecialchars('SY: ' . $subject['year'] . ' - ' . ($subject['year'] + 1)); ?></span>
+                                                                                                                                                                                                                                                                            </div>
+                                                                                                                                                                                                                                                                        </div>
+                                                                                                                                                                                                                                                                        <img src="/SCES/assets/images/<?php echo htmlspecialchars($subject['icon']); ?>"
+                                                                                                                                                                                                                                                                            alt="<?php echo htmlspecialchars($subject['icon']); ?>">
+                                                                                                                                                                                                                                                                    </div>
+                                                                                                                                                                                                                                                                    <div class="subject-title" onclick="hiddenLink(this)">
+                                                                                                                                                                                                                                                                        <h1><?php echo htmlspecialchars($subject['subject']); ?></h1>
+                                                                                                                                                                                                                                                                        <span><?php echo htmlspecialchars($subject['grade_level'] . ' - ' . $subject['section']); ?></span>
+                                                                                                                                                                                                                                                                        <span><?php echo htmlspecialchars('SY: ' . $subject['year'] . ' - ' . ($subject['year'] + 1)); ?></span>
+                                                                                                                                                                                                                                                                    </div>
+                                                                                                                                                                                                                                                                    <div class="popup-menu">
+                                                                                                                                                                                                                                                                        <ul>
+                                                                                                                                                                                                                                                                            <li><a href="javascript:void(0)" class="archive-btn"
+                                                                                                                                                                                                                                                                                    data-subject-id="<?php echo htmlspecialchars($subject['subject_id']); ?>">Archive</a>
+                                                                                                                                                                                                                                                                            </li>
+                                                                                                                                                                                                                                                                        </ul>
+                                                                                                                                                                                                                                                                    </div>
+                                                                                                                                                                                                                                                                </div>
+            <?php endforeach; ?>
         <?php else: ?>
-            <div class="no-data-box">
-                <img src="/assets/images/no-data-icon.png" alt="no-data-icon.png">
-                <h1>No subject found.</h1>
-            </div>
+                                                                                                                                                                                                                                                            <div class="no-data-box">
+                                                                                                                                                                                                                                                                <img src="/SCES/assets/images/no-data-icon.png" alt="no-data-icon.png">
+                                                                                                                                                                                                                                                                <h1>No subject found.</h1>
+                                                                                                                                                                                                                                                            </div>
         <?php endif;
         exit;
     } else if ($_POST['submitType'] === 'facultyRefreshArchived') {
@@ -2535,154 +2529,150 @@ if (isset($_POST['submitType'])) {
 
         if ($archived):
             foreach ($archived as $archive): ?>
-                <div class="subject-item"
-                    data-subject-name="<?php echo htmlspecialchars($archive['subject']); ?>"
-                    data-subject-year="<?php echo htmlspecialchars($archive['year']); ?>"
-                    data-subject-section="<?php echo htmlspecialchars($archive['section']); ?>"
-                    data-subject-level="<?php echo htmlspecialchars($archive['grade_level']); ?>">
-                    <a href="/frontend/faculty/subject-module.php?section=<?php echo urlencode($archive['section_id']); ?>&subject=<?php echo urlencode($archive['subject_id']); ?>&gradelevel=<?php echo urlencode($archive['level_id']); ?>"
-                    class="hidden-link"></a>
-                    <div class="subject-icon <?php echo strtolower($archive['subject_code']); ?>"
-                        onclick="hiddenLink(this)">
-                        <button class="subject-btn" onclick="subjectBtn(event, this)">
-                            <i class="fa-solid fa-ellipsis-vertical"></i>
-                        </button>
-                        <div class="subject-in-title" onclick="hiddenLink(this)">
-                            <h1><?php echo htmlspecialchars($archive['subject']); ?></h1>
-                            <div class="in-part">
-                                <span><?php echo htmlspecialchars($archive['grade_level'] . ' - ' . $archive['section']); ?></span>
-                                <span><?php echo htmlspecialchars('SY: ' . $archive['year'] . ' - ' . ($archive['year'] + 1)); ?></span>
-                            </div>
-                        </div>
-                        <img src="/assets/images/<?php echo htmlspecialchars($archive['icon']); ?>"
-                            alt="<?php echo htmlspecialchars($archive['icon']); ?>">
-                    </div>
-                    <div class="subject-title" onclick="hiddenLink(this)">
-                        <h1><?php echo htmlspecialchars($archive['subject']); ?></h1>
-                        <span><?php echo htmlspecialchars($archive['grade_level'] . ' - ' . $archive['section']); ?></span>
-                        <span><?php echo htmlspecialchars('SY: ' . $archive['year'] . ' - ' . ($archive['year'] + 1)); ?></span>
-                    </div>
-                    <div class="popup-menu">
-                        <ul>
-                            <li><a href="javascript:void(0)" class="not-archive-btn"
-                                    data-subject-id="<?php echo htmlspecialchars($archive['subject_id']); ?>">Enable</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+                                                                                                                                                                                                                                                                    <div class="subject-item" data-subject-name="<?php echo htmlspecialchars($archive['subject']); ?>"
+                                                                                                                                                                                                                                                                        data-subject-year="<?php echo htmlspecialchars($archive['year']); ?>"
+                                                                                                                                                                                                                                                                        data-subject-section="<?php echo htmlspecialchars($archive['section']); ?>"
+                                                                                                                                                                                                                                                                        data-subject-level="<?php echo htmlspecialchars($archive['grade_level']); ?>">
+                                                                                                                                                                                                                                                                        <a href="/SCES/frontend/faculty/subject-module.php?section=<?php echo urlencode($archive['section_id']); ?>&subject=<?php echo urlencode($archive['subject_id']); ?>&gradelevel=<?php echo urlencode($archive['level_id']); ?>"
+                                                                                                                                                                                                                                                                            class="hidden-link"></a>
+                                                                                                                                                                                                                                                                        <div class="subject-icon <?php echo strtolower($archive['subject_code']); ?>" onclick="hiddenLink(this)">
+                                                                                                                                                                                                                                                                            <button class="subject-btn" onclick="subjectBtn(event, this)">
+                                                                                                                                                                                                                                                                                <i class="fa-solid fa-ellipsis-vertical"></i>
+                                                                                                                                                                                                                                                                            </button>
+                                                                                                                                                                                                                                                                            <div class="subject-in-title" onclick="hiddenLink(this)">
+                                                                                                                                                                                                                                                                                <h1><?php echo htmlspecialchars($archive['subject']); ?></h1>
+                                                                                                                                                                                                                                                                                <div class="in-part">
+                                                                                                                                                                                                                                                                                    <span><?php echo htmlspecialchars($archive['grade_level'] . ' - ' . $archive['section']); ?></span>
+                                                                                                                                                                                                                                                                                    <span><?php echo htmlspecialchars('SY: ' . $archive['year'] . ' - ' . ($archive['year'] + 1)); ?></span>
+                                                                                                                                                                                                                                                                                </div>
+                                                                                                                                                                                                                                                                            </div>
+                                                                                                                                                                                                                                                                            <img src="/SCES/assets/images/<?php echo htmlspecialchars($archive['icon']); ?>"
+                                                                                                                                                                                                                                                                                alt="<?php echo htmlspecialchars($archive['icon']); ?>">
+                                                                                                                                                                                                                                                                        </div>
+                                                                                                                                                                                                                                                                        <div class="subject-title" onclick="hiddenLink(this)">
+                                                                                                                                                                                                                                                                            <h1><?php echo htmlspecialchars($archive['subject']); ?></h1>
+                                                                                                                                                                                                                                                                            <span><?php echo htmlspecialchars($archive['grade_level'] . ' - ' . $archive['section']); ?></span>
+                                                                                                                                                                                                                                                                            <span><?php echo htmlspecialchars('SY: ' . $archive['year'] . ' - ' . ($archive['year'] + 1)); ?></span>
+                                                                                                                                                                                                                                                                        </div>
+                                                                                                                                                                                                                                                                        <div class="popup-menu">
+                                                                                                                                                                                                                                                                            <ul>
+                                                                                                                                                                                                                                                                                <li><a href="javascript:void(0)" class="not-archive-btn"
+                                                                                                                                                                                                                                                                                        data-subject-id="<?php echo htmlspecialchars($archive['subject_id']); ?>">Enable</a>
+                                                                                                                                                                                                                                                                                </li>
+                                                                                                                                                                                                                                                                            </ul>
+                                                                                                                                                                                                                                                                        </div>
+                                                                                                                                                                                                                                                                    </div>
             <?php endforeach; ?>
         <?php else: ?>
-            <div class="no-data-box">
-                <img src="/assets/images/no-data-icon.png" alt="no-data-icon.png">
-                <h1>No archived subject found.</h1>
-            </div>
+                                                                                                                                                                                                                                                                <div class="no-data-box">
+                                                                                                                                                                                                                                                                    <img src="/SCES/assets/images/no-data-icon.png" alt="no-data-icon.png">
+                                                                                                                                                                                                                                                                    <h1>No archived subject found.</h1>
+                                                                                                                                                                                                                                                                </div>
         <?php endif;
         exit;
     } else if ($_POST['submitType'] === 'refreshSection') {
-        $sections =  $db->adminGetSection();
+        $sections = $db->adminGetSection();
 
         if ($sections):
             foreach ($sections as $section): ?>
-                <div class="section-item"
-                    data-section-adviser="<?php echo htmlspecialchars($section['teacher_fname'] . ' ' . $section['teacher_lname']); ?>"
-                    data-section-year="<?php echo htmlspecialchars($section['year']); ?>"
-                    data-section-section="<?php echo htmlspecialchars($section['section']); ?>"
-                    data-section-level="<?php echo htmlspecialchars($section['grade_level']); ?>">
-                    <a href="/frontend/admin/student-section.php?section=<?php echo $section['section_id']; ?>"
-                        class="hidden-link"></a>
-                    <div class="icon-box <?php echo $section['short']; ?>" onclick="sectionLink(this)">
-                        <button class="section-btn" onclick="sectionBtn(event, this)">
-                            <i class="fa-solid fa-ellipsis-vertical"></i>
-                        </button>
-                        <div class="icon-text-in" onclick="sectionLink(this)">
-                            <span><?php echo htmlspecialchars($section['grade_level'] . ' - ' . $section['section']); ?></span>
-                            <div class="in-part">
-                                <p><?php echo htmlspecialchars(getAdviser($section['gender'], $section['teacher_lname'], $section['teacher_fname'])); ?>
-                                </p>
-                                <p><?php echo htmlspecialchars('SY: ' . $section['year']  . ' - ' . ($section['year'] + 1)); ?>
-                                </p>
-                            </div>
-                        </div>
-                        <img src="/assets/images/<?php echo $section['short']; ?>.png"
-                            alt="<?php echo $section['short']; ?> icon">
-                    </div>
-                    <div class="icon-text" onclick="sectionLink(this)">
-                        <span><?php echo htmlspecialchars($section['grade_level'] . ' - ' . $section['section']); ?></span>
-                        <p><?php echo htmlspecialchars(getAdviser($section['gender'], $section['teacher_lname'], $section['teacher_fname'])); ?>
-                        </p>
-                        <p><?php echo htmlspecialchars('SY: ' . $section['year']  . ' - ' . ($section['year'] + 1)); ?>
-                        </p>
-                    </div>
-                    <div class="popup-menu">
-                        <ul>
-                            <li><a href="javascript:void(0)" class="edit-btn"
-                                    data-section-id="<?php echo htmlspecialchars($section['section_id']); ?>">Edit</a>
-                            </li>
-                            <li><a href="javascript:void(0)" class="archive-btn"
-                                    data-section-id="<?php echo htmlspecialchars($section['section_id']); ?>">Archive</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+                                                                                                                                                                                                                                                                        <div class="section-item"
+                                                                                                                                                                                                                                                                            data-section-adviser="<?php echo htmlspecialchars($section['teacher_fname'] . ' ' . $section['teacher_lname']); ?>"
+                                                                                                                                                                                                                                                                            data-section-year="<?php echo htmlspecialchars($section['year']); ?>"
+                                                                                                                                                                                                                                                                            data-section-section="<?php echo htmlspecialchars($section['section']); ?>"
+                                                                                                                                                                                                                                                                            data-section-level="<?php echo htmlspecialchars($section['grade_level']); ?>">
+                                                                                                                                                                                                                                                                            <a href="/SCES/frontend/admin/student-section.php?section=<?php echo $section['section_id']; ?>"
+                                                                                                                                                                                                                                                                                class="hidden-link"></a>
+                                                                                                                                                                                                                                                                            <div class="icon-box <?php echo $section['short']; ?>" onclick="sectionLink(this)">
+                                                                                                                                                                                                                                                                                <button class="section-btn" onclick="sectionBtn(event, this)">
+                                                                                                                                                                                                                                                                                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                                                                                                                                                                                                                                                                                </button>
+                                                                                                                                                                                                                                                                                <div class="icon-text-in" onclick="sectionLink(this)">
+                                                                                                                                                                                                                                                                                    <span><?php echo htmlspecialchars($section['grade_level'] . ' - ' . $section['section']); ?></span>
+                                                                                                                                                                                                                                                                                    <div class="in-part">
+                                                                                                                                                                                                                                                                                        <p><?php echo htmlspecialchars(getAdviser($section['gender'], $section['teacher_lname'], $section['teacher_fname'])); ?>
+                                                                                                                                                                                                                                                                                        </p>
+                                                                                                                                                                                                                                                                                        <p><?php echo htmlspecialchars('SY: ' . $section['year'] . ' - ' . ($section['year'] + 1)); ?>
+                                                                                                                                                                                                                                                                                        </p>
+                                                                                                                                                                                                                                                                                    </div>
+                                                                                                                                                                                                                                                                                </div>
+                                                                                                                                                                                                                                                                                <img src="/SCES/assets/images/<?php echo $section['short']; ?>.png" alt="<?php echo $section['short']; ?> icon">
+                                                                                                                                                                                                                                                                            </div>
+                                                                                                                                                                                                                                                                            <div class="icon-text" onclick="sectionLink(this)">
+                                                                                                                                                                                                                                                                                <span><?php echo htmlspecialchars($section['grade_level'] . ' - ' . $section['section']); ?></span>
+                                                                                                                                                                                                                                                                                <p><?php echo htmlspecialchars(getAdviser($section['gender'], $section['teacher_lname'], $section['teacher_fname'])); ?>
+                                                                                                                                                                                                                                                                                </p>
+                                                                                                                                                                                                                                                                                <p><?php echo htmlspecialchars('SY: ' . $section['year'] . ' - ' . ($section['year'] + 1)); ?>
+                                                                                                                                                                                                                                                                                </p>
+                                                                                                                                                                                                                                                                            </div>
+                                                                                                                                                                                                                                                                            <div class="popup-menu">
+                                                                                                                                                                                                                                                                                <ul>
+                                                                                                                                                                                                                                                                                    <li><a href="javascript:void(0)" class="edit-btn"
+                                                                                                                                                                                                                                                                                            data-section-id="<?php echo htmlspecialchars($section['section_id']); ?>">Edit</a>
+                                                                                                                                                                                                                                                                                    </li>
+                                                                                                                                                                                                                                                                                    <li><a href="javascript:void(0)" class="archive-btn"
+                                                                                                                                                                                                                                                                                            data-section-id="<?php echo htmlspecialchars($section['section_id']); ?>">Archive</a>
+                                                                                                                                                                                                                                                                                    </li>
+                                                                                                                                                                                                                                                                                </ul>
+                                                                                                                                                                                                                                                                            </div>
+                                                                                                                                                                                                                                                                        </div>
             <?php endforeach; ?>
         <?php else: ?>
-            <div class="no-data-box">
-                <img src="/assets/images/no-data-icon.png" alt="no-data-icon.png">
-                <h1>No section found.</h1>
-            </div>
+                                                                                                                                                                                                                                                                    <div class="no-data-box">
+                                                                                                                                                                                                                                                                        <img src="/SCES/assets/images/no-data-icon.png" alt="no-data-icon.png">
+                                                                                                                                                                                                                                                                        <h1>No section found.</h1>
+                                                                                                                                                                                                                                                                    </div>
         <?php endif;
         exit;
     } else if ($_POST['submitType'] === 'refreshArchivedSection') {
         $archived = $db->adminGetArchivedSection();
         if ($archived):
             foreach ($archived as $archive): ?>
-                <div class="section-item"
-                    data-section-adviser="<?php echo htmlspecialchars($archive['teacher_fname'] . ' ' . $archive['teacher_lname']); ?>"
-                    data-section-year="<?php echo htmlspecialchars($archive['year']); ?>"
-                    data-section-section="<?php echo htmlspecialchars($archive['section']); ?>"
-                    data-section-level="<?php echo htmlspecialchars($archive['grade_level']); ?>">
-                    <a href="/frontend/admin/student-section.php?section=<?php echo $archive['section_id']; ?>"
-                        class="hidden-link"></a>
-                    <div class="icon-box <?php echo $archive['short']; ?>" onclick="sectionLink(this)">
-                        <button class="section-btn" onclick="sectionBtn(event, this)">
-                            <i class="fa-solid fa-ellipsis-vertical"></i>
-                        </button>
-                        <div class="icon-text-in" onclick="sectionLink(this)">
-                            <span><?php echo htmlspecialchars($archive['grade_level'] . ' - ' . $archive['section']); ?></span>
-                            <div class="in-part">
-                                <p><?php echo htmlspecialchars(getAdviser($archive['gender'], $archive['teacher_lname'], $archive['teacher_fname'])); ?>
-                                </p>
-                                <p><?php echo htmlspecialchars('SY: ' . $archive['year'] . ' - ' . ($archive['year'] + 1)); ?>
-                                </p>
-                            </div>
-                        </div>
-                        <img src="/assets/images/<?php echo $archive['short']; ?>.png"
-                            alt="<?php echo $archive['short']; ?> icon">
-                    </div>
-                    <div class="icon-text" onclick="sectionLink(this)">
-                        <span><?php echo htmlspecialchars($archive['grade_level'] . ' - ' . $archive['section']); ?></span>
-                        <p><?php echo htmlspecialchars(getAdviser($archive['gender'], $archive['teacher_lname'], $archive['teacher_fname'])); ?>
-                        </p>
-                        <p><?php echo htmlspecialchars('SY: ' . $archive['year'] . ' - ' . ($archive['year'] + 1)); ?>
-                        </p>
-                    </div>
-                    <div class="popup-menu">
-                        <ul>
-                            <li><a href="javascript:void(0)" class="edit-btn"
-                                    data-section-id="<?php echo htmlspecialchars($archive['section_id']); ?>">Edit</a>
-                            </li>
-                            <li><a href="javascript:void(0)" class="not-archive-btn"
-                                    data-section-id="<?php echo htmlspecialchars($archive['section_id']); ?>">Enable</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+                                                                                                                                                                                                                                                                            <div class="section-item"
+                                                                                                                                                                                                                                                                                data-section-adviser="<?php echo htmlspecialchars($archive['teacher_fname'] . ' ' . $archive['teacher_lname']); ?>"
+                                                                                                                                                                                                                                                                                data-section-year="<?php echo htmlspecialchars($archive['year']); ?>"
+                                                                                                                                                                                                                                                                                data-section-section="<?php echo htmlspecialchars($archive['section']); ?>"
+                                                                                                                                                                                                                                                                                data-section-level="<?php echo htmlspecialchars($archive['grade_level']); ?>">
+                                                                                                                                                                                                                                                                                <a href="/SCES/frontend/admin/student-section.php?section=<?php echo $archive['section_id']; ?>"
+                                                                                                                                                                                                                                                                                    class="hidden-link"></a>
+                                                                                                                                                                                                                                                                                <div class="icon-box <?php echo $archive['short']; ?>" onclick="sectionLink(this)">
+                                                                                                                                                                                                                                                                                    <button class="section-btn" onclick="sectionBtn(event, this)">
+                                                                                                                                                                                                                                                                                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                                                                                                                                                                                                                                                                                    </button>
+                                                                                                                                                                                                                                                                                    <div class="icon-text-in" onclick="sectionLink(this)">
+                                                                                                                                                                                                                                                                                        <span><?php echo htmlspecialchars($archive['grade_level'] . ' - ' . $archive['section']); ?></span>
+                                                                                                                                                                                                                                                                                        <div class="in-part">
+                                                                                                                                                                                                                                                                                            <p><?php echo htmlspecialchars(getAdviser($archive['gender'], $archive['teacher_lname'], $archive['teacher_fname'])); ?>
+                                                                                                                                                                                                                                                                                            </p>
+                                                                                                                                                                                                                                                                                            <p><?php echo htmlspecialchars('SY: ' . $archive['year'] . ' - ' . ($archive['year'] + 1)); ?>
+                                                                                                                                                                                                                                                                                            </p>
+                                                                                                                                                                                                                                                                                        </div>
+                                                                                                                                                                                                                                                                                    </div>
+                                                                                                                                                                                                                                                                                    <img src="/SCES/assets/images/<?php echo $archive['short']; ?>.png" alt="<?php echo $archive['short']; ?> icon">
+                                                                                                                                                                                                                                                                                </div>
+                                                                                                                                                                                                                                                                                <div class="icon-text" onclick="sectionLink(this)">
+                                                                                                                                                                                                                                                                                    <span><?php echo htmlspecialchars($archive['grade_level'] . ' - ' . $archive['section']); ?></span>
+                                                                                                                                                                                                                                                                                    <p><?php echo htmlspecialchars(getAdviser($archive['gender'], $archive['teacher_lname'], $archive['teacher_fname'])); ?>
+                                                                                                                                                                                                                                                                                    </p>
+                                                                                                                                                                                                                                                                                    <p><?php echo htmlspecialchars('SY: ' . $archive['year'] . ' - ' . ($archive['year'] + 1)); ?>
+                                                                                                                                                                                                                                                                                    </p>
+                                                                                                                                                                                                                                                                                </div>
+                                                                                                                                                                                                                                                                                <div class="popup-menu">
+                                                                                                                                                                                                                                                                                    <ul>
+                                                                                                                                                                                                                                                                                        <li><a href="javascript:void(0)" class="edit-btn"
+                                                                                                                                                                                                                                                                                                data-section-id="<?php echo htmlspecialchars($archive['section_id']); ?>">Edit</a>
+                                                                                                                                                                                                                                                                                        </li>
+                                                                                                                                                                                                                                                                                        <li><a href="javascript:void(0)" class="not-archive-btn"
+                                                                                                                                                                                                                                                                                                data-section-id="<?php echo htmlspecialchars($archive['section_id']); ?>">Enable</a>
+                                                                                                                                                                                                                                                                                        </li>
+                                                                                                                                                                                                                                                                                    </ul>
+                                                                                                                                                                                                                                                                                </div>
+                                                                                                                                                                                                                                                                            </div>
             <?php endforeach; ?>
         <?php else: ?>
-            <div class="no-data-box">
-                <img src="/assets/images/no-data-icon.png" alt="no-data-icon.png">
-                <h1>No archived section found.</h1>
-            </div>
+                                                                                                                                                                                                                                                                        <div class="no-data-box">
+                                                                                                                                                                                                                                                                            <img src="/SCES/assets/images/no-data-icon.png" alt="no-data-icon.png">
+                                                                                                                                                                                                                                                                            <h1>No archived section found.</h1>
+                                                                                                                                                                                                                                                                        </div>
         <?php endif;
         exit;
     } else if ($_POST['submitType'] === 'facultyRefreshSection') {
@@ -2692,48 +2682,47 @@ if (isset($_POST['submitType'])) {
 
         if ($sections):
             foreach ($sections as $section): ?>
-                <div class="section-item" data-section-year="<?php echo htmlspecialchars($section['year']); ?>"
-                    data-section-section="<?php echo htmlspecialchars($section['section']); ?>"
-                    data-section-level="<?php echo htmlspecialchars($section['grade_level']); ?>">
-                    <a href="/frontend/faculty/student-section.php?section=<?php echo $section['section_id']; ?>"
-                        class="hidden-link"></a>
-                    <div class="icon-box <?php echo $section['short']; ?>" onclick="sectionLink(this)">
-                        <button class="section-btn" onclick="sectionBtn(event, this)">
-                            <i class="fa-solid fa-ellipsis-vertical"></i>
-                        </button>
-                        <div class="icon-text-in" onclick="sectionLink(this)">
-                            <span><?php echo htmlspecialchars($section['grade_level'] . ' - ' . $section['section']); ?></span>
-                            <div class="in-part">
-                                <p><?php echo htmlspecialchars(getAdviser($section['gender'], $section['teacher_lname'], $section['teacher_fname'])); ?>
-                                </p>
-                                <p><?php echo htmlspecialchars('SY: ' . $section['year']  . ' - ' . ($section['year'] + 1)); ?>
-                                </p>
-                            </div>
-                        </div>
-                        <img src="/assets/images/<?php echo $section['short']; ?>.png"
-                            alt="<?php echo $section['short']; ?> icon">
-                    </div>
-                    <div class="icon-text" onclick="sectionLink(this)">
-                        <span><?php echo htmlspecialchars($section['grade_level'] . ' - ' . $section['section']); ?></span>
-                        <p><?php echo htmlspecialchars(getAdviser($section['gender'], $section['teacher_lname'], $section['teacher_fname'])); ?>
-                        </p>
-                        <p><?php echo htmlspecialchars('SY: ' . $section['year']  . ' - ' . ($section['year'] + 1)); ?>
-                        </p>
-                    </div>
-                    <div class="popup-menu">
-                        <ul>
-                            <li><a href="javascript:void(0)" class="archive-btn"
-                                    data-section-id="<?php echo htmlspecialchars($section['section_id']); ?>">Archive</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+                                                                                                                                                                                                                                                                                <div class="section-item" data-section-year="<?php echo htmlspecialchars($section['year']); ?>"
+                                                                                                                                                                                                                                                                                    data-section-section="<?php echo htmlspecialchars($section['section']); ?>"
+                                                                                                                                                                                                                                                                                    data-section-level="<?php echo htmlspecialchars($section['grade_level']); ?>">
+                                                                                                                                                                                                                                                                                    <a href="/SCES/frontend/faculty/student-section.php?section=<?php echo $section['section_id']; ?>"
+                                                                                                                                                                                                                                                                                        class="hidden-link"></a>
+                                                                                                                                                                                                                                                                                    <div class="icon-box <?php echo $section['short']; ?>" onclick="sectionLink(this)">
+                                                                                                                                                                                                                                                                                        <button class="section-btn" onclick="sectionBtn(event, this)">
+                                                                                                                                                                                                                                                                                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                                                                                                                                                                                                                                                                                        </button>
+                                                                                                                                                                                                                                                                                        <div class="icon-text-in" onclick="sectionLink(this)">
+                                                                                                                                                                                                                                                                                            <span><?php echo htmlspecialchars($section['grade_level'] . ' - ' . $section['section']); ?></span>
+                                                                                                                                                                                                                                                                                            <div class="in-part">
+                                                                                                                                                                                                                                                                                                <p><?php echo htmlspecialchars(getAdviser($section['gender'], $section['teacher_lname'], $section['teacher_fname'])); ?>
+                                                                                                                                                                                                                                                                                                </p>
+                                                                                                                                                                                                                                                                                                <p><?php echo htmlspecialchars('SY: ' . $section['year'] . ' - ' . ($section['year'] + 1)); ?>
+                                                                                                                                                                                                                                                                                                </p>
+                                                                                                                                                                                                                                                                                            </div>
+                                                                                                                                                                                                                                                                                        </div>
+                                                                                                                                                                                                                                                                                        <img src="/SCES/assets/images/<?php echo $section['short']; ?>.png" alt="<?php echo $section['short']; ?> icon">
+                                                                                                                                                                                                                                                                                    </div>
+                                                                                                                                                                                                                                                                                    <div class="icon-text" onclick="sectionLink(this)">
+                                                                                                                                                                                                                                                                                        <span><?php echo htmlspecialchars($section['grade_level'] . ' - ' . $section['section']); ?></span>
+                                                                                                                                                                                                                                                                                        <p><?php echo htmlspecialchars(getAdviser($section['gender'], $section['teacher_lname'], $section['teacher_fname'])); ?>
+                                                                                                                                                                                                                                                                                        </p>
+                                                                                                                                                                                                                                                                                        <p><?php echo htmlspecialchars('SY: ' . $section['year'] . ' - ' . ($section['year'] + 1)); ?>
+                                                                                                                                                                                                                                                                                        </p>
+                                                                                                                                                                                                                                                                                    </div>
+                                                                                                                                                                                                                                                                                    <div class="popup-menu">
+                                                                                                                                                                                                                                                                                        <ul>
+                                                                                                                                                                                                                                                                                            <li><a href="javascript:void(0)" class="archive-btn"
+                                                                                                                                                                                                                                                                                                    data-section-id="<?php echo htmlspecialchars($section['section_id']); ?>">Archive</a>
+                                                                                                                                                                                                                                                                                            </li>
+                                                                                                                                                                                                                                                                                        </ul>
+                                                                                                                                                                                                                                                                                    </div>
+                                                                                                                                                                                                                                                                                </div>
             <?php endforeach; ?>
         <?php else: ?>
-            <div class="no-data-box">
-                <img src="/assets/images/no-data-icon.png" alt="no-data-icon.png">
-                <h1>No section found.</h1>
-            </div>
+                                                                                                                                                                                                                                                                            <div class="no-data-box">
+                                                                                                                                                                                                                                                                                <img src="/SCES/assets/images/no-data-icon.png" alt="no-data-icon.png">
+                                                                                                                                                                                                                                                                                <h1>No section found.</h1>
+                                                                                                                                                                                                                                                                            </div>
         <?php endif;
         exit;
     } else if ($_POST['submitType'] === 'facultyRefreshArchivedSection') {
@@ -2742,48 +2731,47 @@ if (isset($_POST['submitType'])) {
         $archived = $db->facultyGetArchivedSection($teacherId);
         if ($archived):
             foreach ($archived as $archive): ?>
-                <div class="section-item" data-section-year="<?php echo htmlspecialchars($archive['year']); ?>"
-                    data-section-section="<?php echo htmlspecialchars($archive['section']); ?>"
-                    data-section-level="<?php echo htmlspecialchars($archive['grade_level']); ?>">
-                    <a href="/frontend/admin/student-section.php?section=<?php echo $archive['section_id']; ?>"
-                        class="hidden-link"></a>
-                    <div class="icon-box <?php echo $archive['short']; ?>" onclick="sectionLink(this)">
-                        <button class="section-btn" onclick="sectionBtn(event, this)">
-                            <i class="fa-solid fa-ellipsis-vertical"></i>
-                        </button>
-                        <div class="icon-text-in" onclick="sectionLink(this)">
-                            <span><?php echo htmlspecialchars($archive['grade_level'] . ' - ' . $archive['section']); ?></span>
-                            <div class="in-part">
-                                <p><?php echo htmlspecialchars(getAdviser($archive['gender'], $archive['teacher_lname'], $archive['teacher_fname'])); ?>
-                                </p>
-                                <p><?php echo htmlspecialchars('SY: ' . $archive['year'] . ' - ' . ($archive['year'] + 1)); ?>
-                                </p>
-                            </div>
-                        </div>
-                        <img src="/assets/images/<?php echo $archive['short']; ?>.png"
-                            alt="<?php echo $archive['short']; ?> icon">
-                    </div>
-                    <div class="icon-text" onclick="sectionLink(this)">
-                        <span><?php echo htmlspecialchars($archive['grade_level'] . ' - ' . $archive['section']); ?></span>
-                        <p><?php echo htmlspecialchars(getAdviser($archive['gender'], $archive['teacher_lname'], $archive['teacher_fname'])); ?>
-                        </p>
-                        <p><?php echo htmlspecialchars('SY: ' . $archive['year'] . ' - ' . ($archive['year'] + 1)); ?>
-                        </p>
-                    </div>
-                    <div class="popup-menu">
-                        <ul>
-                            <li><a href="javascript:void(0)" class="not-archive-btn"
-                                    data-section-id="<?php echo htmlspecialchars($archive['section_id']); ?>">Enable</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+                                                                                                                                                                                                                                                                                    <div class="section-item" data-section-year="<?php echo htmlspecialchars($archive['year']); ?>"
+                                                                                                                                                                                                                                                                                        data-section-section="<?php echo htmlspecialchars($archive['section']); ?>"
+                                                                                                                                                                                                                                                                                        data-section-level="<?php echo htmlspecialchars($archive['grade_level']); ?>">
+                                                                                                                                                                                                                                                                                        <a href="/SCES/frontend/admin/student-section.php?section=<?php echo $archive['section_id']; ?>"
+                                                                                                                                                                                                                                                                                            class="hidden-link"></a>
+                                                                                                                                                                                                                                                                                        <div class="icon-box <?php echo $archive['short']; ?>" onclick="sectionLink(this)">
+                                                                                                                                                                                                                                                                                            <button class="section-btn" onclick="sectionBtn(event, this)">
+                                                                                                                                                                                                                                                                                                <i class="fa-solid fa-ellipsis-vertical"></i>
+                                                                                                                                                                                                                                                                                            </button>
+                                                                                                                                                                                                                                                                                            <div class="icon-text-in" onclick="sectionLink(this)">
+                                                                                                                                                                                                                                                                                                <span><?php echo htmlspecialchars($archive['grade_level'] . ' - ' . $archive['section']); ?></span>
+                                                                                                                                                                                                                                                                                                <div class="in-part">
+                                                                                                                                                                                                                                                                                                    <p><?php echo htmlspecialchars(getAdviser($archive['gender'], $archive['teacher_lname'], $archive['teacher_fname'])); ?>
+                                                                                                                                                                                                                                                                                                    </p>
+                                                                                                                                                                                                                                                                                                    <p><?php echo htmlspecialchars('SY: ' . $archive['year'] . ' - ' . ($archive['year'] + 1)); ?>
+                                                                                                                                                                                                                                                                                                    </p>
+                                                                                                                                                                                                                                                                                                </div>
+                                                                                                                                                                                                                                                                                            </div>
+                                                                                                                                                                                                                                                                                            <img src="/SCES/assets/images/<?php echo $archive['short']; ?>.png" alt="<?php echo $archive['short']; ?> icon">
+                                                                                                                                                                                                                                                                                        </div>
+                                                                                                                                                                                                                                                                                        <div class="icon-text" onclick="sectionLink(this)">
+                                                                                                                                                                                                                                                                                            <span><?php echo htmlspecialchars($archive['grade_level'] . ' - ' . $archive['section']); ?></span>
+                                                                                                                                                                                                                                                                                            <p><?php echo htmlspecialchars(getAdviser($archive['gender'], $archive['teacher_lname'], $archive['teacher_fname'])); ?>
+                                                                                                                                                                                                                                                                                            </p>
+                                                                                                                                                                                                                                                                                            <p><?php echo htmlspecialchars('SY: ' . $archive['year'] . ' - ' . ($archive['year'] + 1)); ?>
+                                                                                                                                                                                                                                                                                            </p>
+                                                                                                                                                                                                                                                                                        </div>
+                                                                                                                                                                                                                                                                                        <div class="popup-menu">
+                                                                                                                                                                                                                                                                                            <ul>
+                                                                                                                                                                                                                                                                                                <li><a href="javascript:void(0)" class="not-archive-btn"
+                                                                                                                                                                                                                                                                                                        data-section-id="<?php echo htmlspecialchars($archive['section_id']); ?>">Enable</a>
+                                                                                                                                                                                                                                                                                                </li>
+                                                                                                                                                                                                                                                                                            </ul>
+                                                                                                                                                                                                                                                                                        </div>
+                                                                                                                                                                                                                                                                                    </div>
             <?php endforeach; ?>
         <?php else: ?>
-            <div class="no-data-box">
-                <img src="/assets/images/no-data-icon.png" alt="no-data-icon.png">
-                <h1>No archived section found.</h1>
-            </div>
+                                                                                                                                                                                                                                                                                <div class="no-data-box">
+                                                                                                                                                                                                                                                                                    <img src="/SCES/assets/images/no-data-icon.png" alt="no-data-icon.png">
+                                                                                                                                                                                                                                                                                    <h1>No archived section found.</h1>
+                                                                                                                                                                                                                                                                                </div>
         <?php endif;
         exit;
     } else {
@@ -2892,16 +2880,17 @@ function getGWAStatus($gwa)
     }
 }
 
-function getAdviser($gender, $lname, $fname){
-    if(!is_null($gender) && !is_null($lname) && !is_null($fname)){
+function getAdviser($gender, $lname, $fname)
+{
+    if (!is_null($gender) && !is_null($lname) && !is_null($fname)) {
         return getTeacherPronoun($gender) . ' ' . $fname . ' ' . $lname;
-    }
-    else{
+    } else {
         return 'No Adviser Assigned';
     }
 }
 
-function getTeacherPronoun($gender){
+function getTeacherPronoun($gender)
+{
     return match ($gender) {
         'Female' => 'Ms.',
         'Male' => 'Mr.',

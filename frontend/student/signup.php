@@ -1,7 +1,7 @@
 <?php
-include $_SERVER['DOCUMENT_ROOT'] . '/frontend/student/partials/head.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/SCES/frontend/student/partials/head.php';
 ?>
-<script src="/assets/script/signup.js"></script>
+<script src="/SCES/assets/script/signup.js"></script>
 <title>Sign up | SCES Online Learning Platform</title>
 </head>
 
@@ -14,7 +14,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/frontend/student/partials/head.php';
           <h1>Let's Get Started</h1>
         </div>
         <div class="wrapper">
-          <img src="/assets/images/signup.png" alt="sign up icon" />
+          <img src="/SCES/assets/images/signup.png" alt="sign up icon" />
         </div>
       </div>
       <div class="column right">
@@ -113,5 +113,5 @@ include $_SERVER['DOCUMENT_ROOT'] . '/frontend/student/partials/head.php';
     </div>
   </div>
   <?php
-  include $_SERVER['DOCUMENT_ROOT'] . '/frontend/student/partials/footer.php';
+  include $_SERVER['DOCUMENT_ROOT'] . '/SCES/frontend/student/partials/footer.php';
   ?>
