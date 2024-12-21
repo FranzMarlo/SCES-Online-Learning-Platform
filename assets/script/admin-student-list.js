@@ -67,7 +67,7 @@ document.addEventListener("DOMContentLoaded", function () {
           },
         },
         ajax: {
-          url: "/SCES/backend/fetch-class",
+          url: "/SCES/backend/fetch-class.php",
           type: "POST",
           data: function (d) {
             d.submitType = "fetchAllStudentsDataTable";
@@ -125,7 +125,7 @@ document.addEventListener("DOMContentLoaded", function () {
           showAlert("error", "Student is not registered in the platform");
           return;
         } else {
-          fetch("/SCES/backend/fetch-class", {
+          fetch("/SCES/backend/fetch-class.php", {
             method: "POST",
             headers: {
               "Content-Type": "application/x-www-form-urlencoded",
@@ -396,7 +396,7 @@ document.addEventListener("DOMContentLoaded", function () {
           },
         },
         ajax: {
-          url: "/SCES/backend/fetch-class",
+          url: "/SCES/backend/fetch-class.php",
           type: "POST",
           data: function (d) {
             d.submitType = "facultyGetQuizRecords";
@@ -456,7 +456,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const quizTaker = btn.getAttribute("data-quiz-taker");
         const quizSubject = btn.getAttribute("data-quiz-subject");
 
-        fetch("/SCES/backend/fetch-class", {
+        fetch("/SCES/backend/fetch-class.php", {
           method: "POST",
           headers: {
             "Content-Type": "application/x-www-form-urlencoded",
@@ -482,7 +482,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             viewQuizModal.querySelector(
               ".modal-icon-container img"
-            ).src = `/SCES/assets/images/${data.icon}`;
+            ).src = `/assets/images/${data.icon}`;
 
             const modalHeaderBg =
               viewQuizModal.querySelector(".modal-header-bg");
@@ -598,7 +598,7 @@ document.addEventListener("DOMContentLoaded", function () {
           },
         },
         ajax: {
-          url: "/SCES/backend/fetch-class",
+          url: "/SCES/backend/fetch-class.php",
           type: "POST",
           data: function (d) {
             d.submitType = "facultyGetGrades";
@@ -632,7 +632,7 @@ document.addEventListener("DOMContentLoaded", function () {
     data.append("student_id", studentId);
     data.append("section_id", section_id);
 
-    fetch("/SCES/backend/fetch-class", {
+    fetch("/SCES/backend/fetch-class.php", {
       method: "POST",
       body: data,
     })
@@ -657,7 +657,7 @@ document.addEventListener("DOMContentLoaded", function () {
     data.append("submitType", "facultyGetGWA");
     data.append("student_id", studentId);
 
-    fetch("/SCES/backend/fetch-class", {
+    fetch("/SCES/backend/fetch-class.php", {
       method: "POST",
       body: data,
     })
@@ -727,7 +727,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Fetch GWA records for the bar chart
     $.ajax({
-      url: "/SCES/backend/fetch-class",
+      url: "/SCES/backend/fetch-class.php",
       type: "POST",
       dataType: "json",
       data: {
@@ -760,11 +760,28 @@ document.addEventListener("DOMContentLoaded", function () {
                 padding: { top: 10, bottom: 10 },
               },
               legend: { display: false },
+              datalabels: {
+                anchor: "end", // Position the label at the end of the bar
+                align: "top", // Align the label on top of the bar
+                font: {
+                  size: 12, // Set label font size
+                  weight: "bold", // Set font weight
+                },
+                color: "#000", // Set the label text color
+              },
             },
             scales: {
-              y: { beginAtZero: true, max: 100 },
+              y: {
+                beginAtZero: false, // Disable starting at zero
+                min: 70,
+                max: 100, // Set the starting value of the axis
+                ticks: {
+                  stepSize: 5, // Set the increment
+                },
+              },
             },
           },
+          plugins: [ChartDataLabels], // Register the datalabels plugin
         });
 
         const interpretationElement = document.getElementById("interpretation");
@@ -870,7 +887,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     $.ajax({
-      url: "/SCES/backend/fetch-class",
+      url: "/SCES/backend/fetch-class.php",
       type: "POST",
       dataType: "json",
       data: {
@@ -922,11 +939,28 @@ document.addEventListener("DOMContentLoaded", function () {
                 padding: { top: 10, bottom: 10 },
               },
               legend: { display: false },
+              datalabels: {
+                anchor: "end", // Position the labels at the end of the bars
+                align: "top", // Align labels to the top of the bars
+                color: "#000", // Set label color to black
+                font: {
+                  size: 12, // Set label font size
+                  weight: "bold", // Set font weight
+                },
+              },
             },
             scales: {
-              y: { beginAtZero: true, max: 100 },
+              y: {
+                beginAtZero: false, // Disable starting at zero
+                min: 70,
+                max: 100, // Set the starting value of the axis
+                ticks: {
+                  stepSize: 5, // Set the increment
+                },
+              },
             },
           },
+          plugins: [ChartDataLabels], // Register the datalabels plugin
         });
 
         const subjectTitles =
@@ -1094,7 +1128,7 @@ document.addEventListener("DOMContentLoaded", function () {
     data.append("submitType", "disableStudentAccount");
     data.append("student_id", studentId);
 
-    fetch("/SCES/backend/global", {
+    fetch("/SCES/backend/global.php", {
       method: "POST",
       body: data,
     })
@@ -1126,7 +1160,7 @@ document.addEventListener("DOMContentLoaded", function () {
     data.append("submitType", "enableStudentAccount");
     data.append("student_id", studentId);
 
-    fetch("/SCES/backend/global", {
+    fetch("/SCES/backend/global.php", {
       method: "POST",
       body: data,
     })

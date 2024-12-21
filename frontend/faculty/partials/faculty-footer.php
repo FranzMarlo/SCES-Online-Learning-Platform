@@ -4,6 +4,7 @@
 <script src="/SCES/vendor/node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
 <script src="/SCES/assets/script/global.js"></script>
 <script src="/SCES/assets/script/admin.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
 <?php
 if ($accountStatus === 'True') {
   echo "

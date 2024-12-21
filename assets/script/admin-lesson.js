@@ -223,7 +223,7 @@ document.addEventListener("DOMContentLoaded", function () {
           },
         },
         ajax: {
-          url: "/SCES/backend/fetch-class",
+          url: "/SCES/backend/fetch-class.php",
           type: "POST",
           data: function (d) {
             d.submitType = "fetchStudentsDataTable";
@@ -280,7 +280,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const btn = event.target.closest(".more-btn");
         const studentId = btn.getAttribute("data-student-id");
 
-        fetch("/SCES/backend/fetch-class", {
+        fetch("/SCES/backend/fetch-class.php", {
           method: "POST",
           headers: {
             "Content-Type": "application/x-www-form-urlencoded",
@@ -476,7 +476,7 @@ document.addEventListener("DOMContentLoaded", function () {
           },
         },
         ajax: {
-          url: "/SCES/backend/fetch-class",
+          url: "/SCES/backend/fetch-class.php",
           type: "POST",
           data: function (d) {
             d.submitType = "facultyGetQuizRecordsBySubject";
@@ -537,7 +537,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const quizId = btn.getAttribute("data-quiz-id");
         const quizTaker = btn.getAttribute("data-quiz-taker");
 
-        fetch("/SCES/backend/fetch-class", {
+        fetch("/SCES/backend/fetch-class.php", {
           method: "POST",
           headers: {
             "Content-Type": "application/x-www-form-urlencoded",
@@ -561,7 +561,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             viewQuizModal.querySelector(
               ".modal-icon-container img"
-            ).src = `/SCES/assets/images/${data.icon}`;
+            ).src = `/assets/images/${data.icon}`;
 
             const modalHeaderBg =
               viewQuizModal.querySelector(".modal-header-bg");
@@ -677,7 +677,7 @@ document.addEventListener("DOMContentLoaded", function () {
           },
         },
         ajax: {
-          url: "/SCES/backend/fetch-class",
+          url: "/SCES/backend/fetch-class.php",
           type: "POST",
           data: function (d) {
             d.submitType = "facultyGetGradesBySubject";
@@ -724,7 +724,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const btn = event.target.closest(".more-btn");
         const gradeId = btn.getAttribute("data-grade-id");
 
-        fetch("/SCES/backend/fetch-class", {
+        fetch("/SCES/backend/fetch-class.php", {
           method: "POST",
           headers: {
             "Content-Type": "application/x-www-form-urlencoded",
@@ -790,7 +790,7 @@ document.addEventListener("DOMContentLoaded", function () {
     data.append("student_id", studentId);
     data.append("subject_id", subject_id);
 
-    fetch("/SCES/backend/fetch-class", {
+    fetch("/SCES/backend/fetch-class.php", {
       method: "POST",
       body: data,
     })
@@ -812,7 +812,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function fetchDonutChartData(studentId) {
     $.ajax({
-      url: "/SCES/backend/fetch-class",
+      url: "/SCES/backend/fetch-class.php",
       type: "POST",
       data: {
         submitType: "studentCompletionBySubject",
@@ -928,7 +928,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     $.ajax({
-      url: "/SCES/backend/fetch-class",
+      url: "/SCES/backend/fetch-class.php",
       type: "POST",
       data: {
         submitType: "studentAverageScoreBySubject",
@@ -1038,7 +1038,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     $.ajax({
-      url: "/SCES/backend/fetch-class",
+      url: "/SCES/backend/fetch-class.php",
       type: "POST",
       dataType: "json",
       data: {
@@ -1123,7 +1123,7 @@ document.addEventListener("DOMContentLoaded", function () {
               $("#subjectInterpretation").html(`
               ${legendHtml}
               <p><strong>Predicted Grade For ${interpretationData.next_quarter}:</strong> ${interpretationData.predicted_grade}</p>
-              <p><strong>Student has unusual grade found from the following:</strong></p>
+              <p><strong>Student has a declining grade found from the following:</strong></p>
               <ul>
                 ${lowGradesList}
               </ul>
@@ -1141,7 +1141,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 .join("");
               $("#subjectInterpretation").html(`
                 ${legendHtml}
-                <p><strong>Student has unusual grade found from the following:</strong></p>
+                <p><strong>Student has a declining grade found from the following:</strong></p>
                   <ul>
                     ${lowGradesList}
                   </ul>
@@ -1186,14 +1186,28 @@ document.addEventListener("DOMContentLoaded", function () {
                   legend: {
                     display: false,
                   },
+                  datalabels: {
+                    anchor: "end", // Position the labels at the end of the bars
+                    align: "top", // Align labels to the top of the bars
+                    color: "#000", // Set label color to black
+                    font: {
+                      size: 12, // Set label font size
+                      weight: "bold", // Set font weight
+                    },
+                  },
                 },
                 scales: {
                   y: {
-                    beginAtZero: true,
-                    max: 100,
+                    beginAtZero: false, // Disable starting at zero
+                    min: 70,
+                    max: 100, // Set the starting value of the axis
+                    ticks: {
+                      stepSize: 5, // Set the increment
+                    },
                   },
                 },
               },
+              plugins: [ChartDataLabels],
             });
           },
           error: function (xhr, status, error) {
@@ -1245,7 +1259,7 @@ document.addEventListener("DOMContentLoaded", function () {
         },
       },
       ajax: {
-        url: "/SCES/backend/fetch-class",
+        url: "/SCES/backend/fetch-class.php",
         type: "POST",
         data: function (d) {
           d.submitType = "fetchStudentsRecordTable";
@@ -1333,7 +1347,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const quizId = btn.getAttribute("data-quiz-id");
         const quizTaker = btn.getAttribute("data-quiz-taker");
 
-        fetch("/SCES/backend/fetch-class", {
+        fetch("/SCES/backend/fetch-class.php", {
           method: "POST",
           headers: {
             "Content-Type": "application/x-www-form-urlencoded",
@@ -1357,7 +1371,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             viewQuizModal.querySelector(
               ".modal-icon-container img"
-            ).src = `/SCES/assets/images/${data.icon}`;
+            ).src = `/assets/images/${data.icon}`;
 
             const modalHeaderBg =
               viewQuizModal.querySelector(".modal-header-bg");
@@ -1438,7 +1452,7 @@ document.addEventListener("DOMContentLoaded", function () {
     data.append("section_id", section_id);
     data.append("subject_id", subject_id);
 
-    fetch("/SCES/backend/fetch-class", {
+    fetch("/SCES/backend/fetch-class.php", {
       method: "POST",
       body: data,
     })
@@ -1467,7 +1481,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     $.ajax({
-      url: "/SCES/backend/fetch-class",
+      url: "/SCES/backend/fetch-class.php",
       type: "POST",
       data: {
         submitType: "subjectAverageScore",
@@ -1568,7 +1582,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function fetchSubjectPieChartData() {
     $.ajax({
-      url: "/SCES/backend/fetch-class",
+      url: "/SCES/backend/fetch-class.php",
       type: "POST",
       data: {
         submitType: "subjectCompletion",
@@ -1678,7 +1692,7 @@ document.addEventListener("DOMContentLoaded", function () {
           },
         },
         ajax: {
-          url: "/SCES/backend/fetch-class",
+          url: "/SCES/backend/fetch-class.php",
           type: "POST",
           data: function (d) {
             d.submitType = "rankingStudentsBySubject";
@@ -1723,7 +1737,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const btn = event.target.closest(".more-btn");
         const studentId = btn.getAttribute("data-student-id");
 
-        fetch("/SCES/backend/fetch-class", {
+        fetch("/SCES/backend/fetch-class.php", {
           method: "POST",
           headers: {
             "Content-Type": "application/x-www-form-urlencoded",

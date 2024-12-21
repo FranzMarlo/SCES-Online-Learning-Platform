@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
     data.append("year", year);
     data.append("gradeLevel", grade);
 
-    fetch("/SCES/backend/fetch-class", {
+    fetch("/SCES/backend/fetch-class.php", {
       method: "POST",
       body: data,
     })
@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     $.ajax({
-      url: "/SCES/backend/fetch-class",
+      url: "/SCES/backend/fetch-class.php",
       type: "POST",
       dataType: "json",
       data: {
@@ -146,8 +146,12 @@ document.addEventListener("DOMContentLoaded", function () {
             },
             scales: {
               y: {
-                beginAtZero: true,
-                max: 100,
+                beginAtZero: false, // Disable starting at zero
+                min: 70, // Set the starting value of the axis
+                max: 100, // Set the maximum value
+                ticks: {
+                  stepSize: 5, // Set the increment
+                },
               },
             },
           },
@@ -168,7 +172,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     $.ajax({
-      url: "/SCES/backend/fetch-class",
+      url: "/SCES/backend/fetch-class.php",
       type: "POST",
       dataType: "json",
       data: {
@@ -222,14 +226,29 @@ document.addEventListener("DOMContentLoaded", function () {
                   },
                 },
               },
+              datalabels: {
+                anchor: "end",
+                align: "top",
+                formatter: (value) => value.toFixed(2), // Format the value (e.g., 2 decimal places)
+                font: {
+                  size: 12, // Set label font size
+                  weight: "bold", // Set font weight
+                },
+                color: "#000", // Text color for the label
+              },
             },
             scales: {
               y: {
-                beginAtZero: true,
-                max: 100,
+                beginAtZero: false, // Disable starting at zero
+                min: 70,
+                max: 100, // Set the starting value of the axis
+                ticks: {
+                  stepSize: 5, // Set the increment
+                },
               },
             },
           },
+          plugins: [ChartDataLabels], // Register the plugin
         });
 
         // Fetch interpretation from Flask
@@ -381,7 +400,7 @@ document.addEventListener("DOMContentLoaded", function () {
         : "rankingStudentsByYearWithFilter";
 
     $.ajax({
-      url: "/SCES/backend/fetch-class",
+      url: "/SCES/backend/fetch-class.php",
       type: "POST",
       dataType: "json",
       data: {
@@ -438,7 +457,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const btn = event.target.closest(".more-btn");
         const studentId = btn.getAttribute("data-student-id");
 
-        fetch("/SCES/backend/fetch-class", {
+        fetch("/SCES/backend/fetch-class.php", {
           method: "POST",
           headers: {
             "Content-Type": "application/x-www-form-urlencoded",
@@ -641,7 +660,7 @@ document.addEventListener("DOMContentLoaded", function () {
           },
         },
         ajax: {
-          url: "/SCES/backend/fetch-class",
+          url: "/SCES/backend/fetch-class.php",
           type: "POST",
           data: function (d) {
             d.submitType = "facultyGetQuizRecords";
@@ -720,7 +739,7 @@ document.addEventListener("DOMContentLoaded", function () {
           },
         },
         ajax: {
-          url: "/SCES/backend/fetch-class",
+          url: "/SCES/backend/fetch-class.php",
           type: "POST",
           data: function (d) {
             d.submitType = "facultyGetGrades";
@@ -753,7 +772,7 @@ document.addEventListener("DOMContentLoaded", function () {
     data.append("submitType", "facultyGetPanelData");
     data.append("student_id", studentId);
 
-    fetch("/SCES/backend/fetch-class", {
+    fetch("/SCES/backend/fetch-class.php", {
       method: "POST",
       body: data,
     })
@@ -778,7 +797,7 @@ document.addEventListener("DOMContentLoaded", function () {
     data.append("submitType", "facultyGetGWA");
     data.append("student_id", studentId);
 
-    fetch("/SCES/backend/fetch-class", {
+    fetch("/SCES/backend/fetch-class.php", {
       method: "POST",
       body: data,
     })
@@ -848,7 +867,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Fetch GWA records for the bar chart
     $.ajax({
-      url: "/SCES/backend/fetch-class",
+      url: "/SCES/backend/fetch-class.php",
       type: "POST",
       dataType: "json",
       data: {
@@ -881,11 +900,28 @@ document.addEventListener("DOMContentLoaded", function () {
                 padding: { top: 10, bottom: 10 },
               },
               legend: { display: false },
+              datalabels: {
+                anchor: "end", // Position the label at the end of the bar
+                align: "top", // Align the label on top of the bar
+                font: {
+                  size: 12, // Set label font size
+                  weight: "bold", // Set font weight
+                },
+                color: "#000", // Set the label text color
+              },
             },
             scales: {
-              y: { beginAtZero: true, max: 100 },
+              y: {
+                beginAtZero: false, // Disable starting at zero
+                min: 70,
+                max: 100, // Set the starting value of the axis
+                ticks: {
+                  stepSize: 5, // Set the increment
+                },
+              },
             },
           },
+          plugins: [ChartDataLabels], // Register the datalabels plugin
         });
 
         const interpretationElement = document.getElementById("interpretation");
@@ -991,7 +1027,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     $.ajax({
-      url: "/SCES/backend/fetch-class",
+      url: "/SCES/backend/fetch-class.php",
       type: "POST",
       dataType: "json",
       data: {
@@ -1043,11 +1079,28 @@ document.addEventListener("DOMContentLoaded", function () {
                 padding: { top: 10, bottom: 10 },
               },
               legend: { display: false },
+              datalabels: {
+                anchor: "end", // Position the labels at the end of the bars
+                align: "top", // Align labels to the top of the bars
+                color: "#000", // Set label color to black
+                font: {
+                  size: 12, // Set label font size
+                  weight: "bold", // Set font weight
+                },
+              },
             },
             scales: {
-              y: { beginAtZero: true, max: 100 },
+              y: {
+                beginAtZero: false, // Disable starting at zero
+                min: 70,
+                max: 100, // Set the starting value of the axis
+                ticks: {
+                  stepSize: 5, // Set the increment
+                },
+              },
             },
           },
+          plugins: [ChartDataLabels], // Register the datalabels plugin
         });
 
         const subjectTitles =

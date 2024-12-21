@@ -2734,7 +2734,7 @@ if (isset($_POST['submitType'])) {
                                                                                                                                                                                                                                                                                     <div class="section-item" data-section-year="<?php echo htmlspecialchars($archive['year']); ?>"
                                                                                                                                                                                                                                                                                         data-section-section="<?php echo htmlspecialchars($archive['section']); ?>"
                                                                                                                                                                                                                                                                                         data-section-level="<?php echo htmlspecialchars($archive['grade_level']); ?>">
-                                                                                                                                                                                                                                                                                        <a href="/SCES/frontend/admin/student-section.php?section=<?php echo $archive['section_id']; ?>"
+                                                                                                                                                                                                                                                                                        <a href="/SCES/frontend/faculty/student-section.php?section=<?php echo $archive['section_id']; ?>"
                                                                                                                                                                                                                                                                                             class="hidden-link"></a>
                                                                                                                                                                                                                                                                                         <div class="icon-box <?php echo $archive['short']; ?>" onclick="sectionLink(this)">
                                                                                                                                                                                                                                                                                             <button class="section-btn" onclick="sectionBtn(event, this)">
@@ -2774,6 +2774,35 @@ if (isset($_POST['submitType'])) {
                                                                                                                                                                                                                                                                                 </div>
         <?php endif;
         exit;
+    } else if ($_POST['submitType'] === 'saveStudentRecord') {
+        $studentId = $_POST['studentId'];
+        $studentLRN = $_POST['studentLRN'];
+        $studentData = $db->getStudentJoinedDetails($studentId);
+        $sectionId = $studentData['section_id'];
+        $studentLname = strtoupper($studentData['student_lname']);
+        $studentFname = strtoupper($studentData['student_fname']);
+        $studentMname = strtoupper($studentData['student_mname']);
+        $gender = strtoupper($studentData['gender']);
+        $gradeLevel = strtoupper($studentData['grade_level']);
+        $section = strtoupper($studentData['section']);
+        $generalAverage = $db->getStudentGeneralAverage($studentId, $sectionId);
+        $remarks = getGWARemarks($generalAverage);
+        $status = getGWAStatus($generalAverage);
+        $recordStudentGWA = $db->addGWARecord($studentLRN, $studentLname, $studentFname, $studentMname, $gender, $gradeLevel, $section, $generalAverage, $remarks, $status);
+        if ($recordStudentGWA != false) {
+            $updateSection = $db->updateStudentLevel($studentId, "G0007");
+            if ($updateSection != false) {
+                echo '200';
+                exit();
+            } else {
+                echo '400';
+                exit();
+            }
+        } else {
+            echo '484';
+            exit();
+        }
+
     } else {
         echo '400';
     }

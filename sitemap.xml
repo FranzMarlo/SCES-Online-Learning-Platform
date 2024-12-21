@@ -18,52 +18,52 @@
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://scesonlinelearningplatform.com/frontend/student/login.php</loc>
+  <loc>https://scesonlinelearningplatform.com/SCES/frontend/student/login.php</loc>
   <lastmod>2024-11-15T15:52:33+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://scesonlinelearningplatform.com/frontend/faculty/login.php</loc>
+  <loc>https://scesonlinelearningplatform.com/SCES/frontend/faculty/login.php</loc>
   <lastmod>2024-11-15T15:52:33+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://scesonlinelearningplatform.com/frontend/admin/login.php</loc>
+  <loc>https://scesonlinelearningplatform.com/SCES/frontend/admin/login.php</loc>
   <lastmod>2024-11-15T15:52:33+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://scesonlinelearningplatform.com/frontend/student/forgot-password.php</loc>
+  <loc>https://scesonlinelearningplatform.com/SCES/frontend/student/forgot-password.php</loc>
   <lastmod>2024-11-15T15:52:33+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://scesonlinelearningplatform.com/frontend/student/signup.php</loc>
+  <loc>https://scesonlinelearningplatform.com/SCES/frontend/student/signup.php</loc>
   <lastmod>2024-11-15T15:52:33+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://scesonlinelearningplatform.com/frontend/faculty/forgot-password.php</loc>
+  <loc>https://scesonlinelearningplatform.com/SCES/frontend/faculty/forgot-password.php</loc>
   <lastmod>2024-11-15T15:52:33+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://scesonlinelearningplatform.com/frontend/faculty/register.php</loc>
+  <loc>https://scesonlinelearningplatform.com/SCES/frontend/faculty/register.php</loc>
   <lastmod>2024-11-15T15:52:33+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://scesonlinelearningplatform.com/frontend/admin/forgot-password.php</loc>
+  <loc>https://scesonlinelearningplatform.com/SCES/frontend/admin/forgot-password.php</loc>
   <lastmod>2024-11-15T15:52:33+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://scesonlinelearningplatform.com/frontend/admin/register.php</loc>
+  <loc>https://scesonlinelearningplatform.com/SCES/frontend/admin/register.php</loc>
   <lastmod>2024-11-15T15:52:33+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://scesonlinelearningplatform.com/assets/images/favicon.ico</loc>
+  <loc>https://scesonlinelearningplatform.com/SCES/assets/images/favicon.ico</loc>
   <lastmod>2024-11-15T15:52:33+00:00</lastmod>
   <priority>0.50</priority>
 </url>

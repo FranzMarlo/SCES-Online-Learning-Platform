@@ -142,7 +142,7 @@ document.addEventListener("DOMContentLoaded", function () {
           },
         },
         ajax: {
-          url: "/SCES/backend/fetch-class",
+          url: "/SCES/backend/fetch-class.php",
           type: "POST",
           data: function (d) {
             d.submitType = "fetchStudentsDataTable";
@@ -260,63 +260,121 @@ document.addEventListener("DOMContentLoaded", function () {
           );
           return;
         }
-
-        fetch("/SCES/backend/fetch-class", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded",
-          },
-          body: `submitType=checkStudentGrades&student_id=${studentId}&section_id=${section_id}`,
-        })
-          .then((response) => response.json())
-          .then((data) => {
-            if (data.hasCompleteGrades == true) {
-              const generalAverage = data.generalAverage;
-
-              if (generalAverage >= 75) {
-                Swal.fire({
-                  icon: "question",
-                  title: "Promote student to next grade level?",
-                  text: "Student is eligible for promotion to next grade level",
-                  showCancelButton: true,
-                  confirmButtonText: "Yes",
-                  confirmButtonColor: "#4CAF50",
-                  cancelButtonColor: "#f44336",
-                  allowOutsideClick: false,
-                  cancelButtonText: "No",
-                }).then((result) => {
-                  if (result.isConfirmed) {
-                    promoteStudent(studentId, newLevel);
-                  }
-                });
-              } else {
-                Swal.fire({
-                  icon: "question",
-                  title: "Retain student for the same grade level?",
-                  text: "Student failed and needs to be retained",
-                  showCancelButton: true,
-                  confirmButtonText: "Yes",
-                  confirmButtonColor: "#4CAF50",
-                  cancelButtonColor: "#f44336",
-                  allowOutsideClick: false,
-                  cancelButtonText: "No",
-                }).then((result) => {
-                  if (result.isConfirmed) {
-                    retainStudent(studentId, levelId);
-                  }
-                });
-              }
-            } else {
-              showAlert(
-                "error",
-                "Operation Denied",
-                "Student's Grade Is Incomplete"
-              );
-            }
+        if (newLevel === "G0007") {
+          fetch("/SCES/backend/fetch-class.php", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/x-www-form-urlencoded",
+            },
+            body: `submitType=checkStudentGrades&student_id=${studentId}&section_id=${section_id}`,
           })
-          .catch((error) => {
-            showAlert("error", "Server Error", "Please Try Again Later");
-          });
+            .then((response) => response.json())
+            .then((data) => {
+              if (data.hasCompleteGrades == true) {
+                const generalAverage = data.generalAverage;
+
+                if (generalAverage >= 75) {
+                  Swal.fire({
+                    icon: "question",
+                    title: "Save the student's record in the database?",
+                    text: "Student is already at the last grade level supported by the system",
+                    showCancelButton: true,
+                    confirmButtonText: "Yes",
+                    confirmButtonColor: "#4CAF50",
+                    cancelButtonColor: "#f44336",
+                    allowOutsideClick: false,
+                    cancelButtonText: "No",
+                  }).then((result) => {
+                    if (result.isConfirmed) {
+                      saveStudentRecord(studentId);
+                    }
+                  });
+                } else {
+                  Swal.fire({
+                    icon: "question",
+                    title: "Retain student for the same grade level?",
+                    text: "Student failed and needs to be retained",
+                    showCancelButton: true,
+                    confirmButtonText: "Yes",
+                    confirmButtonColor: "#4CAF50",
+                    cancelButtonColor: "#f44336",
+                    allowOutsideClick: false,
+                    cancelButtonText: "No",
+                  }).then((result) => {
+                    if (result.isConfirmed) {
+                      retainStudent(studentId, levelId);
+                    }
+                  });
+                }
+              } else {
+                showAlert(
+                  "error",
+                  "Operation Denied",
+                  "Student's Grade Is Incomplete"
+                );
+              }
+            })
+            .catch((error) => {
+              showAlert("error", "Server Error", "Please Try Again Later");
+            });
+        } else {
+          fetch("/SCES/backend/fetch-class.php", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/x-www-form-urlencoded",
+            },
+            body: `submitType=checkStudentGrades&student_id=${studentId}&section_id=${section_id}`,
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              if (data.hasCompleteGrades == true) {
+                const generalAverage = data.generalAverage;
+
+                if (generalAverage >= 75) {
+                  Swal.fire({
+                    icon: "question",
+                    title: "Promote student to next grade level?",
+                    text: "Student is eligible for promotion to next grade level",
+                    showCancelButton: true,
+                    confirmButtonText: "Yes",
+                    confirmButtonColor: "#4CAF50",
+                    cancelButtonColor: "#f44336",
+                    allowOutsideClick: false,
+                    cancelButtonText: "No",
+                  }).then((result) => {
+                    if (result.isConfirmed) {
+                      promoteStudent(studentId, newLevel);
+                    }
+                  });
+                } else {
+                  Swal.fire({
+                    icon: "question",
+                    title: "Retain student for the same grade level?",
+                    text: "Student failed and needs to be retained",
+                    showCancelButton: true,
+                    confirmButtonText: "Yes",
+                    confirmButtonColor: "#4CAF50",
+                    cancelButtonColor: "#f44336",
+                    allowOutsideClick: false,
+                    cancelButtonText: "No",
+                  }).then((result) => {
+                    if (result.isConfirmed) {
+                      retainStudent(studentId, levelId);
+                    }
+                  });
+                }
+              } else {
+                showAlert(
+                  "error",
+                  "Operation Denied",
+                  "Student's Grade Is Incomplete"
+                );
+              }
+            })
+            .catch((error) => {
+              showAlert("error", "Server Error", "Please Try Again Later");
+            });
+        }
       }
     });
 
@@ -327,7 +385,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const btn = event.target.closest(".more-btn");
         const studentId = btn.getAttribute("data-student-id");
 
-        fetch("/SCES/backend/fetch-class", {
+        fetch("/SCES/backend/fetch-class.php", {
           method: "POST",
           headers: {
             "Content-Type": "application/x-www-form-urlencoded",
@@ -530,7 +588,7 @@ document.addEventListener("DOMContentLoaded", function () {
           },
         },
         ajax: {
-          url: "/SCES/backend/fetch-class",
+          url: "/SCES/backend/fetch-class.php",
           type: "POST",
           data: function (d) {
             d.submitType = "facultyGetQuizRecordsBySection";
@@ -591,7 +649,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const quizTaker = btn.getAttribute("data-quiz-taker");
         const quizSubject = btn.getAttribute("data-quiz-subject");
 
-        fetch("/SCES/backend/fetch-class", {
+        fetch("/SCES/backend/fetch-class.php", {
           method: "POST",
           headers: {
             "Content-Type": "application/x-www-form-urlencoded",
@@ -617,7 +675,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             viewQuizModal.querySelector(
               ".modal-icon-container img"
-            ).src = `/SCES/assets/images/${data.icon}`;
+            ).src = `/assets/images/${data.icon}`;
 
             const modalHeaderBg =
               viewQuizModal.querySelector(".modal-header-bg");
@@ -734,7 +792,7 @@ document.addEventListener("DOMContentLoaded", function () {
           },
         },
         ajax: {
-          url: "/SCES/backend/fetch-class",
+          url: "/SCES/backend/fetch-class.php",
           type: "POST",
           data: function (d) {
             d.submitType = "facultyGetGradesBySection";
@@ -769,7 +827,7 @@ document.addEventListener("DOMContentLoaded", function () {
     data.append("student_id", studentId);
     data.append("section_id", section_id);
 
-    fetch("/SCES/backend/fetch-class", {
+    fetch("/SCES/backend/fetch-class.php", {
       method: "POST",
       body: data,
     })
@@ -793,7 +851,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const data = new FormData();
     data.append("submitType", "facultyGetSectionPanelData");
     data.append("section_id", section_id);
-    fetch("/SCES/backend/fetch-class", {
+    fetch("/SCES/backend/fetch-class.php", {
       method: "POST",
       body: data,
     })
@@ -818,7 +876,7 @@ document.addEventListener("DOMContentLoaded", function () {
     data.append("submitType", "facultyGetGWA");
     data.append("student_id", studentId);
 
-    fetch("/SCES/backend/fetch-class", {
+    fetch("/SCES/backend/fetch-class.php", {
       method: "POST",
       body: data,
     })
@@ -909,7 +967,7 @@ document.addEventListener("DOMContentLoaded", function () {
         },
       },
       ajax: {
-        url: "/SCES/backend/fetch-class",
+        url: "/SCES/backend/fetch-class.php",
         type: "POST",
         data: function (d) {
           d.submitType = "fetchSectionRecordTable";
@@ -999,7 +1057,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const quizTaker = btn.getAttribute("data-quiz-taker");
         const quizSubject = btn.getAttribute("data-quiz-subject");
 
-        fetch("/SCES/backend/fetch-class", {
+        fetch("/SCES/backend/fetch-class.php", {
           method: "POST",
           headers: {
             "Content-Type": "application/x-www-form-urlencoded",
@@ -1025,7 +1083,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             viewQuizModal.querySelector(
               ".modal-icon-container img"
-            ).src = `/SCES/assets/images/${data.icon}`;
+            ).src = `/assets/images/${data.icon}`;
 
             const modalHeaderBg =
               viewQuizModal.querySelector(".modal-header-bg");
@@ -1108,7 +1166,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     $.ajax({
-      url: "/SCES/backend/fetch-class",
+      url: "/SCES/backend/fetch-class.php",
       type: "POST",
       data: {
         submitType: "sectionAverageScoreByMonth",
@@ -1217,7 +1275,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Fetch GWA records for the bar chart
     $.ajax({
-      url: "/SCES/backend/fetch-class",
+      url: "/SCES/backend/fetch-class.php",
       type: "POST",
       dataType: "json",
       data: {
@@ -1250,11 +1308,28 @@ document.addEventListener("DOMContentLoaded", function () {
                 padding: { top: 10, bottom: 10 },
               },
               legend: { display: false },
+              datalabels: {
+                anchor: "end", // Position the label at the end of the bar
+                align: "top", // Align the label on top of the bar
+                font: {
+                  size: 12, // Set label font size
+                  weight: "bold", // Set font weight
+                },
+                color: "#000", // Set the label text color
+              },
             },
             scales: {
-              y: { beginAtZero: true, max: 100 },
+              y: {
+                beginAtZero: false, // Disable starting at zero
+                min: 70,
+                max: 100, // Set the starting value of the axis
+                ticks: {
+                  stepSize: 5, // Set the increment
+                },
+              },
             },
           },
+          plugins: [ChartDataLabels], // Register the datalabels plugin
         });
 
         const interpretationElement = document.getElementById("interpretation");
@@ -1360,7 +1435,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     $.ajax({
-      url: "/SCES/backend/fetch-class",
+      url: "/SCES/backend/fetch-class.php",
       type: "POST",
       dataType: "json",
       data: {
@@ -1412,11 +1487,28 @@ document.addEventListener("DOMContentLoaded", function () {
                 padding: { top: 10, bottom: 10 },
               },
               legend: { display: false },
+              datalabels: {
+                anchor: "end", // Position the labels at the end of the bars
+                align: "top", // Align labels to the top of the bars
+                color: "#000", // Set label color to black
+                font: {
+                  size: 12, // Set label font size
+                  weight: "bold", // Set font weight
+                },
+              },
             },
             scales: {
-              y: { beginAtZero: true, max: 100 },
+              y: {
+                beginAtZero: false, // Disable starting at zero
+                min: 70,
+                max: 100, // Set the starting value of the axis
+                ticks: {
+                  stepSize: 5, // Set the increment
+                },
+              },
             },
           },
+          plugins: [ChartDataLabels], // Register the datalabels plugin
         });
 
         const subjectTitles =
@@ -1557,7 +1649,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     $.ajax({
-      url: "/SCES/backend/fetch-class",
+      url: "/SCES/backend/fetch-class.php",
       type: "POST",
       dataType: "json",
       data: {
@@ -1661,7 +1753,7 @@ document.addEventListener("DOMContentLoaded", function () {
           },
         },
         ajax: {
-          url: "/SCES/backend/fetch-class",
+          url: "/SCES/backend/fetch-class.php",
           type: "POST",
           data: function (d) {
             d.submitType = "rankingStudentsBySection";
@@ -1705,7 +1797,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const btn = event.target.closest(".more-btn");
         const studentId = btn.getAttribute("data-student-id");
 
-        fetch("/SCES/backend/fetch-class", {
+        fetch("/SCES/backend/fetch-class.php", {
           method: "POST",
           headers: {
             "Content-Type": "application/x-www-form-urlencoded",
@@ -1859,13 +1951,13 @@ document.addEventListener("DOMContentLoaded", function () {
     } else if (level === "Grade 5") {
       return "Grade 6";
     } else {
-      return "Grade 1";
+      return "Grade 7";
     }
   }
 
   function fetchOptions(levelId, targetElementId, submitType, value) {
     const xhr = new XMLHttpRequest();
-    xhr.open("POST", "/SCES/backend/fetch-class", true);
+    xhr.open("POST", "/SCES/backend/fetch-class.php", true);
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
     xhr.onreadystatechange = function () {
@@ -1881,15 +1973,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function promoteStudent(studentId, newLevel) {
-    if (newLevel == "G0007") {
-      showAlert(
-        "error",
-        "Student Already Reached The Highest Grade Level",
-        "System only supports students from Grade 1 to Grade 6"
-      );
-      return;
-    }
-    fetch("/SCES/backend/fetch-class", {
+    fetch("/SCES/backend/fetch-class.php", {
       method: "POST",
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
@@ -1929,7 +2013,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function retainStudent(studentId, levelId) {
-    fetch("/SCES/backend/fetch-class", {
+    fetch("/SCES/backend/fetch-class.php", {
       method: "POST",
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
@@ -1962,6 +2046,81 @@ document.addEventListener("DOMContentLoaded", function () {
         document.body.style.overflow = "hidden";
       })
       .catch((error) => {
+        showAlert("error", "Server Error", "Please Try Again Later");
+      });
+  }
+  function saveStudentRecord(studentId) {
+    // First fetch: Get student details
+    fetch("/SCES/backend/fetch-class.php", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body: `submitType=fetchStudentLevelDetails&student_id=${encodeURIComponent(
+        studentId
+      )}`,
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Failed to fetch student details");
+        }
+        return response.json();
+      })
+      .then((student) => {
+        if (!student || Object.keys(student).length === 0) {
+          showAlert("error", "Server Error", "Student Data Not Found");
+          return;
+        }
+
+        // Prepare data manually
+        const data = new URLSearchParams();
+        data.append("submitType", "saveStudentRecord");
+        data.append("studentLRN", student.lrn);
+        data.append("studentId", studentId);
+
+        // Second fetch: Save student record
+        return fetch("/SCES/backend/global", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+          },
+          body: data.toString(),
+        });
+      })
+      .then((response) => response.text())
+      .then((responseText) => {
+        if (responseText === "200") {
+          // Load SweetAlert2 script and show success
+          $.getScript(
+            "/SCES/vendor/node_modules/sweetalert2/dist/sweetalert2.all.min.js",
+            function () {
+              Swal.fire({
+                icon: "success",
+                title: "Student Record Saved To Database",
+                confirmButtonColor: "#4CAF50",
+                allowOutsideClick: false,
+              }).then((result) => {
+                if (result.isConfirmed) {
+                  // Reload DataTable
+                  if ($.fn.DataTable.isDataTable("#studentsTable")) {
+                    $("#studentsTable").DataTable().ajax.reload(null, false);
+                  }
+                }
+              });
+            }
+          );
+        } else if (responseText === "484") {
+          showReloadAlert(
+            "error",
+            "Saving Student Records Failed",
+            "Please Try Again Later"
+          );
+        } else {
+          showAlert("error", "Operation Failed", "Please Try Again Later");
+        }
+      })
+      .catch((error) => {
+        console.error("Error:", error);
         showAlert("error", "Server Error", "Please Try Again Later");
       });
   }

@@ -3158,6 +3158,17 @@ class globalClass extends db_connect
             return $data['disabled'];
         }
     }
+
+    public function updateStudentLevel($studentId, $levelId)
+    {
+        $query = $this->conn->prepare("UPDATE student_tbl SET level_id = ? WHERE student_id = ?");
+        $query->bind_param("ss", $levelId, $studentId);
+        if ($query->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
 
 
