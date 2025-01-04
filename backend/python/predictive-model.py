@@ -121,48 +121,51 @@ def interpret():
         overall_trend = 0
         def get_random_improved_recommendation():
             recommendations = [
-                "Collaborate with the student in setting specific academic goals to further reinforce and maintain the improvement of the student.",
-                "Encourage the student to engage in additional learning resources to support consistent academic growth.",
-                "Provide regular feedback and monitor progress to ensure the student stays on track with their academic goals.",
-                "Suggest participation in group study sessions to enhance peer learning and reinforce concepts.",
-                "Offer targeted exercises or enrichment activities to address areas where the student may need improvement.",
-                "Celebrate the student's progress and encourage continued effort to sustain positive performance.",
-                "Engage parents or guardians in supporting the student’s learning environment at home.",
-                "Encourage the student to develop better time management and study habits to optimize performance.",
-                "Provide mentorship or tutoring opportunities to reinforce the student's understanding of challenging subjects.",
-                "Motivate the student to reflect on their academic achievements and identify strategies for continued improvement."
+                "Collaborate with the student to establish clear, measurable academic goals, and track progress regularly.",
+                "Encourage the use of supplementary learning materials, such as online tutorials or educational apps, to strengthen subject understanding.",
+                "Provide detailed, actionable feedback on assignments and tests to highlight strengths and areas for improvement.",
+                "Suggest joining peer study groups to enhance collaborative learning and deepen comprehension of key topics.",
+                "Assign targeted practice exercises focused on specific skill gaps to reinforce understanding.",
+                "Acknowledge and celebrate milestones in the student’s progress to boost motivation and confidence.",
+                "Involve parents or guardians in creating a supportive home environment conducive to consistent study habits.",
+                "Help the student develop a structured study schedule, incorporating breaks and prioritized tasks, to improve time management.",
+                "Facilitate one-on-one mentorship or tutoring sessions to address specific challenges in complex subjects.",
+                "Encourage the student to review past achievements and set a roadmap for continuous academic growth."
             ]
 
             return random.choice(recommendations)
+
         def get_random_decline_recommendation():
             recommendations = [
-                "Maintain regular communication with the student to identify any challenges and provide timely interventions to monitor the progress of the student.",
-                "Schedule frequent progress review meetings with the student to address difficulties and provide personalized guidance for improvement.",
-                "Create a supportive feedback system where the student can share their challenges, and actionable advice can be given promptly.",
-                "Work closely with the student to identify specific areas of concern and implement targeted strategies to address these issues.",
-                "Regularly check in with the student to offer encouragement, track progress, and provide additional resources as needed.",
-                "Encourage open communication between teachers, parents, and the student to collaboratively monitor progress and resolve challenges quickly.",
-                "Establish periodic assessments to monitor the student's progress and make adjustments to interventions where necessary.",
-                "Organize one-on-one discussions to provide the student with timely feedback and clarify concepts they find difficult.",
-                "Implement a weekly tracking system to review the student’s academic progress and provide constructive support for improvement.",
-                "Collaborate with the student in setting realistic goals and provide ongoing monitoring to ensure they stay on track toward their objectives."
+                "Establish regular one-on-one sessions with the student to identify specific academic challenges and co-develop actionable strategies for improvement.",
+                "Conduct frequent progress reviews with the student, providing personalized guidance and addressing obstacles to help them get back on track.",
+                "Create a structured feedback mechanism that encourages the student to share difficulties openly and enables the timely provision of tailored support.",
+                "Analyze the student’s performance data to pinpoint problem areas and implement targeted interventions to address these gaps effectively.",
+                "Schedule consistent check-ins with the student to offer encouragement, monitor their progress, and supply additional learning resources as needed.",
+                "Facilitate open collaboration between teachers, parents, and the student to ensure a comprehensive and unified approach to overcoming academic challenges.",
+                "Design periodic diagnostic assessments to track the student’s progress and make data-driven adjustments to teaching strategies and interventions.",
+                "Organize focused discussions to deliver constructive feedback, address misconceptions, and clarify complex concepts effectively.",
+                "Introduce a progress monitoring system that tracks weekly milestones and provides actionable recommendations for continuous improvement.",
+                "Work with the student to set realistic, short-term academic goals and establish a monitoring plan to ensure consistent progress toward these objectives."
             ]
             return random.choice(recommendations)
+
 
         def get_random_stable_recommendation():
             recommendations = [
-                "Provide support to the student in setting higher academic goals to encourage the student to improve academic performance.",
-                "Encourage the student to engage in group study sessions to enhance collaborative learning skills.",
-                "Offer constructive feedback on areas where the student can improve and celebrate their achievements.",
-                "Create a personalized learning plan tailored to the student's strengths and weaknesses.",
-                "Motivate the student to participate in extracurricular activities to balance academics with personal development.",
-                "Introduce new and challenging learning opportunities to keep the student engaged and motivated.",
-                "Schedule regular check-ins to monitor the student’s progress and provide timely guidance.",
-                "Promote active engagement in classroom discussions to improve critical thinking and confidence.",
-                "Recommend additional resources, such as online tutorials or study materials, to support learning outside the classroom.",
-                "Encourage the student to set short-term goals and reward themselves upon achieving them to build self-discipline and focus."
+                "Encourage the student to set progressively higher academic goals and provide guidance to help them achieve these milestones, fostering continuous improvement.",
+                "Promote participation in group study sessions to enhance teamwork, peer learning, and collaborative problem-solving skills.",
+                "Offer specific, constructive feedback on areas for growth, while recognizing and celebrating the student’s achievements to reinforce positive behavior.",
+                "Develop a personalized learning plan that leverages the student’s strengths and addresses any areas of weakness to optimize their academic performance.",
+                "Encourage involvement in extracurricular activities to foster personal growth, leadership skills, and a healthy balance between academics and other interests.",
+                "Introduce advanced or interdisciplinary learning projects to challenge the student and sustain their motivation and engagement in academics.",
+                "Schedule regular progress review sessions to assess academic performance, provide strategic advice, and identify opportunities for further development.",
+                "Promote active participation in class discussions to strengthen critical thinking, communication skills, and confidence in expressing ideas.",
+                "Provide curated supplementary resources, such as online courses, interactive tools, or advanced reading materials, to enhance the student’s independent learning experience.",
+                "Encourage the student to set incremental short-term goals, track their progress, and celebrate small wins to build resilience, focus, and self-discipline."
             ]
             return random.choice(recommendations)
+
 
         improvement_count = 0
         decline_count = 0
@@ -221,88 +224,94 @@ def interpret_grades():
     try:
         def get_random_all_decent_recommendation(label):
             recommendations = [
-                f"Provide additional support to the student on {label} by holding a consultation and identifying the specific lessons that the student had difficulties with.",
-                f"Encourage the student to review foundational concepts in {label} and provide supplementary materials to strengthen their understanding.",
-                f"Organize a peer tutoring session in {label} to allow the student to learn collaboratively and address areas of difficulty.",
-                f"Design an interactive learning activity focused on {label} to boost the student's engagement and understanding of challenging topics.",
-                f"Discuss the student's performance in {label} during a parent-teacher meeting to explore ways to support them at home.",
-                f"Recommend additional practice exercises in {label} to help the student improve their skills and confidence in the subject.",
-                f"Introduce multimedia resources, such as videos or games, to make learning {label} more engaging and accessible for the student.",
-                f"Set short-term, achievable goals in {label} for the student to regain confidence and track progress effectively.",
-                f"Schedule a one-on-one session with the student to address specific challenges they face in {label} and develop a personalized learning plan.",
-                f"Monitor the student’s progress in {label} closely and provide regular feedback to encourage continuous improvement."
+                f"Arrange a dedicated consultation session with the student to review their challenges in {label}, identify specific problematic topics, and collaboratively create a targeted improvement plan.",
+                f"Encourage the student to revisit foundational concepts in {label} by providing structured learning guides and supplementary resources tailored to reinforce their understanding.",
+                f"Organize a structured peer tutoring session focused on {label}, pairing the student with peers who excel in the subject to foster collaborative problem-solving and concept reinforcement.",
+                f"Develop and implement an engaging, hands-on activity or project centered around key topics in {label} to deepen the student’s comprehension and practical application skills.",
+                f"Hold a parent-teacher meeting to discuss the student's performance in {label} and collaboratively explore strategies for providing consistent academic support at home.",
+                f"Provide the student with a curated set of practice exercises and real-world applications related to {label} to build their skills progressively and boost their confidence in the subject.",
+                f"Introduce high-quality multimedia tools, such as educational videos, interactive simulations, or gamified learning apps, to simplify complex concepts in {label} and maintain the student’s engagement.",
+                f"Guide the student in setting specific, short-term objectives for improvement in {label}, coupled with actionable steps and regular progress checks to sustain motivation and momentum.",
+                f"Schedule one-on-one mentoring sessions to address the student’s unique challenges in {label}, offering detailed explanations, tips, and personalized learning resources.",
+                f"Implement a progress tracking system for {label}, ensuring regular updates and actionable feedback to help the student measure their improvement and stay on track."
             ]
             return random.choice(recommendations)
+
         def get_random_all_decline_recommendation(label):
             recommendations = [
-                f"Provide focused support to the student for {label} by identifying the specific lessons that the student had difficulties.",
-                f"Consider scheduling additional tutoring sessions for {label} to address identified weaknesses.",
-                f"Encourage the student to review past topics in {label} to build a stronger foundation.",
-                f"Integrate interactive learning materials to make {label} more engaging and easier to understand.",
-                f"Work with the student to create a detailed study plan tailored to improving their performance in {label}.",
-                f"Conduct regular assessments in {label} to track progress and adjust the learning approach as needed.",
-                f"Offer additional resources, such as videos or practice problems, to help the student master {label}.",
-                f"Provide positive reinforcement to motivate the student to continue improving in {label}.",
-                f"Collaborate with the student's teachers to address specific challenges faced in {label}.",
-                f"Encourage group study or peer learning sessions focused on {label} to foster collaborative improvement.",
+                f"Collaborate with the student to pinpoint specific areas of difficulty within {label} and create an action plan addressing these challenges effectively.",
+                f"Schedule additional one-on-one tutoring sessions focused on {label}, prioritizing the topics where the student has demonstrated the greatest need for improvement.",
+                f"Encourage the student to revisit earlier lessons in {label}, providing them with structured review materials to reinforce foundational knowledge critical for advanced concepts.",
+                f"Introduce engaging, interactive learning tools, such as simulations, videos, or gamified exercises, to simplify complex concepts in {label} and sustain the student’s interest.",
+                f"Work closely with the student to develop a tailored, step-by-step study plan for {label}, outlining daily or weekly goals to systematically address weak points.",
+                f"Implement regular progress checks and formative assessments in {label} to evaluate the student’s improvement and fine-tune teaching strategies as needed.",
+                f"Provide targeted practice materials, such as problem sets or case studies, focusing on the specific topics in {label} where the student struggles the most.",
+                f"Use positive reinforcement techniques, such as praise for small achievements in {label}, to build the student’s confidence and maintain their motivation to improve.",
+                f"Organize collaboration with subject matter teachers to identify and address the underlying factors contributing to the student’s difficulties in {label}.",
+                f"Encourage participation in group study sessions or peer learning activities centered around {label}, enabling the student to gain insights through collaborative problem-solving and discussion."
             ]
             return random.choice(recommendations)
-        def generate_subject_improvment_recommendation():
+
+        def generate_subject_improvement_recommendation():
             recommendations = [
-                "Continue to foster effective learning environments and recognize the student's efforts, while introducing advanced learning opportunities to sustain improvement.",
-                "Motivate the student by setting challenging yet attainable goals to encourage consistent progress and build confidence.",
-                "Provide personalized learning plans to address specific weaknesses and build upon the student's strengths for continued growth.",
-                "Encourage the student to engage in collaborative projects or activities to enhance learning and build teamwork skills.",
-                "Recognize and celebrate small achievements to keep the student motivated and focused on long-term goals.",
-                "Offer additional support through tutoring or extra materials to strengthen understanding in areas of difficulty.",
-                "Encourage active participation in class discussions and activities to boost engagement and comprehension.",
-                "Introduce a rewards system for meeting specific academic milestones to maintain enthusiasm and drive.",
-                "Collaborate with parents or guardians to ensure the student receives consistent support at home and in school.",
-                "Focus on developing critical thinking and problem-solving skills to prepare the student for advanced academic challenges."
+                "Create a dynamic and supportive learning environment by recognizing the student's achievements and introducing advanced tasks or challenges to sustain and further their progress.",
+                "Collaborate with the student to set measurable, realistic goals tailored to their strengths and areas for growth, tracking progress with regular milestones.",
+                "Design a customized learning plan that targets specific areas of improvement while leveraging the student's demonstrated strengths to build confidence and ensure balanced growth.",
+                "Encourage participation in collaborative learning activities, such as group projects or study circles, to improve teamwork skills and deepen understanding through peer engagement.",
+                "Celebrate the student's achievements, no matter how small, and provide constructive feedback that emphasizes how these accomplishments contribute to larger academic goals.",
+                "Provide structured, supplementary learning resources, such as guided exercises, concept tutorials, or one-on-one tutoring, to reinforce challenging areas of the subject.",
+                "Promote active engagement in class through thought-provoking discussions, interactive activities, and problem-solving exercises designed to enhance comprehension and interest.",
+                "Implement a motivational rewards system where academic achievements, such as mastering a difficult concept, are acknowledged and celebrated to maintain enthusiasm and dedication.",
+                "Work closely with parents or guardians to align support strategies at home with those implemented in the classroom, ensuring consistency in addressing academic challenges.",
+                "Introduce advanced learning tools and techniques, such as critical thinking exercises, analytical problem-solving tasks, or project-based learning, to prepare the student for more complex academic challenges and foster long-term success."
             ]
             return random.choice(recommendations)
+
         def generate_subject_decline_recommendation():
             recommendations = [
-                "Focus closely on the student to identify underlying issues and implement strategies for improvement, such as personalized learning plans or additional support.",
-                "Encourage the student to actively participate in discussions and group activities to enhance engagement and understanding.",
-                "Provide additional practice exercises or tutoring sessions for areas where the student demonstrates difficulty.",
-                "Set specific, achievable goals for the student to help track progress and maintain motivation.",
-                "Regularly communicate with parents or guardians to build a support system and share strategies for improvement.",
-                "Use creative and interactive teaching methods to make learning more engaging and tailored to the student's needs.",
-                "Monitor the student's progress closely and adjust learning strategies based on performance trends.",
-                "Offer rewards or recognition for the student’s efforts to foster a positive learning environment and encourage improvement.",
-                "Create a structured study plan that focuses on challenging topics while reinforcing existing strengths.",
-                "Work collaboratively with other educators to identify and implement best practices for supporting the student's academic growth."
+                "Conduct a thorough assessment to identify the root causes of the student's decline and create a tailored intervention plan focusing on their specific challenges.",
+                "Encourage active engagement by integrating the student into collaborative discussions, group projects, or peer-learning activities to improve their comprehension and confidence.",
+                "Provide structured practice exercises or dedicated one-on-one tutoring sessions to address and strengthen weak areas in the subject matter.",
+                "Set clear, measurable short-term goals for the student, providing regular feedback and celebrating milestones to sustain their motivation and focus.",
+                "Collaborate with parents or guardians to establish a consistent support system, sharing actionable strategies to reinforce learning at home and in school.",
+                "Incorporate innovative teaching techniques, such as gamified learning, multimedia tools, or real-life applications of concepts, to make lessons more engaging and relatable to the student.",
+                "Track the student’s progress through regular assessments and adjust teaching strategies or intervention plans based on emerging performance data.",
+                "Introduce a rewards system that recognizes effort and improvement, fostering a positive learning environment and building the student’s confidence in their abilities.",
+                "Develop a personalized and time-bound study plan, prioritizing topics that require immediate attention while building on the student’s existing knowledge base.",
+                "Collaborate with fellow educators to exchange insights, share best practices, and implement cohesive strategies for supporting the student's academic recovery and growth."
             ]
             return random.choice(recommendations)
+
         def get_subject_unstable_recommendation():
             recommendations = [
-                "Encourage consistent efforts and provide support to achieve steady progress.",
-                "Motivate the student to set clear goals and work diligently toward achieving them.",
-                "Provide regular feedback to help the student focus on areas for improvement.",
-                "Foster a positive learning environment to build the student's confidence.",
-                "Offer additional resources or tutoring to strengthen understanding in challenging areas.",
-                "Celebrate small successes to keep the student motivated and engaged.",
-                "Work with the student to develop a structured study plan for better results.",
-                "Encourage collaboration with peers to enhance learning through group activities.",
-                "Help the student identify and overcome obstacles that may hinder progress.",
-                "Support the student with personalized learning strategies to address individual needs."
+                "Collaborate with the student to identify patterns in performance fluctuations and create a plan to address inconsistencies in understanding the subject.",
+                "Encourage the student to set specific, realistic goals for each study session, fostering a habit of consistent effort and achievement.",
+                "Provide detailed, actionable feedback after assessments, highlighting strengths and offering targeted advice for addressing weaknesses.",
+                "Create a supportive and encouraging learning environment that helps the student regain confidence and maintain focus.",
+                "Offer tailored supplementary resources, such as targeted practice exercises or personalized tutoring, to strengthen the student’s grasp of challenging concepts.",
+                "Recognize and celebrate incremental achievements to keep the student motivated and reinforce a positive attitude toward learning.",
+                "Develop a detailed and time-bound study plan that emphasizes areas requiring improvement while maintaining a balance with topics the student excels in.",
+                "Promote collaboration with peers through group projects or study sessions, allowing the student to learn through shared perspectives and teamwork.",
+                "Help the student identify and mitigate specific barriers to steady progress, such as time management issues or ineffective study habits.",
+                "Implement personalized learning strategies, such as breaking down complex topics into manageable steps, to address the student’s unique needs and learning style."
             ]
             return random.choice(recommendations)
+
         def get_subject_nochanges_recommendation():
             recommendations = [
-                "Motivate the student to aim for higher achievement by setting challenging yet attainable goals and providing encouragement.",
-                "Encourage the student to participate in group activities or study groups to foster collaborative learning and gain new insights.",
-                "Provide personalized feedback to the student to help them understand their strengths and areas for improvement.",
-                "Introduce creative and engaging learning methods to keep the student motivated and interested in the subject matter.",
-                "Celebrate the student’s small victories to build their confidence and reinforce positive behaviors.",
-                "Work with the student to create a study plan tailored to their needs, ensuring balanced preparation and progress tracking.",
-                "Identify specific challenges the student is facing and provide targeted resources or assistance to address these areas.",
-                "Encourage the student to set clear academic goals and periodically review their progress to maintain focus and motivation.",
-                "Provide opportunities for the student to explore advanced topics or enrichment activities to sustain their curiosity and drive.",
-                "Help the student balance their academic efforts with relaxation and hobbies to maintain mental well-being and prevent burnout."
+                "Encourage the student to set ambitious, measurable goals and provide consistent support to inspire higher academic achievements.",
+                "Foster collaborative learning by recommending participation in study groups or peer-led activities that offer diverse perspectives and learning strategies.",
+                "Offer detailed and constructive feedback that highlights the student’s strengths and identifies specific areas for further development.",
+                "Incorporate interactive and innovative teaching methods to maintain the student’s engagement and sustain their interest in the subject.",
+                "Acknowledge and celebrate milestones to build the student’s confidence and reinforce their motivation to continue excelling.",
+                "Collaborate with the student to design a personalized, adaptable study plan that targets gradual improvement while tracking their progress effectively.",
+                "Identify subtle challenges or overlooked areas of improvement and provide tailored resources or interventions to address these gaps.",
+                "Encourage regular self-assessment to help the student reflect on their learning journey, identify improvements, and maintain steady progress.",
+                "Introduce enrichment activities or advanced subject matter to nurture the student’s curiosity and promote deeper engagement with the topic.",
+                "Support the student in balancing academic pursuits with recreational activities to maintain overall well-being and prevent stagnation."
             ]
             return random.choice(recommendations)
+
         data = request.get_json()
         subject_filter = data.get('subject_filter', 'All')
         quarter_filter = data.get('quarter_filter', 'All')
@@ -405,7 +414,7 @@ def interpret_grades():
                 interpretation = (
                     "The student showed an improvement in performance on the subject. "
                 )
-                recommendation = generate_subject_improvment_recommendation()
+                recommendation = generate_subject_improvement_recommendation()
                 warning = 1
             elif declines > improvements:
                 interpretation = (
@@ -457,17 +466,18 @@ def interpret_subject():
         prediction_made = False
 
         recommendations = [
-            "Identify the specific lessons or topics in {subject} that the student has difficulties with.",
-            "It might help to focus on reviewing the core concepts of {subject} to improve understanding.",
-            "Consider providing extra study resources for the student in {subject} to strengthen their foundation.",
-            "Offering additional tutoring sessions in {subject} could provide the student with the necessary support.",
-            "Provide the student with practice exercises in {subject} to reinforce learning and improve grades.",
-            "Encourage the student to seek help on specific topics in {subject} they find challenging.",
-            "Consider organizing group study sessions or peer learning in {subject} to improve performance.",
-            "It may be helpful to break down the lessons in {subject} into smaller, manageable parts for the student.",
-            "Suggest using online resources or tutorials for additional practice and better understanding in {subject}.",
-            "Working on consistent review sessions in {subject} could greatly benefit the student's progress."
+            "Analyze the student's performance in {subject} to pinpoint specific lessons or concepts that require additional attention.",
+            "Focus on reinforcing the foundational concepts in {subject} to address gaps in understanding and build confidence.",
+            "Provide tailored study materials or guides in {subject} to help the student review and strengthen core topics.",
+            "Schedule targeted tutoring sessions in {subject} to address identified weaknesses and provide personalized support.",
+            "Offer a variety of practice exercises in {subject}, focusing on both foundational and advanced topics to reinforce learning.",
+            "Encourage the student to actively seek clarification on challenging areas in {subject} during or outside of class.",
+            "Organize collaborative study sessions or peer discussions in {subject} to promote interactive and supportive learning.",
+            "Simplify complex topics in {subject} by breaking them into smaller, manageable sections to enhance understanding.",
+            "Recommend reliable online platforms or tutorials that offer interactive learning opportunities in {subject}.",
+            "Establish a structured review plan in {subject}, ensuring regular and consistent practice to track improvement."
         ]
+
         
         def generate_recommendation(subject_name):
             recommendation = random.choice(recommendations).format(subject=subject_name)
@@ -565,64 +575,68 @@ def interpret_gwa():
 
         def get_learning_strategy_recommendation():
             recommendations = [
-                "Focus on improving the learning strategies for grade levels with low performance through interventions like tutoring, mentoring, or enhanced teaching strategies.",
-                "Identify specific subjects or topics causing difficulty and address them with tailored review sessions and supplementary materials.",
-                "Implement interactive teaching techniques to engage the students and clarify challenging concepts in low-performing areas.",
-                "Encourage consistent practice and reinforcement for subjects where the students has struggled to build confidence and competence.",
-                "Introduce peer tutoring programs to allow the students learn from their classmates who excel in areas of difficulty.",
-                "Conduct regular check-ins to monitor progress and adapt teaching methods for subjects where performance has been historically low.",
-                "Collaborate with the students to set realistic improvement goals and provide resources to help them achieve better outcomes.",
-                "Use visual aids, such as charts or diagrams, to simplify complex concepts in subjects where students shows low performance.",
-                "Integrate technology, like educational apps or online courses, to provide innovative solutions for improving weak grade levels.",
-                "Encourage the students to reflect on their learning habits and develop better study routines for challenging subjects."
+                "Analyze grade-level performance data to identify root causes of low performance and implement targeted interventions such as tutoring, mentoring, or differentiated teaching strategies.",
+                "Break down complex topics in low-performing subjects into smaller, manageable concepts, and provide tailored review sessions with supplementary materials to address gaps in understanding.",
+                "Adopt interactive teaching techniques, such as group activities, hands-on experiments, and real-world applications, to engage students and enhance comprehension in challenging subjects.",
+                "Encourage consistent practice through structured exercises and formative assessments, focusing on subjects where students have shown difficulty to build confidence and mastery.",
+                "Establish peer mentoring programs where high-performing students provide guidance and support to classmates struggling in specific topics, fostering collaborative learning.",
+                "Schedule regular progress reviews to evaluate student improvement and refine teaching approaches for subjects with historically low performance, ensuring adaptability and effectiveness.",
+                "Collaborate with students to set specific, measurable improvement goals and provide personalized resources, such as study guides or practice problems, to support their academic growth.",
+                "Incorporate visual aids like flowcharts, infographics, and diagrams to simplify and clarify complex concepts, making them more accessible for students facing challenges in particular subjects.",
+                "Leverage technology such as interactive educational platforms, adaptive learning apps, and online resources to deliver innovative and engaging solutions for improving academic performance.",
+                "Promote self-reflection by encouraging students to evaluate their study habits and develop actionable strategies for better time management and effective learning in their weak areas."
             ]
             return random.choice(recommendations)
+
         
         def get_specific_improvement_recommendation(selected_students, grade):
             recommendations = [
-                f"Identifying the specific lessons for each subject that the {selected_students} students had a hard time can enhance the learning strategies for the next {grade} students.",
-                f"Providing focused support for struggling topics among the {selected_students} students will help improve their understanding in preparation for the next {grade} students.",
-                f"Reviewing quizzes and assessments to pinpoint weak areas for the {selected_students} students can enhance future learning outcomes for {grade} students.",
-                f"Offering additional practice materials on difficult topics for the {selected_students} students will better prepare {grade} students for similar challenges.",
-                f"Organizing consultations and reviews for the subjects where the {selected_students} students struggled will benefit the learning process for {grade} students.",
-                f"Providing targeted tutoring sessions on challenging lessons for the {selected_students} students can optimize their performance and benefit future {grade} students.",
-                f"Conducting workshops to address the lessons that posed difficulties for the {selected_students} students will create a stronger foundation for the next {grade} students.",
-                f"Analyzing subject-specific challenges encountered by the {selected_students} students can refine teaching methods for {grade} students.",
-                f"Creating tailored lesson plans to address weak points identified among the {selected_students} students will ensure better results for the upcoming {grade} students.",
-                f"Encouraging collaborative learning among the {selected_students} students on difficult subjects can promote peer-driven improvement for the next {grade} students."
+                f"Conduct a detailed analysis of assessments to identify the specific lessons or concepts that the {selected_students} students found challenging, and use this data to refine teaching strategies for {grade} students.",
+                f"Provide targeted support and remedial sessions for the difficult topics identified among {selected_students} students to strengthen their foundational understanding and prepare {grade} students effectively.",
+                f"Review assessment patterns to highlight recurring weak areas among {selected_students} students and create focused intervention plans for {grade} students.",
+                f"Design additional practice exercises tailored to the most challenging topics faced by the {selected_students} students, ensuring {grade} students build confidence and mastery in these areas.",
+                f"Organize one-on-one consultations or small group reviews to address specific difficulties faced by the {selected_students} students, and adapt these methods for {grade} students as needed.",
+                f"Deliver personalized tutoring sessions for {selected_students} students that focus on high-priority challenges, and develop a proactive approach to address similar issues for {grade} students.",
+                f"Host interactive workshops on the most commonly misunderstood topics among the {selected_students} students, fostering a deeper understanding that benefits future {grade} students.",
+                f"Analyze subject-specific trends where {selected_students} students struggled, and implement improved teaching methods or resources to better support {grade} students in those areas.",
+                f"Develop customized lesson plans targeting weak areas identified for {selected_students} students, ensuring structured and consistent improvements for {grade} students.",
+                f"Encourage collaborative problem-solving activities for {selected_students} students to tackle difficult topics and apply these strategies to enhance engagement among {grade} students."
             ]
             return random.choice(recommendations)
+
         
         def get_specific_decent_recommendation(grade):
             recommendations = [
-                f"Maintaining or enhancing the learning strategies for the new {grade} students can sustain improvement of the grade level in academic performance.",
-                f"Focusing on interactive activities for {grade} students can further boost engagement and improve learning outcomes.",
-                f"Providing additional support to {grade} students in challenging subjects will help maintain steady progress.",
-                f"Encouraging collaborative learning among {grade} students can enhance their problem-solving skills and academic success.",
-                f"Identifying and addressing the learning gaps of {grade} students can ensure consistent academic growth.",
-                f"Implementing targeted revision sessions for {grade} students can reinforce understanding of key topics.",
-                f"Offering personalized feedback to {grade} students will help them recognize strengths and areas for improvement.",
-                f"Promoting a positive learning environment for {grade} students can contribute to higher academic achievements.",
-                f"Introducing new teaching strategies for {grade} students can keep them engaged and motivated in their studies.",
-                f"Monitoring the academic progress of {grade} students regularly will ensure early intervention where needed."
+                f"Analyze performance trends for {grade} students to identify key areas for improvement and implement targeted strategies.",
+                f"Introduce interactive, grade-appropriate activities for {grade} students to foster deeper engagement and comprehension.",
+                f"Provide focused support in subjects where {grade} students typically struggle, using tailored teaching methods.",
+                f"Encourage collaborative projects for {grade} students to develop teamwork, critical thinking, and problem-solving skills.",
+                f"Perform a detailed assessment to pinpoint learning gaps among {grade} students and address them with focused lessons.",
+                f"Organize structured revision sessions for {grade} students to reinforce core concepts and ensure retention.",
+                f"Deliver personalized feedback to {grade} students, highlighting actionable steps for leveraging strengths and addressing weaknesses.",
+                f"Create a positive and supportive classroom environment for {grade} students to nurture confidence and academic growth.",
+                f"Adopt innovative teaching strategies tailored to the learning styles of {grade} students to sustain motivation and progress.",
+                f"Regularly track the progress of {grade} students with formative assessments to identify and address challenges early."
             ]
             
             return random.choice(recommendations)
+
         
         def get_trend_recommendation():
             recommendations = [
-                "Investigate the causes of changes and maintain learning strategies to ensure consistent improvement.",
-                "Encourage regular study habits and review lessons to address areas of weakness.",
-                "Provide additional support for challenging topics to strengthen understanding.",
-                "Focus on consistent practice and clarify doubts through consultations or tutoring.",
-                "Analyze the students' progress and create a specialized learning plan for classes.",
-                "Highlight strengths while addressing areas for improvement through targeted exercises.",
-                "Encourage students to set achievable goals and monitor progress regularly.",
-                "Provide constructive feedback to motivate and guide students toward improvement.",
-                "Reinforce learning strategies by revisiting concepts where difficulties persist.",
-                "Identify specific lessons or skills that require focus and allocate additional study time."
+                "Analyze performance trends to identify root causes of improvement or decline and adjust learning strategies accordingly.",
+                "Encourage structured study routines and provide specific feedback on areas where progress is lagging.",
+                "Offer targeted support for difficult topics by breaking them into smaller, manageable concepts and using practical examples.",
+                "Promote consistent practice using a mix of exercises that reinforce both strengths and areas needing improvement.",
+                "Develop a tailored action plan based on the student's progress, focusing on measurable milestones for improvement.",
+                "Leverage strengths by integrating them into learning strategies while addressing weaker areas with focused practice sessions.",
+                "Guide students in setting specific, achievable academic goals and use progress tracking tools to measure success.",
+                "Provide actionable and positive feedback to build confidence and guide students toward correcting specific issues.",
+                "Revise challenging concepts using interactive methods like group discussions, visual aids, or hands-on activities.",
+                "Pinpoint specific skills or lessons requiring additional attention and create a focused schedule to address them."
             ]
             return random.choice(recommendations)
+
         
         def analyze_all_grades():
             trends = []

@@ -676,7 +676,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             viewQuizModal.querySelector(
               ".modal-icon-container img"
-            ).src = `/assets/images/${data.icon}`;
+            ).src = `/SCES/assets/images/${data.icon}`;
 
             const modalHeaderBg =
               viewQuizModal.querySelector(".modal-header-bg");
@@ -1084,7 +1084,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             viewQuizModal.querySelector(
               ".modal-icon-container img"
-            ).src = `/assets/images/${data.icon}`;
+            ).src = `/SCES/assets/images/${data.icon}`;
 
             const modalHeaderBg =
               viewQuizModal.querySelector(".modal-header-bg");
@@ -2089,7 +2089,7 @@ document.addEventListener("DOMContentLoaded", function () {
         data.append("studentId", studentId);
 
         // Second fetch: Save student record
-        return fetch("/SCES/backend/global", {
+        return fetch("/SCES/backend/global.php", {
           method: "POST",
           headers: {
             "Content-Type": "application/x-www-form-urlencoded",

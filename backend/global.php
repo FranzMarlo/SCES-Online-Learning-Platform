@@ -1331,28 +1331,28 @@ if (isset($_POST['submitType'])) {
         if (empty($question)) {
             echo '482';
             exit();
-        } else if (empty($choice1)) {
+        } else if (strlen($choice1) === 0) {
             echo '483';
             exit();
-        } else if (empty($choice2)) {
+        } else if (strlen($choice2) === 0) {
             echo '484';
             exit();
-        } else if ((empty($choice3) || empty($choice4)) && (empty($choice1) || empty($choice2))) {
+        } else if ((strlen($choice3) === 0 || strlen($choice4) === 0) && (strlen($choice1) === 0 || strlen($choice2) === 0)) {
             echo '485';
             exit();
         } else if (empty($correctAnswer)) {
             echo '486';
             exit();
-        } else if ($correctAnswer == 'choice1' && empty($choice1)) {
+        } else if ($correctAnswer == 'choice1' && strlen($choice1) === 0) {
             echo '487';
             exit();
-        } else if ($correctAnswer == 'choice2' && empty($choice2)) {
+        } else if ($correctAnswer == 'choice2' && strlen($choice2) === 0) {
             echo '487';
             exit();
-        } else if ($correctAnswer == 'choice3' && empty($choice3)) {
+        } else if ($correctAnswer == 'choice3' && strlen($choice3) === 0) {
             echo '487';
             exit();
-        } else if ($correctAnswer == 'choice4' && empty($choice4)) {
+        } else if ($correctAnswer == 'choice4' && strlen($choice4) === 0) {
             echo '487';
             exit();
         } else {
@@ -1386,6 +1386,7 @@ if (isset($_POST['submitType'])) {
         session_start();
         $editQuestionId = validate($_POST['editQuestionId']);
         $editQuestionText = validate($_POST['editQuestionText']);
+        $editQuestionValue = validate($_POST['editQuestionValue']);
         $choice1_update = validate($_POST['choice1_update']);
         $choice1_id = validate($_POST['choice1_id']);
         $choice2_update = validate($_POST['choice2_update']);
@@ -1400,34 +1401,34 @@ if (isset($_POST['submitType'])) {
         $choice3_value = validate($_POST['choice3_value']);
         $choice4_value = validate($_POST['choice4_value']);
         $correct_value = validate($_POST['correct_value']);
-        if ($choice1_update == $choice1_value && $choice2_update == $choice2_value && $choice3_update == $choice3_value && $choice4_update == $choice4_value && $correctChoice == $correct_value) {
+        if ($editQuestionText == $editQuestionValue && $choice1_update == $choice1_value && $choice2_update == $choice2_value && $choice3_update == $choice3_value && $choice4_update == $choice4_value && $correctChoice == $correct_value) {
             echo '481';
             exit();
         } else if (empty($editQuestionText)) {
             echo '482';
             exit();
-        } else if (empty($choice1_update)) {
+        } else if (strlen($choice1_update) === 0) {
             echo '483';
             exit();
-        } else if (empty($choice2_update)) {
+        } else if (strlen($choice2_update) === 0) {
             echo '484';
             exit();
-        } else if ((empty($choice3_update) || empty($choice4_update)) && (empty($choice1_update) || empty($choice2_update))) {
+        } else if ((strlen($choice3_update) === 0 || strlen($choice4_update) === 0) && (strlen($choice1_update) === 0 || strlen($choice2_update) === 0)) {
             echo '485';
             exit();
         } else if (empty($correctChoice)) {
             echo '486';
             exit();
-        } else if ($correctChoice == 'choice1' && empty($choice1_update)) {
+        } else if ($correctChoice == 'choice1' && strlen($choice1_update) === 0) {
             echo '487';
             exit();
-        } else if ($correctChoice == 'choice2' && empty($choice2_update)) {
+        } else if ($correctChoice == 'choice2' && strlen($choice2_update) === 0) {
             echo '487';
             exit();
-        } else if ($correctChoice == 'choice3' && empty($choice3_update)) {
+        } else if ($correctChoice == 'choice3' && strlen($choice3_update) === 0) {
             echo '487';
             exit();
-        } else if ($correctChoice == 'choice4' && empty($choice4_update)) {
+        } else if ($correctChoice == 'choice4' && strlen($choice4_update) === 0) {
             echo '487';
             exit();
         } else {

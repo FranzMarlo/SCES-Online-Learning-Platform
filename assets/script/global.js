@@ -1426,6 +1426,7 @@ $("#editQuestion").on("submit", function (e) {
   e.preventDefault();
   var editQuestionId = $("#editQuestionId").val();
   var editQuestionText = $("#editQuestionText").val();
+  var editQuestionValue = $("#editQuestionValue").val();
   var choice1_update = $("#choice1_update").val();
   var choice1_id = $("#choice1_id").val();
   var choice2_update = $("#choice2_update").val();
@@ -1447,6 +1448,7 @@ $("#editQuestion").on("submit", function (e) {
       submitType: "editQuestion",
       editQuestionId: editQuestionId,
       editQuestionText: editQuestionText,
+      editQuestionValue: editQuestionValue,
       choice1_update: choice1_update,
       choice1_id: choice1_id,
       choice2_update: choice2_update,

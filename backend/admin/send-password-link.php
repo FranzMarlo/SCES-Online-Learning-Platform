@@ -6,9 +6,9 @@ use PHPMailer\PHPMailer\Exception;
 
 session_start();
 header('Content-Type: text/plain');
-require $_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php';
+require $_SERVER['DOCUMENT_ROOT'] . '/SCES/vendor/autoload.php';
 
-$dotenv = Dotenv::createImmutable($_SERVER['DOCUMENT_ROOT'] . '');
+$dotenv = Dotenv::createImmutable($_SERVER['DOCUMENT_ROOT'] . '/SCES');
 $dotenv->load();
 
 include $_SERVER['DOCUMENT_ROOT'] . '/SCES/backend/db_class.php';
@@ -22,7 +22,7 @@ if (isset($_SESSION['email']) && isset($_SESSION['teacher_fname'])) {
     $expires = date("U") + 300;
     $mail = new PHPMailer(true);
     if ($db->storeAdminPasswordResetToken($email, $token, $expires)) {
-        $resetLink = "https://scesonlinelearningplatform.com/frontend/admin/change-password.php?token=$token&email=$email";
+        $resetLink = "https://scesonlinelearningplatform.com/SCES/frontend/admin/change-password?token=$token&email=$email";
         try {
             $mail->isSMTP();
             $mail->Host = 'smtp.gmail.com';

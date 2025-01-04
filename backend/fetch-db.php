@@ -4152,7 +4152,7 @@ class fetchClass extends db_connect
             student_tbl student ON student.level_id = level.level_id
         LEFT JOIN 
             section_tbl section ON student.section_id = section.section_id
-        AND 
+        WHERE 
             section.year = ?
         GROUP BY 
             level.grade_level

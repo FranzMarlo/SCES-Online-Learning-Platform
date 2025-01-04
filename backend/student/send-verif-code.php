@@ -6,9 +6,9 @@ use PHPMailer\PHPMailer\Exception;
 session_start();
 header('Content-Type: text/plain');
 
-require $_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php';
+require $_SERVER['DOCUMENT_ROOT'] . '/SCES/vendor/autoload.php';
 
-$dotenv = Dotenv::createImmutable($_SERVER['DOCUMENT_ROOT'] . '');
+$dotenv = Dotenv::createImmutable($_SERVER['DOCUMENT_ROOT'] . '/SCES');
 $dotenv->load();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {

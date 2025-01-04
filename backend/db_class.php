@@ -1078,7 +1078,7 @@ class globalClass extends db_connect
 
     public function facultyGetLessons($levelId, $subjectId, $sectionId)
     {
-        $query = $this->conn->prepare("SELECT * FROM lesson_tbl WHERE level_id = ? AND subject_id = ? AND section_id = ? ORDER BY lesson_number ASC");
+        $query = $this->conn->prepare("SELECT * FROM lesson_tbl WHERE level_id = ? AND subject_id = ? AND section_id = ? ORDER BY add_time DESC");
         $query->bind_param("sss", $levelId, $subjectId, $sectionId);
 
         if ($query->execute()) {
@@ -1094,7 +1094,7 @@ class globalClass extends db_connect
 
     public function adminGetLessons($levelId, $subjectID, $teacherId, $sectionId)
     {
-        $query = $this->conn->prepare("SELECT * FROM lesson_tbl WHERE level_id = ? AND subject_id = ? AND teacher_id = ? AND section_id = ? ORDER BY lesson_number ASC");
+        $query = $this->conn->prepare("SELECT * FROM lesson_tbl WHERE level_id = ? AND subject_id = ? AND teacher_id = ? AND section_id = ? ORDER BY add_time DESC");
         $query->bind_param("ssss", $levelId, $subjectID, $teacherId, $sectionId);
 
         if ($query->execute()) {
@@ -1109,7 +1109,7 @@ class globalClass extends db_connect
     }
     public function studentGetLessons($levelId, $subjectId, $sectionId)
     {
-        $query = $this->conn->prepare("SELECT * FROM lesson_tbl WHERE level_id = ? AND subject_id = ? AND section_id = ? ORDER BY lesson_number ASC");
+        $query = $this->conn->prepare("SELECT * FROM lesson_tbl WHERE level_id = ? AND subject_id = ? AND section_id = ? ORDER BY add_time DESC");
         $query->bind_param("sss", $levelId, $subjectId, $sectionId);
 
         if ($query->execute()) {

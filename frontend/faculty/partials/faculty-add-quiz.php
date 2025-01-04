@@ -83,7 +83,7 @@
             <input type="hidden" id="editQuestionId" name="question_id" />
             <label for="editQuestionText">Question:</label>
             <textarea id="editQuestionText" name="question_text" class="long-input" rows="5"></textarea>
-
+            <input type="hidden" id="editQuestionValue" />
             <div id="editChoicesContainer">
                 <label for="choice1_update">Choice 1:</label>
                 <input type="hidden" id="choice1_id" name="choice_ids[]" />

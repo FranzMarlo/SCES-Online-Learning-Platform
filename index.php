@@ -1,7 +1,7 @@
 <?php
 include $_SERVER['DOCUMENT_ROOT'] . '/SCES/partials/head.php';
 ?>
-<link rel="stylesheet" href="assets/style/landing.css" />
+<link rel="stylesheet" href="/SCES/assets/style/landing.css" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 <title>SCES Online Learning Platform</title>
 </head>
@@ -9,7 +9,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/SCES/partials/head.php';
 <body>
   <div class="nav-bar">
     <div class="logo">
-      <img src="assets/images/logo.png" alt="SCES logo" class="img-logo" />
+      <img src="/SCES/assets/images/logo.png" alt="SCES logo" class="img-logo" />
       <a href="index.php" class="logo-text">SCES</a>
     </div>
     <div class="hamburger" id="hamburger">
@@ -43,7 +43,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/SCES/partials/head.php';
           </div>
         </div>
         <div class="content-part">
-          <img src="assets/images/landingbg.png" alt="landing icon" class="landing-bg">
+          <img src="/SCES/assets/images/landingbg.png" alt="landing icon" class="landing-bg">
         </div>
       </div>
     </div>
@@ -54,7 +54,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/SCES/partials/head.php';
         </div>
         <div class="full-row">
           <div class="row-item">
-            <img src="assets/images/landing-lesson.png" alt="lesson icon">
+            <img src="/SCES/assets/images/landing-lesson.png" alt="lesson icon">
             <h2>Online Lessons</h2>
             <div class="row-col">
               <p>Academic Lessons are uploaded in the platform by
@@ -63,7 +63,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/SCES/partials/head.php';
             </div>
           </div>
           <div class="row-item">
-            <img src="assets/images/landing-quiz.png" alt="quiz icon">
+            <img src="/SCES/assets/images/landing-quiz.png" alt="quiz icon">
             <h2>Online Quizzes</h2>
             <div class="row-col">
               <p>The quizzes uploaded by the SCES teachers are
@@ -72,7 +72,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/SCES/partials/head.php';
             </div>
           </div>
           <div class="row-item">
-            <img src="assets/images/landing-analytics.png" alt="analytics icon">
+            <img src="/SCES/assets/images/landing-analytics.png" alt="analytics icon">
             <h2>Educational Analytics</h2>
             <div class="row-col">
               <p>Students' grades and quiz scores
@@ -91,11 +91,11 @@ include $_SERVER['DOCUMENT_ROOT'] . '/SCES/partials/head.php';
         </div>
         <div class="full-row">
           <div class="row-part">
-            <img src="assets/images/sta-clara.png" alt="sta-clara icon" class="row-img">
+            <img src="/SCES/assets/images/sta-clara.png" alt="sta-clara icon" class="row-img">
           </div>
           <div class="row-part">
             <div class="part-col">
-              <img src="assets/images/logo.png" alt="logo icon">
+              <img src="/SCES/assets/images/logo.png" alt="logo icon">
               <h2>Sta. Clara Elementary School</h2>
             </div>
             <div class="part-text">
@@ -108,11 +108,11 @@ include $_SERVER['DOCUMENT_ROOT'] . '/SCES/partials/head.php';
         </div>
         <div class="full-row-reversed">
           <div class="row-part">
-            <img src="assets/images/vision.png" alt="vision icon" class="row-img">
+            <img src="/SCES/assets/images/vision.png" alt="vision icon" class="row-img">
           </div>
           <div class="row-part">
             <div class="part-col">
-              <img src="assets/images/vision-icon.png" alt="vision-icon icon">
+              <img src="/SCES/assets/images/vision-icon.png" alt="vision-icon icon">
               <h2>DepEd Vision</h2>
             </div>
             <div class="part-text">
@@ -128,11 +128,11 @@ include $_SERVER['DOCUMENT_ROOT'] . '/SCES/partials/head.php';
         </div>
         <div class="full-row">
           <div class="row-part">
-            <img src="assets/images/mission.png" alt="mission icon" class="row-img">
+            <img src="/SCES/assets/images/mission.png" alt="mission icon" class="row-img">
           </div>
           <div class="row-part">
             <div class="part-col">
-              <img src="assets/images/mission-icon.png" alt="mission-icon icon">
+              <img src="/SCES/assets/images/mission-icon.png" alt="mission-icon icon">
               <h2>DepEd Mission</h2>
             </div>
             <div class="part-text">
@@ -163,24 +163,24 @@ include $_SERVER['DOCUMENT_ROOT'] . '/SCES/partials/head.php';
             </div>
             <div class="half-col">
               <div class="info-box">
-                <img src="assets/images/location.png" alt="location icon">
+                <img src="/SCES/assets/images/location.png" alt="location icon">
                 <span class="info">Sta. Clara, Batangas City, Philippines, 4200</span>
               </div>
               <div class="info-box">
-                <img src="assets/images/facebook.png" alt="facebook icon">
+                <img src="/SCES/assets/images/facebook.png" alt="facebook icon">
                 <a href="https://www.facebook.com/staclaraelemschoolbatscity">Deped Tayo Sta. Clara ES- Batangas City
                 </a>
               </div>
               <div class="info-box">
-                <img src="assets/images/telephone.png" alt="telephone icon">
+                <img src="/SCES/assets/images/telephone.png" alt="telephone icon">
                 <span class="info">0945-089-5437</span>
               </div>
               <div class="info-box">
-                <img src="assets/images/gmail.png" alt="gmail icon">
+                <img src="/SCES/assets/images/gmail.png" alt="gmail icon">
                 <span class="info">rea.garcia001@deped.gov.ph</span>
               </div>
               <div class="info-box">
-                <img src="assets/images/gmail.png" alt="gmail icon">
+                <img src="/SCES/assets/images/gmail.png" alt="gmail icon">
                 <span class="info">scesonlinelearningplatform@gmail.com</span>
               </div>
             </div>
@@ -206,10 +206,10 @@ include $_SERVER['DOCUMENT_ROOT'] . '/SCES/partials/head.php';
     <div class="modal-content">
       <div class="modal-row blue left">
         <div class="modal-welcome">
-          <h2>Welcome to SCES Online Learning Platform! <img src="assets/images/wave.png" alt="wave icon"></h2>
+          <h2>Welcome to SCES Online Learning Platform! <img src="/SCES/assets/images/wave.png" alt="wave icon"></h2>
         </div>
         <p>Let's get started by knowing your identity in school.</p>
-        <img src="assets/images/class.png" alt="class icon" class="modal-img">
+        <img src="/SCES/assets/images/class.png" alt="class icon" class="modal-img">
       </div>
       <div class="modal-row white right">
         <span class="close-btn" id="closeModal">&times;</span>
@@ -219,21 +219,21 @@ include $_SERVER['DOCUMENT_ROOT'] . '/SCES/partials/head.php';
         <div class="item-container">
           <a href="/SCES/frontend/student/login" class="modal-item">
             <div class="item-group">
-              <img src="assets/images/student.png" alt="student icon">
+              <img src="/SCES/assets/images/student.png" alt="student icon">
               <span>Student</span>
             </div>
             <i class="fa-solid fa-chevron-right"></i>
           </a>
           <a href="/SCES/frontend/faculty/login" class="modal-item">
             <div class="item-group">
-              <img src="assets/images/school.png" alt="school icon">
+              <img src="/SCES/assets/images/school.png" alt="school icon">
               <span>Teacher</span>
             </div>
             <i class="fa-solid fa-chevron-right"></i>
           </a>
           <a href="/SCES/frontend/admin/login" class="modal-item">
             <div class="item-group">
-              <img src="assets/images/admin.png" alt="admin icon">
+              <img src="/SCES/assets/images/admin.png" alt="admin icon">
               <span>Educational Worker</span>
             </div>
             <i class="fa-solid fa-chevron-right"></i>

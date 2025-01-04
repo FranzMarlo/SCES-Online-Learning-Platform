@@ -343,7 +343,7 @@ document.addEventListener("DOMContentLoaded", function () {
         ).innerText;
       const questionText = questionTextElement.replace(/^\d+\.\s*/, "");
       document.getElementById("editQuestionText").value = questionText;
-
+      document.getElementById("editQuestionValue").value = questionText;
       const choicesElements =
         this.closest(".quiz-item").querySelectorAll(".quiz-ans");
 

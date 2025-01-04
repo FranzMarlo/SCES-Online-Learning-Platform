@@ -6,7 +6,7 @@ use PHPMailer\PHPMailer\Exception;
 session_start();
 header('Content-Type: text/plain');
 
-require $_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php';
+require $_SERVER['DOCUMENT_ROOT'] . '/SCES/vendor/autoload.php';
 
 $dotenv = Dotenv::createImmutable($_SERVER['DOCUMENT_ROOT'] . '');
 $dotenv->load();
@@ -25,8 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $pronoun = 'Ma\'am';
         } else if ($gender == 'Male') {
             $pronoun = 'Sir';
-        }
-        else{
+        } else {
             $pronoun = 'Educator';
             $lastName = '';
         }

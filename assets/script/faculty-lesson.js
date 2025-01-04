@@ -559,7 +559,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             viewQuizModal.querySelector(
               ".modal-icon-container img"
-            ).src = `/assets/images/${data.icon}`;
+            ).src = `/SCES/assets/images/${data.icon}`;
 
             const modalHeaderBg =
               viewQuizModal.querySelector(".modal-header-bg");
@@ -1371,7 +1371,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             viewQuizModal.querySelector(
               ".modal-icon-container img"
-            ).src = `/assets/images/${data.icon}`;
+            ).src = `/SCES/assets/images/${data.icon}`;
 
             const modalHeaderBg =
               viewQuizModal.querySelector(".modal-header-bg");
