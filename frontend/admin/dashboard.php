@@ -1,7 +1,7 @@
 <?php
 include $_SERVER['DOCUMENT_ROOT'] . '/SCES/frontend/admin/partials/admin-head.php';
 include $_SERVER['DOCUMENT_ROOT'] . '/SCES/frontend/admin/partials/helper.php';
-$page = 'Sta. Clara Elementary School Admin';
+$page = 'Sta. Clara Elementary School';
 ?>
 <title>Home | SCES Online Learning Platform</title>
 </head>

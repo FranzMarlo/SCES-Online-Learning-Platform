@@ -218,24 +218,24 @@ def interpret():
         # Handle exceptions
         return jsonify({"error": str(e)}), 500
 
-
 @app.route('/interpret-grades', methods=['POST'])
 def interpret_grades():
     try:
-        def get_random_all_decent_recommendation(label):
+        def get_random_all_decent_recommendation():
             recommendations = [
-                f"Arrange a dedicated consultation session with the student to review their challenges in {label}, identify specific problematic topics, and collaboratively create a targeted improvement plan.",
-                f"Encourage the student to revisit foundational concepts in {label} by providing structured learning guides and supplementary resources tailored to reinforce their understanding.",
-                f"Organize a structured peer tutoring session focused on {label}, pairing the student with peers who excel in the subject to foster collaborative problem-solving and concept reinforcement.",
-                f"Develop and implement an engaging, hands-on activity or project centered around key topics in {label} to deepen the student’s comprehension and practical application skills.",
-                f"Hold a parent-teacher meeting to discuss the student's performance in {label} and collaboratively explore strategies for providing consistent academic support at home.",
-                f"Provide the student with a curated set of practice exercises and real-world applications related to {label} to build their skills progressively and boost their confidence in the subject.",
-                f"Introduce high-quality multimedia tools, such as educational videos, interactive simulations, or gamified learning apps, to simplify complex concepts in {label} and maintain the student’s engagement.",
-                f"Guide the student in setting specific, short-term objectives for improvement in {label}, coupled with actionable steps and regular progress checks to sustain motivation and momentum.",
-                f"Schedule one-on-one mentoring sessions to address the student’s unique challenges in {label}, offering detailed explanations, tips, and personalized learning resources.",
-                f"Implement a progress tracking system for {label}, ensuring regular updates and actionable feedback to help the student measure their improvement and stay on track."
+                "Encourage the student to build on their strong foundation by exploring more advanced topics or enrichment opportunities across subjects.",
+                "Recognize the student’s consistent efforts and motivate them to set higher academic goals to further develop their potential.",
+                "Provide personalized feedback highlighting both strengths and areas for refinement to support continuous growth.",
+                "Offer opportunities to participate in collaborative group projects or extracurricular activities that apply their knowledge in real-world contexts.",
+                "Introduce advanced learning resources, such as educational videos or challenging practice exercises, to sustain their engagement and intellectual curiosity.",
+                "Motivate the student to participate in academic competitions or advanced workshops to further hone their skills.",
+                "Encourage the student to mentor peers in areas where they excel, reinforcing their understanding while building leadership skills.",
+                "Develop a plan to help the student balance their academic strengths with personal interests and hobbies, fostering holistic development.",
+                "Celebrate the student’s achievements through recognition, such as certificates or positive reinforcement, to maintain their motivation.",
+                "Guide the student in setting long-term academic and personal goals, helping them stay focused on their growth trajectory while managing expectations."
             ]
             return random.choice(recommendations)
+
 
         def get_random_all_decline_recommendation(label):
             recommendations = [
@@ -334,21 +334,28 @@ def interpret_grades():
             min_index = bar_data.index(min(bar_data))
             strength = f"{labels[max_index]}"
             weakness = f"{labels[min_index]}"
-            if max_index == min_index:
-                interpretation = ("Unable to identify strength and weakness subject of the student")
-                recommendation = ("Please provide more data to analyze the student's performance.")
+            if max(bar_data) == min(bar_data) & min(bar_data) >= 80:
+                interpretation = ("The student's average grades on all subject are decent. Unable to identify the strength and weakness subject of the student.")
+                recommendation = get_random_all_decent_recommendation()
+                warning = 1
+                strength = 0
+                weakness = 0
+            elif max(bar_data) == min(bar_data) & min(bar_data) < 80:
+                interpretation = ("The student has an average grade below 80 for subject. Unable to identify the strength and weakness subject of the student.")
+                recommendation = get_random_all_decline_recommendation(labels[min_index])
                 warning = 0
                 strength = 0
                 weakness = 0
-            if min(bar_data) < 80:
-                warning = 0
-                interpretation = ("The student has an average grade below 80 for subject.")
-                recommendation = get_random_all_decline_recommendation(labels[min_index])
-                
             else:
-                warning = 1
-                interpretation = ("The student's average grades on all subject are decent.")
-                recommendation = get_random_all_decent_recommendation(labels[min_index])
+                if min(bar_data) < 80:
+                    warning = 0
+                    interpretation = ("The student has an average grade below 80 for subject.")
+                    recommendation = get_random_all_decline_recommendation(labels[min_index])
+                    
+                else:
+                    warning = 1
+                    interpretation = ("The student's average grades on all subject are decent.")
+                    recommendation = get_random_all_decent_recommendation()
                 
             return jsonify({
                 "interpretation": interpretation,
@@ -447,7 +454,6 @@ def interpret_grades():
 
     except Exception as e:
         return jsonify({"error": str(e)}), 500
-
 
 @app.route('/interpret-subject', methods=['POST'])
 def interpret_subject():

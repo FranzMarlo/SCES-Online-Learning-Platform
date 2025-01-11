@@ -1,7 +1,7 @@
 <?php
 include $_SERVER['DOCUMENT_ROOT'] . '/SCES/frontend/faculty/partials/faculty-head.php';
 include $_SERVER['DOCUMENT_ROOT'] . '/SCES/frontend/faculty/partials/helper.php';
-$page = 'Sta. Clara Elementary School Faculty';
+$page = 'Sta. Clara Elementary School';
 $totalStudents = $db->getTotalTeacherStudent($teacherId);
 $totalLessons = $db->getTotalTeacherLesson($teacherId);
 $totalSubjects = $db->getTotalTeacherSubject($teacherId);
