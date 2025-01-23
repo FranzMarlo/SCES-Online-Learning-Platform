@@ -484,7 +484,6 @@ def interpret_subject():
             "Establish a structured review plan in {subject}, ensuring regular and consistent practice to track improvement."
         ]
 
-        
         def generate_recommendation(subject_name):
             recommendation = random.choice(recommendations).format(subject=subject_name)
             return recommendation

@@ -725,7 +725,7 @@ class fetchClass extends db_connect
     }
 
     public function studentFetchScoresPerMonth($studentId)
-    {   
+    {
         $studentData = $this->getStudentDetails($studentId);
         $sectionId = $studentData['section_id'];
         $currentMonth = date('n');
@@ -2757,7 +2757,7 @@ class fetchClass extends db_connect
             return null;
         }
     }
-    
+
     public function studentSubjectGrade($studentId, $subjectId)
     {
         $query = $this->conn->prepare("
@@ -2792,7 +2792,7 @@ class fetchClass extends db_connect
 
         return [];
     }
-    
+
     public function studentGradeBySubject($studentId, $subject = null, $quarter = null)
     {
         $params = [$studentId];
@@ -3010,46 +3010,46 @@ class fetchClass extends db_connect
     }
 
     public function facultyGetSubjectAverageScore($subjectId)
-{
-    // Prepare the query to fetch students enrolled in the subject
-    $query = $this->conn->prepare("
+    {
+        // Prepare the query to fetch students enrolled in the subject
+        $query = $this->conn->prepare("
         SELECT DISTINCT student.student_id
         FROM student_record student
         INNER JOIN section_tbl section ON student.section_id = section.section_id
         INNER JOIN subject_tbl subject ON section.section_id = subject.section_id
         WHERE subject.subject_id = ?
     ");
-    $query->bind_param("s", $subjectId);
+        $query->bind_param("s", $subjectId);
 
-    // Execute the query to get the student records
-    if ($query->execute()) {
-        $result = $query->get_result();
-        $students = $result->fetch_all(MYSQLI_ASSOC);
+        // Execute the query to get the student records
+        if ($query->execute()) {
+            $result = $query->get_result();
+            $students = $result->fetch_all(MYSQLI_ASSOC);
 
-        // Initialize variables for total score and student count
-        $totalScore = 0;
-        $studentCount = 0;
+            // Initialize variables for total score and student count
+            $totalScore = 0;
+            $studentCount = 0;
 
-        // Loop through each student and get their average score
-        foreach ($students as $student) {
-            // Get the average score for each student for this subject
-            $averageScore = $this->facultyGetAverageScoreBySubject($student['student_id'], $subjectId);
+            // Loop through each student and get their average score
+            foreach ($students as $student) {
+                // Get the average score for each student for this subject
+                $averageScore = $this->facultyGetAverageScoreBySubject($student['student_id'], $subjectId);
 
-            // Add the average score to the total score
-            $totalScore += $averageScore;
-            $studentCount++; // Increment the student count
+                // Add the average score to the total score
+                $totalScore += $averageScore;
+                $studentCount++; // Increment the student count
+            }
+
+            // Calculate the subject average score if there are any students
+            if ($studentCount > 0) {
+                return round($totalScore / $studentCount, 2); // Return the rounded average of all students
+            } else {
+                return 0; // No students, so return 0
+            }
         }
 
-        // Calculate the subject average score if there are any students
-        if ($studentCount > 0) {
-            return round($totalScore / $studentCount, 2); // Return the rounded average of all students
-        } else {
-            return 0; // No students, so return 0
-        }
+        return null; // Return null if the query fails
     }
-
-    return null; // Return null if the query fails
-}
 
 
 
@@ -4732,7 +4732,7 @@ class fetchClass extends db_connect
 
         return null;
     }
-    
+
     public function fetchStudentCountWithFilter($year, $gradeLevel, $status)
     {
         if ($year === 'All' && $gradeLevel === 'All') {
@@ -4806,8 +4806,10 @@ class fetchClass extends db_connect
                 level_tbl.grade_level AS grade_level,
                 MAX(CASE WHEN grade_tbl.grade = max_grades.max_grade THEN subject_tbl.subject END) AS max_subject,
                 max_grades.max_grade AS max_grade,
+                COUNT(CASE WHEN grade_tbl.grade = max_grades.max_grade THEN grade_tbl.student_id END) AS max_grade_count,
                 MAX(CASE WHEN grade_tbl.grade = min_grades.min_grade THEN subject_tbl.subject END) AS min_subject,
-                min_grades.min_grade AS min_grade
+                min_grades.min_grade AS min_grade,
+                COUNT(CASE WHEN grade_tbl.grade = min_grades.min_grade THEN grade_tbl.student_id END) AS min_grade_count
             FROM 
                 grade_tbl
             INNER JOIN
@@ -4818,26 +4820,26 @@ class fetchClass extends db_connect
                 (SELECT 
                     level_tbl.grade_level, 
                     MAX(grade_tbl.grade) AS max_grade 
-                 FROM 
+                FROM 
                     grade_tbl
-                 INNER JOIN 
+                INNER JOIN 
                     subject_tbl ON grade_tbl.subject_id = subject_tbl.subject_id
-                 INNER JOIN 
+                INNER JOIN 
                     level_tbl ON subject_tbl.level_id = level_tbl.level_id
-                 GROUP BY 
+                GROUP BY 
                     level_tbl.grade_level
                 ) max_grades ON max_grades.grade_level = level_tbl.grade_level
             INNER JOIN 
                 (SELECT 
                     level_tbl.grade_level, 
                     MIN(grade_tbl.grade) AS min_grade 
-                 FROM 
+                FROM 
                     grade_tbl
-                 INNER JOIN 
+                INNER JOIN 
                     subject_tbl ON grade_tbl.subject_id = subject_tbl.subject_id
-                 INNER JOIN 
+                INNER JOIN 
                     level_tbl ON subject_tbl.level_id = level_tbl.level_id
-                 GROUP BY 
+                GROUP BY 
                     level_tbl.grade_level
                 ) min_grades ON min_grades.grade_level = level_tbl.grade_level
             GROUP BY 
@@ -4847,28 +4849,62 @@ class fetchClass extends db_connect
             $query = $this->conn->prepare("
             SELECT 
                 subject_tbl.subject AS subject,
-                MAX(grade_tbl.grade) AS max_grade,
-                MIN(grade_tbl.grade) AS min_grade
+                max_grades.max_grade AS max_grade,
+                COUNT(CASE WHEN grade_tbl.grade = max_grades.max_grade THEN grade_tbl.student_id END) AS max_grade_count,
+                min_grades.min_grade AS min_grade,
+                COUNT(CASE WHEN grade_tbl.grade = min_grades.min_grade THEN grade_tbl.student_id END) AS min_grade_count
             FROM 
                 grade_tbl
             INNER JOIN
                 subject_tbl ON grade_tbl.subject_id = subject_tbl.subject_id
             INNER JOIN
                 level_tbl ON subject_tbl.level_id = level_tbl.level_id
+            INNER JOIN 
+                (SELECT 
+                    subject_tbl.subject_id, 
+                    MAX(grade_tbl.grade) AS max_grade
+                FROM 
+                    grade_tbl
+                INNER JOIN 
+                    subject_tbl ON grade_tbl.subject_id = subject_tbl.subject_id
+                INNER JOIN 
+                    level_tbl ON subject_tbl.level_id = level_tbl.level_id
+                WHERE 
+                    level_tbl.grade_level = ?
+                GROUP BY 
+                    subject_tbl.subject_id
+                ) max_grades ON max_grades.subject_id = subject_tbl.subject_id
+            INNER JOIN 
+                (SELECT 
+                    subject_tbl.subject_id, 
+                    MIN(grade_tbl.grade) AS min_grade
+                FROM 
+                    grade_tbl
+                INNER JOIN 
+                    subject_tbl ON grade_tbl.subject_id = subject_tbl.subject_id
+                INNER JOIN 
+                    level_tbl ON subject_tbl.level_id = level_tbl.level_id
+                WHERE 
+                    level_tbl.grade_level = ?
+                GROUP BY 
+                    subject_tbl.subject_id
+                ) min_grades ON min_grades.subject_id = subject_tbl.subject_id
             WHERE 
                 level_tbl.grade_level = ?
             GROUP BY 
                 subject_tbl.subject
         ");
-            $query->bind_param("s", $gradeLevel);
+            $query->bind_param('sss', $gradeLevel, $gradeLevel, $gradeLevel);
         } elseif ($gradeLevel === 'All') {
             $query = $this->conn->prepare("
             SELECT 
                 level_tbl.grade_level AS grade_level,
                 MAX(CASE WHEN grade_tbl.grade = max_grades.max_grade THEN subject_tbl.subject END) AS max_subject,
                 max_grades.max_grade AS max_grade,
+                COUNT(CASE WHEN grade_tbl.grade = max_grades.max_grade THEN grade_tbl.student_id END) AS max_grade_count,
                 MAX(CASE WHEN grade_tbl.grade = min_grades.min_grade THEN subject_tbl.subject END) AS min_subject,
-                min_grades.min_grade AS min_grade
+                min_grades.min_grade AS min_grade,
+                COUNT(CASE WHEN grade_tbl.grade = min_grades.min_grade THEN grade_tbl.student_id END) AS min_grade_count
             FROM 
                 grade_tbl
             INNER JOIN
@@ -4879,30 +4915,30 @@ class fetchClass extends db_connect
                 (SELECT 
                     level_tbl.grade_level, 
                     MAX(grade_tbl.grade) AS max_grade 
-                 FROM 
+                FROM 
                     grade_tbl
-                 INNER JOIN 
+                INNER JOIN 
                     subject_tbl ON grade_tbl.subject_id = subject_tbl.subject_id
-                 INNER JOIN 
+                INNER JOIN 
                     level_tbl ON subject_tbl.level_id = level_tbl.level_id
-                 WHERE 
+                WHERE 
                     subject_tbl.year = ?
-                 GROUP BY 
+                GROUP BY 
                     level_tbl.grade_level
                 ) max_grades ON max_grades.grade_level = level_tbl.grade_level
             INNER JOIN 
                 (SELECT 
                     level_tbl.grade_level, 
                     MIN(grade_tbl.grade) AS min_grade 
-                 FROM 
+                FROM 
                     grade_tbl
-                 INNER JOIN 
+                INNER JOIN 
                     subject_tbl ON grade_tbl.subject_id = subject_tbl.subject_id
-                 INNER JOIN 
+                INNER JOIN 
                     level_tbl ON subject_tbl.level_id = level_tbl.level_id
-                 WHERE 
+                WHERE 
                     subject_tbl.year = ?
-                 GROUP BY 
+                GROUP BY 
                     level_tbl.grade_level
                 ) min_grades ON min_grades.grade_level = level_tbl.grade_level
             WHERE 
@@ -4915,22 +4951,35 @@ class fetchClass extends db_connect
             $query = $this->conn->prepare("
             SELECT 
                 subject_tbl.subject AS subject,
-                MAX(grade_tbl.grade) AS max_grade,
-                MIN(grade_tbl.grade) AS min_grade
+                grade_stats.max_grade,
+                grade_stats.min_grade,
+                COUNT(CASE WHEN grade_tbl.grade = grade_stats.max_grade THEN 1 END) AS max_grade_count,
+                COUNT(CASE WHEN grade_tbl.grade = grade_stats.min_grade THEN 1 END) AS min_grade_count
             FROM 
                 grade_tbl
             INNER JOIN
                 subject_tbl ON grade_tbl.subject_id = subject_tbl.subject_id
             INNER JOIN
                 level_tbl ON subject_tbl.level_id = level_tbl.level_id
+            INNER JOIN (
+                SELECT 
+                    subject_id,
+                    MAX(grade) AS max_grade,
+                    MIN(grade) AS min_grade
+                FROM 
+                    grade_tbl
+                GROUP BY 
+                    subject_id
+            ) AS grade_stats ON grade_tbl.subject_id = grade_stats.subject_id
             WHERE 
                 subject_tbl.year = ?
             AND 
                 level_tbl.grade_level = ?
             GROUP BY 
-                subject_tbl.subject
+                subject_tbl.subject, grade_stats.max_grade, grade_stats.min_grade
         ");
-            $query->bind_param("is", $year, $gradeLevel);
+        $query->bind_param("is", $year, $gradeLevel);
+
         }
 
         if (isset($query)) {

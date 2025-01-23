@@ -77,6 +77,8 @@ document.addEventListener("DOMContentLoaded", function () {
         const minGrades = data.minGrades || [0];
         const maxSubjects = data.maxSubjects || [];
         const minSubjects = data.minSubjects || [];
+        const minCounts = data.minGradeCounts || [];
+        const maxCounts = data.maxGradeCounts || [];
 
         new Chart(ctxBar, {
           type: "bar",
@@ -131,14 +133,24 @@ document.addEventListener("DOMContentLoaded", function () {
                     if (grade === "All") {
                       const maxSubject = maxSubjects[tooltipItem.dataIndex];
                       const minSubject = minSubjects[tooltipItem.dataIndex];
+                      const minCount = minCounts[tooltipItem.dataIndex];
+                      const maxCount = maxCounts[tooltipItem.dataIndex];
 
                       if (datasetIndex === 0 && maxSubject) {
-                        tooltipText += `, Subject: ${maxSubject}`;
+                        tooltipText += `, Subject: ${maxSubject}, Number of Students: ${maxCount}`;
                       } else if (datasetIndex === 1 && minSubject) {
-                        tooltipText += `, Subject: ${minSubject}`;
+                        tooltipText += `, Subject: ${minSubject}, Number of Students: ${minCount}`;
                       }
                     }
-
+                    else{
+                      const minCount = minCounts[tooltipItem.dataIndex];
+                      const maxCount = maxCounts[tooltipItem.dataIndex];
+                      if (datasetIndex === 0) {
+                        tooltipText += `, Number of Students: ${maxCount}`;
+                      } else if (datasetIndex === 1) {
+                        tooltipText += `, Number of Students: ${minCount}`;
+                      }
+                    }
                     return tooltipText;
                   },
                 },

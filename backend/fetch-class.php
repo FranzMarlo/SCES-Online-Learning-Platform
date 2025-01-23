@@ -1161,6 +1161,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $minGrades = [];
             $maxSubjects = [];
             $minSubjects = [];
+            $maxGradeCounts = [];
+            $minGradeCounts = [];
 
             foreach ($grades as $grade) {
                 if ($year === 'All' && $gradeLevel === 'All') {
@@ -1169,20 +1171,31 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $minGrades[] = $grade['min_grade'];
                     $maxSubjects[] = $grade['max_subject'];
                     $minSubjects[] = $grade['min_subject'];
+                    $maxGradeCounts[] = $grade['max_grade_count'];
+                    $minGradeCounts[] = $grade['min_grade_count'];
+
                 } elseif ($year === 'All') {
                     $labels[] = $grade['subject'];
                     $maxGrades[] = $grade['max_grade'];
                     $minGrades[] = $grade['min_grade'];
+                    $maxGradeCounts[] = $grade['max_grade_count'];
+                    $minGradeCounts[] = $grade['min_grade_count'];
+
                 } elseif ($gradeLevel === 'All') {
                     $labels[] = $grade['grade_level'];
                     $maxGrades[] = $grade['max_grade'];
                     $minGrades[] = $grade['min_grade'];
                     $maxSubjects[] = $grade['max_subject'];
                     $minSubjects[] = $grade['min_subject'];
+                    $maxGradeCounts[] = $grade['max_grade_count'];
+                    $minGradeCounts[] = $grade['min_grade_count'];
+                    
                 } else {
                     $labels[] = $grade['subject'];
                     $maxGrades[] = $grade['max_grade'];
                     $minGrades[] = $grade['min_grade'];
+                    $maxGradeCounts[] = $grade['max_grade_count'];
+                    $minGradeCounts[] = $grade['min_grade_count'];
                 }
             }
 
@@ -1191,7 +1204,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 'maxGrades' => $maxGrades,
                 'minGrades' => $minGrades,
                 'maxSubjects' => $maxSubjects,
-                'minSubjects' => $minSubjects
+                'minSubjects' => $minSubjects,
+                'maxGradeCounts' => $maxGradeCounts,
+                'minGradeCounts' => $minGradeCounts
             ]);
         } else {
             echo json_encode([
@@ -1199,7 +1214,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 'maxGrades' => [],
                 'minGrades' => [],
                 'maxSubjects' => [],
-                'minSubjects' => []
+                'minSubjects' => [],
+                'maxGradeCounts' => [],
+                'minGradeCounts' => []
             ]);
         }
     } else {
